@@ -40,12 +40,18 @@ $pillars = get_sub_field("pillars");
           echo '
                 <div class="col-md-6 col-lg-4">
                   <div class="brand-pillar">
-                    <img src="'.$pillar["image"].'" alt="'.$pillar["title"].'" class="img-fluid rounded-circle">
-                    <h5>'.$pillar["title"].'</h5>
-                    <h6>'.$pillar["content"].'</h6>
-                    <a href="'.$pillar["link_url"].'">'.$pillar["link_text"].' <i class="fas fa-angle-right ml-2"></i></a>
+                      <div class="brand-pillar-content">
+                         <div>
+                             <img src="'.$pillar["image"].'" alt="'.$pillar["title"].'" class="img-fluid rounded-circle">
+                             <h5>'.$pillar["title"].'</h5>
+                             '.$pillar["content"].'
+                         </div>
+                      </div>
+                      <div class="link">
+                        <a href="'.$pillar["link_url"].'">'.$pillar["link_text"].' <i class="fas fa-angle-right ml-2"></i></a>
+                      </div>
                   </div>
-                </div>          
+                </div>
                ';
         }
       ?>

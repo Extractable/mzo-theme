@@ -7,19 +7,35 @@
   .brand-pillar {
     text-align: center;
     background: #f7f7f7;
-    padding: 40px 25px;
+    padding: 40px 25px 40px 25px;
     border-radius: 8px;
     margin-bottom: 10px;
     height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
     img {
       margin-bottom: 45px;
       padding: 0 13.5%;
     }
 
+    .brand-pillar-content {
+        display: flex;
+        height: 100%;
+    }
+
     h5,
-    h6 {
+    p {
       margin-bottom: 22px;
+    }
+
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .link {
+        margin-top: 20px;
     }
 
     a {
