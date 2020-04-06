@@ -1,0 +1,255 @@
+.hero-product-marquee {
+  padding: 50px 0 15px;
+    z-index: 1;
+
+  .fa-share-alt {
+    font-size: 30px;
+  }
+
+  h2 {
+    line-height: 1.1;
+  }
+
+  .hero-product {
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid #d3d3d3;
+
+    .video-link {
+      position: absolute;
+      left: 50%;
+      top: 35%;
+      transform: translateX(-50%);
+
+      img {
+        width: 80px;
+        height: 80px;
+
+      }
+    }
+
+    .media-bg {
+      width: 100%;
+      height: 680px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .label {
+      position: absolute;
+      bottom: 0;
+      padding: 30px 40px;
+      display: flex;
+
+      &::before {
+        content: "";
+        background: #003A6B;
+        mix-blend-mode: multiply;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        z-index: 1;
+      }
+
+      .text-area {
+        z-index: 2;
+        position: relative;
+        width: 75%;
+        padding-right: 2%;
+
+        h6, .shortdescription, .shortdescription * {
+          color: #fff;
+          font-weight: 500;
+        }
+      }
+
+      .button-area {
+        z-index: 2;
+        position: relative;
+        color: #fff;
+        width: 25%;
+        padding-left: 2%;
+
+        .custom-button-dropdown {
+          position: relative;
+
+          .main-button {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23fff' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+            background-color: #0073D1;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border: 1px solid #fff;
+            width: 100%;
+            height: 50px;
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 50px 5px 20px;
+            background-position: 92%;
+            background-repeat: no-repeat;
+            background-size: 15px;
+
+            &.collapsed {
+              border-radius: 4px;
+            }
+          }
+
+          .dropdown-button {
+            position: absolute;
+            top: 100%;
+
+            a {
+              background-color: #fff;
+              color: #454F57;
+              font-size: 18px;
+              font-weight: 500;
+              border: 1px solid #fff;
+              border-bottom: 1px solid #EBEBEB;
+              width: 100%;
+              height: 50px;
+              display: inline-flex;
+              align-items: center;
+              padding: 5px 50px 5px 20px;
+              position: relative;
+
+              &:hover {
+                background: #ebebeb;
+              }
+
+              &:last-child {
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+
+                .fa-arrow-right {
+                  border-bottom-right-radius: 4px;
+                }
+              }
+
+
+              .fa-arrow-right {
+                background: #0073D1;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+              }
+            }
+          }
+        }
+
+        .download-brochure {
+          margin-top: 15px;
+          text-align: center;
+
+          img {
+            color: #fff;
+          }
+
+          a {
+            color: #fff;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+@media (max-width: 1252px) {
+  .hero-product-marquee {
+    padding-top: 75px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .hero-product-marquee {
+    .hero-product {
+      .label {
+        .text-area {
+          width: 65%;
+        }
+
+        .button-area {
+          width: 35%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-product-marquee {
+    .hero-product {
+      .label {
+        .text-area {
+          width: 55%;
+        }
+
+        .button-area {
+          width: 45%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-product-marquee {
+
+    .marquee-breadcrumb {
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+
+      .fa-angle-left,
+      .fa-angle-right {
+        color: #18BCEE;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .hero-product {
+
+      .media-bg {
+        height: 270px;
+      }
+
+      .video-link {
+        top: 15%;
+      }
+
+      .label {
+        flex-direction: column;
+        padding: 15px;
+        position: relative;
+
+        .text-area,
+        .button-area {
+          width: 100%;
+          padding: 0;
+          margin-bottom: 10px;
+        }
+
+        .download-brochure {
+          text-align: left !important;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}

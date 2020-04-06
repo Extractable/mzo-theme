@@ -1,0 +1,26 @@
+.top-breadcrumb {
+  padding: 50px 0 15px;
+}
+
+@media (max-width: 1252px) {
+  .top-breadcrumb {
+    padding-top: 75px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .top-breadcrumb {
+    padding-top: 65px;
+
+    .col-12 {
+      font-size: 16px;
+      display: inline-flex;
+
+      .fa-angle-left,
+      .fa-angle-right {
+        color: #18BCEE;
+        font-size: 25px;
+      }
+    }
+  }
+}

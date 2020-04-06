@@ -1,0 +1,27 @@
+.alert-message {
+  background: #008BFF;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+
+  p,
+  a {
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .alert-message {
+    padding: 14px;
+
+    p,
+    a {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}

@@ -1,0 +1,253 @@
+.standard-product-marquee {
+  padding: 50px 0 15px;
+
+  .fa-share-alt {
+    font-size: 30px;
+  }
+
+  h2 {
+    line-height: 1.1;
+  }
+
+  ul {
+    color: #0073D1;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+
+        &:hover {
+          border-bottom: 2px solid #008bff;
+        }
+      }
+    }
+  }
+
+
+  .request {
+    padding: 15px 20px;
+    background: #fafafa;
+    border-radius: 8px;
+    margin-top: 30px;
+
+    .select-form {
+      display: flex;
+      justify-content: space-between;
+
+      label {
+        font-size: 24px;
+        line-height: 34px;
+        font-weight: 300;
+        color: #454F57;
+        margin-bottom: 0;
+      }
+
+      select {
+        width: 80%;
+      }
+    }
+
+  }
+
+  #myCarousel {
+    .list-inline {
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .carousel-inner {
+      margin-bottom: 20px;
+
+      img {
+        height: 315px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .carousel-item {
+        border-radius: 8px;
+        border: 1px solid #979797;
+
+        .label {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          padding: 20px 15px 15px 70px;
+
+          &::before {
+            content: "";
+            background: #0E79B2;
+            mix-blend-mode: multiply;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            z-index: 1;
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            .icon-media {
+              background: #0073D1;
+              border-radius: 50%;
+            }
+          }
+
+          a {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+          }
+
+          .icon-media {
+            width: 38px;
+            height: 39px;
+            position: absolute;
+            left: 18px;
+            top: 25px;
+            z-index: 2;
+          }
+
+          h6,
+          p {
+            z-index: 2;
+            position: relative;
+            color: #fff;
+          }
+
+          h6 {
+            margin-bottom: 0;
+            font-weight: 500;
+          }
+
+          p {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+
+    .carousel-indicators {
+      position: static;
+      left: initial;
+      width: 90%;
+      margin-left: initial;
+
+      &>li {
+        width: 20%;
+        height: initial;
+        text-indent: initial;
+        opacity: 1;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      .list-inline-item.active a,
+      .list-inline-item:hover a {
+
+        &::before {
+          content: "";
+          background: #81A4CD;
+          mix-blend-mode: multiply;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 8px;
+        }
+      }
+
+      .list-inline-item.video a {
+        &::after {
+          content: "";
+          background: url(../../images/icon-video.svg);
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 8px;
+          left: 0;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        opacity: 1;
+      }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      top: auto;
+      bottom: 55px;
+      width: 30px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background: none;
+      color: #000;
+      font-size: 38px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+
+@media (max-width: 1252px) {
+  .standard-product-marquee {
+    padding-top: 75px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .standard-product-marquee {
+
+
+    .marquee-breadcrumb {
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+
+      .fa-angle-left,
+      .fa-angle-right {
+        color: #18BCEE;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    #myCarousel {
+
+      .carousel-indicators {
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .carousel-control-next,
+      .carousel-control-prev {
+        bottom: 27px;
+      }
+    }
+
+  }
+}

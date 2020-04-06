@@ -1,0 +1,86 @@
+.landing-page-content {
+  padding: 30px 0;
+
+  p,
+  ul,
+  ol,
+  a {
+    font-size: 16px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  .left-area {
+    border-right: 1px solid #008BFF;
+    padding: 20px 15px;
+  }
+
+  .right-area {
+    padding: 20px 8%;
+  }
+
+  .left-area img, .right-area img {
+      max-width: 100%;
+  }
+
+  .text-link-arrow {
+    font-size: 18px;
+  }
+
+  form {
+    .select-form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    input {
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    select {
+      font-weight: 300;
+    }
+
+    textarea {
+      padding: 15px;
+      font-weight: 300;
+    }
+
+    .btn-primary {
+      height: 40px;
+      padding: 5px;
+    }
+
+    .invalid-feedback {
+      position: absolute;
+      bottom: -20px;
+      font-size: 10px;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .landing-page-content {
+
+    h5 {
+      font-size: 24px;
+    }
+
+    .left-area {
+      border-right: none;
+      border-bottom: 1px solid #008BFF;
+      padding: 0 15px 30px;
+    }
+
+    .right-area {
+      padding: 30px 15px 0;
+    }
+  }
+}

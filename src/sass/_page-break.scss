@@ -1,0 +1,75 @@
+.page-break {
+  background-size: cover;
+
+  .page-break-text-area {
+    background: #002b4f;
+    mix-blend-mode: hard-light;
+    border-radius: 8px;
+    padding: 70px 40px 40px 70px;
+    max-width: 556px;
+    margin: 35px 0;
+
+    h3,
+    p {
+      margin-bottom: 25px;
+    }
+
+    ul {
+      font-weight: bold;
+
+      li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-break {
+    background-size: 175%;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    .page-break-text-area {
+      padding: 30px 17px;
+      margin: 225px 0 0;
+      background: unset;
+      position: relative;
+      mix-blend-mode: unset;
+
+      &::before {
+        content: "";
+        background: #004E8F;
+        mix-blend-mode: multiply;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 8px;
+        z-index: 1;
+      }
+
+      h3,
+      p,
+      ul {
+        z-index: 2;
+        position: relative;
+      }
+
+      h3 {
+        font-size: 32px;
+      }
+
+      ul {
+
+        li {
+
+          &::before {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

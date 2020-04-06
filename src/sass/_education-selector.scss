@@ -1,0 +1,132 @@
+.education-selector {
+  padding-bottom: 30px !important;
+
+  h5 {
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: bold;
+    color: #004E8F;
+    margin-bottom: 30px;
+  }
+
+  .owl-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0 10px;
+    pointer-events: none;
+
+    .owl-prev {
+      background: url(../../images/carousel-prev.png) !important;
+      width: 20px;
+      height: 60px;
+      background-size: cover !important;
+      pointer-events: all;
+
+      &:focus {
+        outline: none;
+        cursor: pointer;
+      }
+
+      span {
+        display: none;
+      }
+    }
+
+    .owl-next {
+      background: url(../../images/carousel-next.png) !important;
+      width: 20px;
+      height: 60px;
+      background-size: cover !important;
+      pointer-events: all;
+
+      &:focus {
+        outline: none;
+        cursor: pointer;
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .item {
+    padding: 23px 0;
+    position: relative;
+    max-width: 175px;
+    margin: 0 auto;
+
+    a {
+
+      &.active,
+      &:hover {
+        text-decoration: none;
+      }
+
+      .square-image {
+        position: relative;
+        width: 130px;
+        height: 130px;
+        padding-top: unset;
+        margin: 0 auto 20px;
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          border-radius: 8px;
+        }
+      }
+
+      p {
+        margin-bottom: 0;
+
+        &.small {
+          color: #454F57;
+        }
+      }
+    }
+  }
+
+  .owl-item {
+    pointer-events: none;
+    opacity: 0.3;
+
+    &.active {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+}
+
+
+@media (max-width: 767.98px) {
+
+  .education-selector {
+    padding: 10px 0 !important;
+
+    .col {
+      flex: 0 0 50%;
+    }
+
+    a.active,
+    a:hover {
+      position: relative;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .education-selector {
+    .col {
+      flex: 0 0 100%;
+    }
+  }
+}

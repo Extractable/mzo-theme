@@ -1,0 +1,111 @@
+.product-tabs {
+  padding: 35px 0;
+
+  .nav-tabs {
+    border-bottom: 1px solid #004e8f;
+
+    .nav-item {
+      width: 170px;
+      text-align: center;
+      padding: 0 0 0 10px;
+
+      .nav-link {
+        background: #ebebeb;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        color: #454F57;
+        bottom: 1px;
+        position: relative;
+
+        &.active {
+          font-weight: 500;
+          border: 1px solid #004e8f;
+          border-bottom: none;
+          background: #f7f7f7;
+
+          &::after {
+            content: "";
+            width: calc(100% + 2px);
+            height: 10px;
+            background: #f7f7f7;
+            position: absolute;
+            bottom: -7px;
+            left: -1px;
+            border-right: 1px solid #004e8f;
+            border-left: 1px solid #004e8f;
+          }
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    background: #f7f7f7;
+    padding: 20px 30px;
+    font-size: 16px;
+    z-index: 2;
+    position: relative;
+
+    h5 {
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    ul {
+      li {
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 24px;
+
+        &::before {
+          font-size: 40px;
+        }
+      }
+    }
+
+    .specification {
+      table {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        tr {
+          vertical-align: top;
+        }
+
+        td {
+            padding: 0 10px 10px 10px;
+            line-height: 1.4em;
+          &:first-child {
+            padding-right: 20px;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 767.98px) {
+  .product-tabs {
+    .nav-tabs {
+      .nav-item {
+        width: 32%;
+
+        .nav-link {
+          font-size: 12px;
+          line-height: 20px;
+          padding: 5px;
+        }
+      }
+    }
+
+    .tab-content {
+      h5 {
+        margin-top: 10px;
+      }
+    }
+  }
+}

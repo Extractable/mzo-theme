@@ -1,0 +1,76 @@
+.latest-insights {
+
+  .latest-insight {
+    padding: 23px;
+
+    .square-image {
+
+      img {
+        border-radius: 8px;
+      }
+    }
+
+    .text-area {
+      padding: 20px;
+
+      p {
+
+        &.title {
+          font-size: 22px;
+          font-weight: bold;
+          letter-spacing: -0.34px;
+          line-height: 1.2;
+          color: #003A6B;
+        }
+
+        &.small {
+          padding-right: 10px;
+        }
+      }
+
+      .btn-primary {
+        padding: 10px 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .latest-insights {
+    padding: 10px 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #18BCEE;
+
+    h5 {
+      font-size: 24px;
+    }
+
+    p.small {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .latest-insight {
+      padding: 10px 0 20px;
+
+      .text-area {
+        padding: 25px 5px 5px;
+
+        p {
+
+          &.title {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: -0.34px;
+            line-height: 32px;
+            color: #003A6B;
+          }
+        }
+
+        .btn-primary {
+          padding: 10px 25px;
+        }
+      }
+    }
+  }
+}

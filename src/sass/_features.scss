@@ -1,0 +1,31 @@
+.features {
+  background: #f7f7f7;
+
+  .text-area {
+
+    p,
+    ul {
+      font-size: 16px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  .media-area {
+    img {
+      border-radius: 8px;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .features {
+
+    h3 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+}

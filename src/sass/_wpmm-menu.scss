@@ -1,0 +1,151 @@
+.wpmm-menu {
+  top: 85px !important;
+  height: 100vh !important;
+
+  .mm-navbars_top {
+
+    .mm-navbar {
+      background: #004E8F;
+      color: #fff;
+      font-weight: 500;
+      font-size: 16px;
+      text-align: left;
+
+      .mm-btn.mm-btn_prev {
+
+        &::before {
+          border-color: #fff
+        }
+      }
+    }
+  }
+
+  .mm-panels {
+
+    .mm-panel {
+      background: #FAFAFA;
+
+      .mm-listview {
+
+        .mm-listitem {
+          border-color: transparent;
+          box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.03);
+
+          .mm-listitem__text {
+            font-weight: 500;
+            font-size: 16px;
+            color: #383838 !important;
+          }
+
+          .mm-btn {
+
+            &::after {
+              border-color: #004E8F;
+            }
+          }
+        }
+      }
+
+      &#mm-2 {
+        .mm-listview {
+
+          .mm-listitem {
+
+            .mm-listitem__text {
+              color: #0073D1 !important;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .mobile-menu-bottom {
+    width: 100%;
+
+    &>a {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      color: #fff !important;
+      background: #0073D1;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+      border-radius: 0px 0px 8px 8px;
+      height: 60px;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 19px;
+      line-height: 22px;
+    }
+
+    ul {
+      padding-left: 0;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, .03);
+
+      li {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, .03);
+
+        &::before {
+          display: none;
+        }
+
+        a {
+          color: #0073d1 !important;
+          font-weight: 500;
+          font-size: 14px;
+          padding-left: 20px;
+          padding-right: 10px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+          display: block;
+        }
+      }
+    }
+
+    .search-form {
+      display: block;
+      position: relative;
+      right: 0;
+      margin: 10px auto;
+      z-index: 999;
+      width: 330px;
+      background: #fff;
+
+      .search-field {
+        border: 1px solid #B8B8B8;
+        padding: 5px 10px;
+        border-radius: 6px;
+        outline: none;
+        width: 295px;
+        height: 40px;
+        font-size: 16px;
+
+        &::placeholder {
+          color: #cdcdcd;
+          font-style: italic;
+          font-weight: 300;
+        }
+      }
+
+      .search-submit {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: #0073d1;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+}
+
+body.logged-in .wpmm-menu {
+  top: 130px !important;
+}

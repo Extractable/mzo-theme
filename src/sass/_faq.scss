@@ -1,0 +1,143 @@
+.faq {
+
+  .container {
+    max-width: 826px;
+  }
+
+  .accordion {
+
+    .card {
+      border: none;
+      border-radius: 0 !important;
+      border-bottom: 1px solid #EBEBEB !important;
+
+      .card-header {
+        background: transparent;
+        border-bottom: none;
+        padding: 0;
+        border-radius: 0 !important;
+
+        h2 {
+          line-height: 1;
+        }
+
+        button {
+          font-family: 'HelveticaNeue';
+          display: inline-flex;
+          justify-content: space-between;
+          width: 100%;
+          font-size: 18px;
+          line-height: 26px;
+          font-weight: 300;
+          color: #454F57;
+          text-align: left;
+          padding-right: 58px;
+          background: #f7f7f7;
+          border-radius: 0 !important;
+          border: none !important;
+
+          &.btn-link {
+            text-decoration: none !important;
+          }
+
+          &::after {
+            content: "";
+            width: 25px;
+            height: 25px;
+            background: url(../../images/toggle-min-main.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+          }
+
+          &.collapsed {
+            background: transparent;
+
+            &::after {
+              content: "";
+              width: 25px;
+              height: 25px;
+              background: url(../../images/toggle-plus-main.svg);
+              background-repeat: no-repeat;
+              background-position: center;
+              display: block;
+              position: absolute;
+              right: 20px;
+              top: 10px;
+            }
+          }
+        }
+      }
+
+
+
+      .card-body {
+        background: #f7f7f7;
+        padding: 10px 7% 20px;
+
+        p {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        a.text-link-arrow {
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          .fa-angle-right {
+            top: 0;
+
+            &::before {
+              text-decoration: none;
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .faq {
+
+    h4 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    .accordion {
+      margin-left: -15px;
+      margin-right: -15px;
+
+      .card {
+        .card-header {
+
+          button {
+            font-size: 16px;
+          }
+        }
+
+        .card-body {
+          padding: 10px 45px 20px;
+
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .show-more {
+
+        button {
+          width: 90%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+.contact-us {
+  background: #f7f7f7 url(../../images/contact-us-bg.png);
+  background-size: cover;
+
+  form {
+    .select-form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    input {
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    select {
+      font-weight: 300;
+    }
+
+    textarea {
+      padding: 15px;
+      font-weight: 300;
+    }
+
+    .invalid-feedback {
+      position: absolute;
+      bottom: -20px;
+      font-size: 10px;
+    }
+  }
+
+  .contact-us-more-info {
+
+    a.telp {
+      color: #454f57;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .contact-us {
+    background-position: 20%;
+
+    button {
+      width: 100%;
+    }
+
+    .contact-us-more-info {
+
+      p {
+        line-height: 1.2;
+      }
+
+      a.telp {
+        color: #0073d1;
+        display: block;
+      }
+    }
+  }
+}

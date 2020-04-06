@@ -1,0 +1,36 @@
+.account-manager-finder {
+
+  h3 {
+    font-family: 'HelveticaNeue';
+    color: #003A6B;
+  }
+
+  form {
+
+    select,
+    input {
+      border: 1px solid #000;
+    }
+
+    button {
+      width: 220px;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .account-manager-finder {
+
+    h3 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    form {
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

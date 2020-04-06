@@ -1,0 +1,140 @@
+.product-selector {
+  padding-bottom: 30px !important;
+
+  .container {
+    max-width: 1340px;
+  }
+
+  .owl-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0 10px;
+    pointer-events: none;
+
+    .owl-prev {
+      background: url(../../images/carousel-prev.png) !important;
+      width: 20px;
+      height: 60px;
+      background-size: cover !important;
+      pointer-events: all;
+
+      &:focus {
+        outline: none;
+        cursor: pointer;
+      }
+
+      span {
+        display: none;
+      }
+    }
+
+    .owl-next {
+      background: url(../../images/carousel-next.png) !important;
+      width: 20px;
+      height: 60px;
+      background-size: cover !important;
+      pointer-events: all;
+
+      &:focus {
+        outline: none;
+        cursor: pointer;
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .item {
+    padding: 23px 0;
+    position: relative;
+
+    a {
+      padding: 5px 10px 20px;
+      background: #f7f7f7;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      max-height: 173px;
+
+      &.active,
+      &:hover {
+        background: #0073D1;
+        position: absolute;
+        text-decoration: none;
+        min-height: 218px;
+        margin-top: -22.5px;
+
+        p {
+          min-height: auto;
+          color: #fff;
+        }
+
+        p.desc {
+          display: block;
+        }
+
+        img {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          filter: brightness(100) contrast(100) grayscale(100) sepia(9) saturate(0);
+        }
+      }
+    }
+  }
+
+  .owl-item {
+    pointer-events: none;
+
+    &.active {
+      pointer-events: all;
+    }
+  }
+
+  p {
+    min-height: 43px;
+    margin-bottom: 5px;
+
+    &.desc {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 500;
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: 767.98px) {
+
+  .product-selector {
+    padding: 10px 0 !important;
+
+    .col {
+      flex: 0 0 50%;
+    }
+
+    a.active,
+    a:hover {
+      background: #0073D1;
+      position: relative;
+      top: 0;
+      transform: none;
+      margin-top: 0px !important;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .product-selector {
+    .col {
+      flex: 0 0 100%;
+    }
+  }
+}

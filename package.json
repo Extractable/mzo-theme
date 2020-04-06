@@ -1,0 +1,41 @@
+{
+  "name": "mizuho",
+  "version": "1.0.0",
+  "description": "mizuho",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 123"
+  },
+  "repository": {
+    "type": "git",
+    "url": "mizuho"
+  },
+  "keywords": [
+    "mizuho"
+  ],
+  "author": "mizuho",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "autoprefixer": "^9.7.2",
+    "babel": "^6.23.0",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-ignore": "^3.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-rimraf": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sequence": "^1.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
+    "replace": "^1.1.1"
+  }
+}

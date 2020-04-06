@@ -1,0 +1,30 @@
+.default-banner {
+  background-color: #004E8F;
+  background-image: url(../../images/default-banner-bg.png);
+  // background-size: 90% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top right;
+
+  h2,
+  h6 {
+    font-family: 'HelveticaNeue';
+    color: #fff;
+  }
+
+  a {
+
+    &.btn-light {
+      color: #0073D1;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .default-banner {
+
+    .btn {
+      width: 100%;
+    }
+  }
+}

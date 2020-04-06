@@ -1,0 +1,168 @@
+section.search-results {
+  padding: 20px 0;
+
+  .container {
+    max-width: 826px;
+  }
+
+  .search-result {
+    padding: 10px 0 20px;
+    border-bottom: 1px solid #EBEBEB;
+
+    p,
+    a {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 5px;
+    }
+
+    a {
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    h6 {
+      a {
+        font-family: HelveticaNeue;
+        font-size: 24px;
+        line-height: 34px;
+        font-weight: 300;
+        color: #454f57;
+      }
+    }
+  }
+
+  .search-pagination {
+    margin: 60px 0 40px;
+
+    ul {
+
+      li {
+
+        &.disabled {
+          opacity: .5;
+        }
+
+        a {
+          border-top: 2px solid transparent;
+          border-bottom: 2px solid transparent;
+          border-left: none;
+          border-right: none;
+          border-color: transparent !important;
+          padding: .5rem 1rem;
+          color: #454F57;
+          font-size: 16px;
+
+          &:focus {
+            box-shadow: none;
+          }
+
+          .fas {
+            font-size: 24px;
+            margin: 0 10px;
+            line-height: 1;
+          }
+        }
+
+        &.active,
+        &:hover {
+
+          a {
+            background: transparent;
+            color: #454F57;
+            border-top: 2px solid #18BCEE !important;
+            border-bottom: 2px solid #18BCEE !important;
+          }
+        }
+
+        &:first-child:hover,
+        &:last-child:hover {
+
+          a {
+            border-top: 2px solid transparent !important;
+            border-bottom: 2px solid transparent !important;
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+.wp-pagenavi {
+  clear: both;
+  border: 0;
+  text-align: center;
+  margin: 60px auto 40px auto;
+
+  .pages,
+  .last,
+  .first {
+    display: none;
+  }
+
+  a,
+  span {
+    padding: .5rem 1rem !important;
+    margin: 0 !important;
+    border-top: 2px solid transparent !important;
+    border-bottom: 2px solid transparent !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  a {
+    border-color: transparent !important;
+    padding: .5rem 1rem;
+    color: #454f57;
+    margin: 0;
+    font-weight: 300 !important;
+    line-height: 1.25;
+    font-size: 16px;
+
+    &.nextpostslink,
+    &.previouspostslink {
+      font-size: 24px;
+      margin: 0 10px;
+    }
+  }
+
+  span.extend {
+    border: 0 !important;
+  }
+
+  a:hover,
+  span.current {
+    border-color: transparent !important;
+    padding: .5rem 1rem;
+    background: 0 0;
+    color: #454f57;
+    border: 0;
+    border-top: 2px solid #18bcee !important;
+    border-bottom: 2px solid #18bcee !important;
+    margin: 0;
+    font-weight: 300 !important;
+    line-height: 1.25;
+    font-size: 16px;
+  }
+
+  a.nextpostslink:hover,
+  a.previouspostslink:hover {
+    border-top: 2px solid transparent !important;
+    border-bottom: 2px solid transparent !important;
+    font-size: 24px;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .search-results {
+
+    .search-pagination {
+      margin: 20px 0 10px;
+    }
+  }
+}
