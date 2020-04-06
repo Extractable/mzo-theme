@@ -40,10 +40,12 @@
 
       .text-area {
         /*background: #004e8f;*/
-        padding: 30px 20px 25px 20px;
+        //padding: 30px 20px 25px 20px;
+        padding: 30px 20px 60px 20px;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         //min-height: 340px;
+        //position: relative;
 
         p {
           color: #fff;
@@ -61,6 +63,8 @@
           &.link {
             margin-top: 20px;
             margin-bottom: 0;
+            position: absolute;
+            bottom: 20px;
 
             a {
               font-weight: bold;
@@ -148,7 +152,7 @@
         }
 
         .text-area {
-          padding: 35px 20px;
+          padding: 35px 20px 60px 20px;
         }
       }
     }
@@ -174,7 +178,7 @@
         }
 
         .text-area {
-          padding: 25px 15px;
+          padding: 25px 15px 60px 15px;
 
           p {
 
