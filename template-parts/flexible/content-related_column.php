@@ -28,7 +28,7 @@ $related = get_sub_field("related");
           if($title){
             echo '<div class="row"><div class="col-12"><h3>'.$title.'</h3></div></div>';
           }
-          echo '<div class="row mt-4 related-cards">';
+          echo '<div class="row mt-4 related-cards" style="border: 2px solid red;">';
           foreach($related as $rel){
               $postdata = get_post($rel);
               setup_postdata($postdata);
@@ -40,7 +40,12 @@ $related = get_sub_field("related");
               $sub_title = get_field("sub_title",$postdata->ID);
               if(get_post_type($postdata->ID)=="product"){
                 $sku = get_post_meta($postdata->ID,"_sku",true);
-                $sub_title = '<p class="eyebrow">Part #'.$sku.'</p>';
+                if( $sku ):
+                    $sub_title = '<p class="eyebrow">Part #'.$sku.'</p>';
+                else:
+                    $sub_title = '<p class="eyebrow">&nbsp;</p>';
+                endif;
+                //$sub_title = '<p class="eyebrow">Part #'.$sku.'</p>';
                 $description = '<p class="small">'.get_the_excerpt($postdata->ID).'</p>';
                 $link = '<p class="link"><a href="'.get_permalink($postdata->ID).'">Learn More <i class="fas fa-angle-right ml-2"></i></a></p>';
               }

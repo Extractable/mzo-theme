@@ -30,14 +30,14 @@ $related = get_sub_field("products");
           echo '<div class="row mt-4"><div class="col-12">';
           foreach($related as $rel){
               $postdata = get_post($rel);
-              setup_postdata($postdata); 
+              setup_postdata($postdata);
               $featured_img_url = get_the_post_thumbnail_url($postdata,"full");
               if($featured_img_url == "")
-                $featured_img_url = get_stylesheet_directory_uri()."/images/related_products_productname_hero1.jpg"; 
+                $featured_img_url = get_stylesheet_directory_uri()."/images/related_products_productname_hero1.jpg";
               $sku = get_field("_sku",$postdata->ID);
               $term = get_primary_taxonomy_term($postdata->ID);
               $link = get_permalink($postdata->ID);
-              echo '   
+              echo '
                     <div class="product-tile">
                       <div class="row">
                         <div class="col product-tile-image">
@@ -45,13 +45,17 @@ $related = get_sub_field("products");
                             <img src="'.$featured_img_url.'" alt="'.$postdata->post_title.'" class="img-fluid">
                           </div>
                         </div>
-                        <div class="col">
-                          <p class="eyebrow text-uppercase">Item #'.$sku.'</p>
-                          <h6><a href="'.$link.'">'.$postdata->post_title.'</a></h6>
+                        <div class="col">'
+                        if( $sku ) :
+                            '<p class="eyebrow text-uppercase">Item #'.$sku.'</p>'
+                        else:
+                            '<p class="eyebrow text-uppercase">nbpsp;</p>'
+                        endif;
+                          '<h6><a href="'.$link.'">'.$postdata->post_title.'</a></h6>
                           <p class="desc">'.get_the_excerpt($postdata->ID).'</p>
                         </div>
                       </div>
-                    </div>         
+                    </div>
                    ';
           }
           wp_reset_postdata();

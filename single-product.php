@@ -87,7 +87,13 @@ $form_content = get_field('form_content', 'option');
                         <div>
                             <img src="<?php echo $featured_img_url; ?>" alt="<?php echo $post->post_title; ?>" class="img-fluid">
                             <div class="text-area">
-                                <p class="eyebrow">Part #<?php echo $sku; ?></p>
+                                <p class="eyebrow">
+                                <?php if( $sku ): ?>
+                                    Part #<?php echo $sku; ?>
+                                <?php else : ?>
+                                    &nbsp;
+                                <?php endif; ?>
+                                </p>
                                 <p class="title"><?php the_title(); ?></p>
                                 <?php if( the_excerpt() ) : ?>
                                     <p class="small"><?php the_excerpt(); ?></p>
@@ -230,7 +236,11 @@ $form_content = get_field('form_content', 'option');
                         $sub_title = get_field("sub_title");
                         if(get_post_type()=="product"){
                             $sku = get_post_meta($post->ID,"_sku",true);
-                            $sub_title = '<p class="eyebrow">Part #'.$sku.'</p>';
+                            if( $sku ):
+                                $sub_title = '<p class="eyebrow">Part #'.$sku.'</p>';
+                            else:
+                                $sub_title = '<p class="eyebrow">&nbsp;</p>';
+                            endif;
                             $description = '<p class="small">'.get_the_excerpt().'</p>';
                             $link = '<p class="link"><a href="'.get_permalink().'">Learn More <i class="fas fa-angle-right ml-2"></i></a></p>';
                         }
