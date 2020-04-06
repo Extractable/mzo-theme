@@ -22,7 +22,7 @@ $product_media = get_field("product_media");
                   $terms[$term->parent]->children[] = $term;
                   unset($terms[$key]);
               }
-          }        
+          }
 
           $categories = get_the_terms(get_the_ID(), 'product_cat', $args);
           $counter=0;
@@ -58,7 +58,7 @@ $product_media = get_field("product_media");
               else{
                 $listmenu .= ' <a href="'.get_term_link($category).'">'.$category->name.'</a> /';
               }
-            }            
+            }
           }
         ?>
 
@@ -171,7 +171,9 @@ $product_media = get_field("product_media");
                 echo '<p class="eyebrow">PART #'.$sku.'</p>';
             }?>
         </span>
-        <div class="shortdescription"><?php the_excerpt(); ?></div>
+        <div class="shortdescription">
+            <?php the_excerpt(); ?>
+        </div>
         <?php
           $component_description = get_field("component_description");
           if ($component_description) {
