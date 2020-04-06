@@ -77,6 +77,10 @@
           width: 100%;
           padding: 20px 15px 15px 70px;
 
+          sup {
+              left: -1px;
+          }
+
           &::before {
             content: "";
             background: #0E79B2;
@@ -114,7 +118,8 @@
             height: 39px;
             position: absolute;
             left: 18px;
-            top: 25px;
+            //top: 25px;
+            top: 9px;
             z-index: 2;
           }
 
@@ -217,7 +222,6 @@
 
 @media (max-width: 767.98px) {
   .standard-product-marquee {
-
 
     .marquee-breadcrumb {
       font-size: 16px;
