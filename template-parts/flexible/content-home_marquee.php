@@ -34,10 +34,14 @@ else{
   <div class="container">
     <div class="row">
       <div class="col-md-6 text-white banner-text-area">
-        <?php if($sub_title){?><p class="eyebrow text-white text-uppercase"><?php echo $sub_title;?></p><?php } ?>
-        <?php if($title){?><h1 class="text-white mb-2 mb-md-4"><?php echo $title;?></h1><?php } ?>
-        <?php if($content){?><h6 class="text-white mb-2 mb-md-4"><?php echo $content;?></h6><?php } ?>
-        <?php if($button_text){?><a href="<?php echo $button_url;?>" class="btn btn-light my-2 my-md-3"><?php echo $button_text;?></a><?php } ?>
+        <div>
+            <div>
+                <?php if($sub_title){?><p class="eyebrow text-white text-uppercase"><?php echo $sub_title;?></p><?php } ?>
+                <?php if($title){?><h1 class="text-white mb-2 mb-md-4"><?php echo $title;?></h1><?php } ?>
+                <?php if($content){?><div class="intro mb-2 mb-md-4"><?php echo $content;?></div><?php } ?>
+                <?php if($button_text){?><a href="<?php echo $button_url;?>" class="btn btn-light my-2 my-md-3"><?php echo $button_text;?></a><?php } ?>
+            </div>
+        </div>
       </div>
     </div>
   </div>

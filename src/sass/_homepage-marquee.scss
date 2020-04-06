@@ -45,12 +45,27 @@
       border-bottom-right-radius: 10px;
     }
 
+    > div {
+        display: flex;
+        align-items: center;
+        height: 100%;;
+    }
+
     a,
     h1,
     h6,
     p {
       z-index: 2;
       position: relative;
+    }
+
+    .intro {
+        p {
+            color: #FFF;
+            font-size: 24px;
+            line-height: 1.5em;
+            font-weight: 300;
+        }
     }
   }
 
