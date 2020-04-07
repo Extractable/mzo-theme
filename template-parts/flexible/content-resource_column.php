@@ -42,14 +42,18 @@ $resources = get_sub_field("resources");
                             <a href="<?php echo $resouceLink['url']; ?>" target="<?php echo $resouceLink['target']; ?>"><img src="<?php the_sub_field('icon'); ?>"></a>
                         </div>
                         <div class="col-10 col-md-9">
-                            <h3><?php the_sub_field('title'); ?></h3>
-                            <?php
-                                if( $resourceContent ) {
-                                    echo $resourceContent;
-                                }
-                            ?>
+                            <div class="resource-content">
+                                <h3><?php the_sub_field('title'); ?></h3>
+                                <?php
+                                    if( $resourceContent ) {
+                                        echo $resourceContent;
+                                    }
+                                ?>
+                            </div>
                             <?php if( $resouceLink ) : ?>
-                                <a class="text-link-arrow" href="<?php echo $resouceLink['url']; ?>" target="<?php echo $resouceLink['target']; ?>"><?php echo $resouceLink['title']; ?> <i class="fas fa-angle-right ml-2"></i></a>
+                                <div class="resource-link">
+                                    <a class="text-link-arrow" href="<?php echo $resouceLink['url']; ?>" target="<?php echo $resouceLink['target']; ?>"><?php echo $resouceLink['title']; ?> <i class="fas fa-angle-right ml-2"></i></a>
+                                </div>
                             <?php endif; ?>
                         </div>
                       </div>

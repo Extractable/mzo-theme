@@ -59,7 +59,7 @@ $form_content = get_field('form_content', 'option');
 		  <div class="container">
 		    <div class="row">
 		      <div class="col-md-12">
-		        <h3>Accessories</h3>
+		        <h3>Accessories (<?php echo $accessories_count = count(get_field('accessories_list')); ?>)</h3>
 		      </div>
 		    </div>
             <div class="row mt-4 accessories-cards">
@@ -144,21 +144,24 @@ $form_content = get_field('form_content', 'option');
                                 $resouceLinkPro = get_sub_field('resource_link');
                                 $resourceContentPro = get_sub_field('content');
                             ?>
-
                             <div class="col-lg-4 col-md-6">
                               <div class="row resources">
                                 <div class="col-2 col-md-3 px-0">
                                   <a href="<?php echo $resouceLinkPro['url']; ?>" target="<?php echo $resouceLinkPro['target']; ?>"><img src="<?php the_sub_field('icon'); ?>"></a>
                                 </div>
                                 <div class="col-10 col-md-9">
-                                    <h3><?php the_sub_field('title'); ?></h3>
-                                    <?php
-                                        if( $resourceContentPro ) {
-                                            echo $resourceContentPro;
-                                        }
-                                    ?>
+                                    <div class="resource-content">
+                                        <h3><?php the_sub_field('title'); ?></h3>
+                                        <?php
+                                            if( $resourceContentPro ) {
+                                                echo $resourceContentPro;
+                                            }
+                                        ?>
+                                    </div>
                                     <?php if( $resouceLinkPro ) : ?>
-                                        <a class="text-link-arrow" href="<?php echo $resouceLinkPro['url']; ?>" target="<?php echo $resouceLinkPro['target']; ?>"><?php echo $resouceLinkPro['title']; ?> <i class="fas fa-angle-right ml-2"></i></a>
+                                        <div class="resource-link">
+                                            <a class="text-link-arrow" href="<?php echo $resouceLinkPro['url']; ?>" target="<?php echo $resouceLinkPro['target']; ?>"><?php echo $resouceLinkPro['title']; ?> <i class="fas fa-angle-right ml-2"></i></a>
+                                        </div>
                                     <?php endif; ?>
                                 </div>
                               </div>
