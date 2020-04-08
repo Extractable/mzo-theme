@@ -32,6 +32,8 @@
           color: #454F57;
           text-align: left;
           padding-right: 58px;
+          padding-top: 15px;
+          padding-bottom: 15px;
           background: #f7f7f7;
           border-radius: 0 !important;
           border: none !important;
@@ -42,15 +44,15 @@
 
           &::after {
             content: "";
-            width: 25px;
-            height: 25px;
+            width: 22px;
+            height: 22px;
             background: url(../../images/toggle-min-main.svg);
             background-repeat: no-repeat;
             background-position: center;
             display: block;
             position: absolute;
             right: 20px;
-            top: 10px;
+            top: 15px;
           }
 
           &.collapsed {
@@ -58,15 +60,15 @@
 
             &::after {
               content: "";
-              width: 25px;
-              height: 25px;
+              width: 22px;
+              height: 22px;
               background: url(../../images/toggle-plus-main.svg);
               background-repeat: no-repeat;
               background-position: center;
               display: block;
               position: absolute;
               right: 20px;
-              top: 10px;
+              top: 16px;
             }
           }
         }
