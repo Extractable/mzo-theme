@@ -46,13 +46,12 @@ $contenthmenu2 .= '</ul>';
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
-	
+
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
   <script type="text/javascript">var themeurl="<?php echo $themesite;?>";var ajaxurl = "<?php echo  admin_url( 'admin-ajax.php' );?>"</script>
 	<link rel="stylesheet" href="<?php echo $themesite;?>/assets/css/theme.min.css?time=<?php echo time(); ?>">
-	<script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=sxnmbgxibxw5dxprdum6ag" async="true"></script>
 	<?php wp_head(); ?>
 </head>
 
@@ -65,7 +64,7 @@ $contenthmenu2 .= '</ul>';
           <div class="col-12 header-top d-flex align-content-center flex-wrap justify-content-between">
             <a class="navbar-brand" href="<?php echo get_option("siteurl");?>"><img src="<?php echo $logo;?>" alt="logo mizuho" class="img-fluid" width="278"><?php if($hide_header_menu){echo $header_text;}?></a>
             <div class="header-top-right text-right d-none d-lg-flex align-items-center">
-              <?php 
+              <?php
                if($hide_header_menu){
                 echo $contenthmenu1;
                }
@@ -80,7 +79,7 @@ $contenthmenu2 .= '</ul>';
             </button>
           </div>
           <div class="collapse navbar-collapse menu-area" id="navbarNavDropdown">
-           <?php 
+           <?php
            if($hide_header_menu){
             echo  $contenthmenu2;
            }
@@ -92,10 +91,10 @@ $contenthmenu2 .= '</ul>';
             wp_nav_menu(array('container' => false, 'theme_location' => 'menu-mobile', 'menu_class' => 'navbar-nav dl-menu dl-menuopen'));
             echo '</div>';
            }
-           ?>        
+           ?>
           </div>
           <div class="nav-item menu-contact-us <?php if($hide_header_menu){ echo 'd-flex d-md-none';}?>">
-              <?php 
+              <?php
                 if($blue_button_text){
                     echo '<a class="nav-link text-uppercase" href="'.$blue_button_url.'">'.$blue_button_text.'</a>';
                 }

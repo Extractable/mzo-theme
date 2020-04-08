@@ -20,9 +20,10 @@ if($overlay_grey_position){
 $content = get_sub_field("content");
 
 $paddingTop = get_sub_field('padding_top');
+$textAlignLeft = get_sub_field('text_align_left');
 
 ?>
-<section class="impact-text <?php echo $overlay_grey_position;?><?php if($paddingTop): echo " padding-top"; endif; ?>" style="<?php echo $background_color.$background_image;?>">
+<section class="impact-text <?php echo $overlay_grey_position;?><?php if($paddingTop): echo " padding-top"; endif; ?><?php if($textAlignLeft): echo " text-align-left"; endif; ?>" style="<?php echo $background_color.$background_image;?>">
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-lg-8 mx-auto">
