@@ -70,100 +70,87 @@ $product_media = get_field("product_media");
       </div>
     </div>
     <div class="row mt-3 mt-md-5">
+        <!-- Marquee Slider -->
       <div class="col-md-6">
+        <!-- Mobile Title -->
         <span class="d-block d-md-none">
           <h2><?php echo $post->post_title;?></h2>
           <?php if ($sku) {
             echo '<p class="eyebrow">PART #'.$sku.'</p>';
         }?>
         </span>
-        <div id="myCarousel" class="carousel slide">
-          <!-- main slider carousel items -->
-          <div class="carousel-inner">
-            <?php
-              $counter=0;
-              foreach ($product_media as $productdata) {
-                  $showDesc = $productdata["show_desc"];
-                  $image = $productdata["image"];
-                  $video = $productdata["video"];
-                  $image_video_sub_title = $productdata["image_video_sub_title"];
-                  if ($image_video_sub_title) {
-                      $image_video_sub_title = '<p class="legal text-uppercase font-weight-bold text-white">'.$image_video_sub_title.'</p>';
-                  }
-                  $title = $productdata["title"];
-                  if ($title) {
-                      $title = '<h6>'.$title.'</h6>';
-                  }
-                  $description = $productdata["description"];
-                  if ($description) {
-                      $description = wpautop($description);
-                  }
+        <!-- Start Slider -->
+        <div id="mainImages">
+            <!-- Start Main Carousel -->
+            <div id="mainCarousel" class="owl-carousel owl-theme">
+                <!-- Repeater -->
+                <?php
+                    foreach ($product_media as $productdata) {
+                        $showDesc = $productdata["show_desc"];
+                        $image = $productdata["image"];
+                        $video = $productdata["video"];
+                        $image_video_sub_title = $productdata["image_video_sub_title"];
 
-                  $class="";
-                  if ($counter<1) {
-                      $class="active";
-                  }
-                  if ($video) {
-                      $video = '<a href="'.$video.'" data-fancybox class="link-label"><span class="d-none">Link</span></a><img src="'.$themeurl.'/images/icon-video.svg" alt="icon video" class="icon-media">';
-                  }
+                        if ($image_video_sub_title) {
+                            $image_video_sub_title = '<p class="legal text-uppercase font-weight-bold text-white">'.$image_video_sub_title.'</p>';
+                        }
+                        $title = $productdata["title"];
+                        if ($title) {
+                            $title = '<h6>'.$title.'</h6>';
+                        }
+                        $description = $productdata["description"];
+                        if ($description) {
+                            $description = wpautop($description);
+                        }
 
-                  echo '
-                      <div class="'.$class.' carousel-item" data-slide-number="'.$counter.'">
-                        <img src="'.$image.'" alt="'.$title.'" class="img-fluid w-100">';
+                        if ($video) {
+                            $video = '<a href="'.$video.'" data-fancybox class="link-label"><span class="d-none">Link</span></a><img src="'.$themeurl.'/images/icon-video.svg" alt="icon video" class="icon-media">';
+                        }
 
-                  if ($showDesc) {
-                      echo  '<div class="label">
-                              '.$video.'
-                              '.$title.'
-                              '.$description.'
-                              '.$image_video_sub_title.'
-                          </div>';
-                  }
-
-                  echo '</div>';
-
-                  $counter++;
-              }
-            ?>
-          </div>
-          <!-- main slider carousel nav controls -->
-
-          <ul class="carousel-indicators list-inline mx-auto px-2">
-            <?php
-              $counter=0;
-              foreach ($product_media as $productdata) {
-                  $image = $productdata["image"];
-                  $video = $productdata["video"];
-
-                  $class="";
-                  if ($counter<1) {
-                      $class="active";
-                  }
-                  if ($video) {
-                      $video = '<a href="'.$video.'" data-fancybox class="link-label"><span class="d-none">Link</span></a><img src="'.$themeurl.'/images/icon-video.svg" alt="icon video" class="icon-media">';
-                      $class.=" video";
-                  }
-                  echo '
-                      <li class="list-inline-item '.$class.'">
-                        <a id="carousel-selector-'.$counter.'" class="selected" data-slide-to="'.$counter.'" data-target="#myCarousel">
-                          <img src="'.$image.'" alt="thumb product sub 1" class="img-fluid">
-                        </a>
-                      </li>
-                     ';
-                  $counter++;
-              }
-            ?>
-          </ul>
-          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fas fa-caret-left"></i></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"><i class="fas fa-caret-right"></i></span>
-            <span class="sr-only">Next</span>
-          </a>
+                        echo '
+                        <div class="item">
+                            <img src="'.$image.'" alt="'.$title.'" class="img-fluid w-100">';
+                            if( $showDesc ) {
+                                echo '
+                                    <div class="label">
+                                        '.$video.'
+                                        '.$title.'
+                                        '.$description.'
+                                        '.$image_video_sub_title.'
+                                    </div>
+                                ';
+                            }
+                        echo '</div>';
+                    }
+                ?>
+                <!-- /Repeater -->
+            </div>
+            <!-- Start Carousel Thumbnails -->
+            <div id="thumbs" class="owl-carousel owl-theme">
+                <!-- Repeater -->
+                <?php
+                    foreach ($product_media as $productdata) {
+                        $image = $productdata["image"];
+                        $video = $productdata["video"];
+                        $class="";
+                        if ($video) {
+                            $video = '<a href="'.$video.'" data-fancybox class="link-label"><span class="d-none">Link</span></a><img src="'.$themeurl.'/images/icon-video.svg" alt="icon video" class="icon-media">';
+                            $class.=" video";
+                        }
+                        echo '
+                            <div class="item'.$class.'">
+                                <img src="'.$image.'" alt="thumb product sub 1" class="img-fluid">
+                            </div>
+                        ';
+                    }
+                ?>
+                <!-- /Repeater -->
+            </div>
         </div>
+        <!-- End Slider -->
       </div>
+
+      <!-- Marquee Content -->
       <div class="col-md-6">
         <span class="d-none d-md-block">
           <h2><?php echo $post->post_title;?></h2>
