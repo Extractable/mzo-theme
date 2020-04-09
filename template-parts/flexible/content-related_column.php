@@ -28,7 +28,7 @@ $related = get_sub_field("related");
           if($title){
             echo '<div class="row"><div class="col-12"><h3>'.$title.'</h3></div></div>';
           }
-          echo '<div class="row mt-4 related-cards" style="border: 2px solid red;">';
+          echo '<div class="row mt-4 related-cards">';
           foreach($related as $rel){
               $postdata = get_post($rel);
               setup_postdata($postdata);
