@@ -67,6 +67,8 @@ jQuery(document).ready(function() {
       dots: false,
       loop: true,
       responsiveRefreshRate: 200,
+      animateOut: 'fadeOut',
+         animateIn: 'fadeIn',
     })
     .on("changed.owl.carousel", syncPosition);
 

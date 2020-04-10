@@ -61,7 +61,9 @@ jQuery(document).ready(function () {
     autoplay: false,
     dots: false,
     loop: true,
-    responsiveRefreshRate: 200
+    responsiveRefreshRate: 200,
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn'
   }).on("changed.owl.carousel", syncPosition);
   thumbs.on("initialized.owl.carousel", function () {
     thumbs.find(".owl-item").eq(0).addClass("current");
