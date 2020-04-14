@@ -28,7 +28,7 @@ if($video){
           <?php if($title){?><h2 class="text-white mb-2 mb-md-4"><?php echo $title;?></h2><?php } ?>
           <?php if($sub_title){?><h6 class="text-white mb-2 mb-md-4"><?php echo $sub_title;?></h6><?php } ?>
           <?php echo do_shortcode($content);?>
-          <?php if($button_text){?><a href="<?php echo $button_url;?>" class="text-link-arrow text-white mt-2 mt-md-4"><?php echo $button_text;?></a><?php } ?>
+          <?php if($button_text){?><a href="<?php echo $button_url;?>" class="text-link-arrow text-white mt-2 mt-md-4"><?php echo $button_text;?> <i class="fas fa-angle-right ml-2"></i></a><?php } ?>
         </div>
       </div>
     </div>
