@@ -45,14 +45,15 @@ $related = get_sub_field("products");
                             <img src="'.$featured_img_url.'" alt="'.$postdata->post_title.'" class="img-fluid">
                           </div>
                         </div>
-                        <div class="col">'
+                        <div class="col">';
                         if( $sku ) :
-                            '<p class="eyebrow text-uppercase">Item #'.$sku.'</p>'
+                            echo '<p class="eyebrow text-uppercase">Item #'.$sku.'</p>';
                         else:
-                            '<p class="eyebrow text-uppercase">nbpsp;</p>'
+                           echo '<p class="eyebrow text-uppercase">nbpsp;</p>';
                         endif;
-                          '<h6><a href="'.$link.'">'.$postdata->post_title.'</a></h6>
-                          <p class="desc">'.get_the_excerpt($postdata->ID).'</p>
+                          echo '<h6><a href="'.$link.'">'.$postdata->post_title.'</a></h6>
+                          <p class="desc">'.get_the_excerpt($postdata->ID).'</p>';
+              echo '
                         </div>
                       </div>
                     </div>

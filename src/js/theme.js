@@ -161,6 +161,14 @@ jQuery(document).ready(function() {
     bigimage.data("owl.carousel").to(number, 300, true);
   });
 
+
+
+
+
+
+
+
+
   jQuery("a.hsearch").click(function(e) {
     jQuery(".search-form").toggle();
     e.preventDefault();
