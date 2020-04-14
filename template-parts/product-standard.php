@@ -284,7 +284,14 @@ $product_media = get_field("product_media");
           <!-- Components -->
           <?php if($components) : ?>
               <div class="tab-pane fade" id="component" role="tabpanel" aria-labelledby="component-tab">
-                  <?php echo do_shortcode($components); ?>
+                  <div class="row">
+                      <div class="col-lg-6">
+                        <?php the_field('components_right'); ?>
+                      </div>
+                      <div class="col-lg-6">
+                        <?php the_field('components_right'); ?>
+                      </div>
+                  </div>
               </div>
           <?php endif; ?>
           <!-- /Components -->
