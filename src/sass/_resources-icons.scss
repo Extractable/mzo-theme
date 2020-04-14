@@ -8,12 +8,15 @@
     position: relative;
 
     .resource-content {
-        padding-bottom: 30px;
+        padding-bottom: 50px;
     }
 
     .resource-link {
         position: absolute;
         bottom: 20px;
+        a {
+            line-height: 1.2em;
+        }
     }
 
     h3 {
@@ -60,8 +63,8 @@
     }
 
     .resources {
-      padding: 0 10px;
-      margin-bottom: 5px;
+      padding: 0 10px 20px 10px;
+      margin-bottom: 20px;
 
       a,
       p {
