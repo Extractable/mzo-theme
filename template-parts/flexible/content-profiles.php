@@ -41,19 +41,27 @@ $profiles = get_sub_field("profiles");
                 $profileInfo = $profile["profile_group"];
                 $social = $profile['social'];
 
+                $profileImage = $profile["image"];
+
+                if($profileImage):
+                    $profilePhoto = $profileImage;
+                else:
+                    $profilePhoto = '';
+                endif;
+
                 $lightboxID = str_replace(' ', '_', strtolower($profileInfo["profile_name"]))
              ?>
             <div class="col-md-6 col-lg-4">
                 <div class="profile">
                     <div class="brand-pillar-content">
                         <div>
-                            <img src="<?php echo $profile["image"]; ?>" alt="<?php echo $profile["profile_name"]; ?>" class="img-fluid rounded-circle">
+                            <img src="<?php echo $profilePhoto; ?>" alt="<?php echo $profile["profile_name"]; ?>" class="img-fluid rounded-circle">
                             <h5><?php echo $profileInfo["profile_name"]; ?></h5>
                             <h6><?php echo $profileInfo["profile_title"]; ?></h6>
                             <?php echo $profile["short_profile"]; ?>
                         </div>
                     </div>
-                    <?php if( $profile["link_text"] ) : ?>
+                    <?php if( $profileInfo["add_full_profile"] ) : ?>
                         <?php
                             $twitter = $social['twitter'];
                             $linkedin = $social['linkedin'];

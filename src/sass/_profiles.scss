@@ -3,6 +3,10 @@
     margin-top: 20px;
   }
 
+  [class*='col-'] {
+      margin-bottom: 30px;
+  }
+
   .profile {
     text-align: center;
     background: #f7f7f7;
