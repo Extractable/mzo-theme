@@ -46,7 +46,7 @@ $profiles = get_sub_field("profiles");
                 if($profileImage):
                     $profilePhoto = $profileImage;
                 else:
-                    $profilePhoto = '';
+                    $profilePhoto = '/wp-content/themes/mizuho/images/mizuho_default.svg';
                 endif;
 
                 $lightboxID = str_replace(' ', '_', strtolower($profileInfo["profile_name"]))
@@ -72,7 +72,7 @@ $profiles = get_sub_field("profiles");
                         <div class="profile-lightbox" style="display:none" id="<?php echo $lightboxID; ?>">
                             <div>
                                 <div class="profile-image-sm">
-                                    <img src="<?php echo $profile["image"]; ?>" alt="<?php echo $profile["profile_name"]; ?>" class="img-fluid rounded-circle">
+                                    <img src="<?php echo $profilePhoto; ?>" alt="<?php echo $profile["profile_name"]; ?>" class="img-fluid rounded-circle">
                                 </div>
                                 <div class="profile-full">
                                     <h5><?php echo $profileInfo["profile_name"]; ?></h5>
