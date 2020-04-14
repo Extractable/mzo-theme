@@ -65,7 +65,7 @@ $product_media = get_field("product_media");
         <span class="d-none d-md-inline-block"><a href="<?php echo get_option("siteurl");?>">Home</a> / <?php echo $listmenu;?></span> <?php echo $lastitem;?>
       </div>
       <div class="col-3 text-right">
-        <a href="#" class="splink"><i class="fas fa-share-alt"></i><span class="d-none">Share</span></a>
+        <a href="" class="splink"><i class="fas fa-share-alt"></i><span class="d-none">Share</span></a>
         <div class="sharepopup"><?php echo do_shortcode('[ssba-buttons]');?></div>
       </div>
     </div>
