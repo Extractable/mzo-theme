@@ -20,7 +20,7 @@ $sku = $product->get_sku();
                   $terms[$term->parent]->children[] = $term;
                   unset($terms[$key]);
               }
-          }        
+          }
 
           $categories = get_the_terms(get_the_ID(), 'product_cat', $args);
           $counter=0;
@@ -56,7 +56,7 @@ $sku = $product->get_sku();
               else{
                 $listmenu .= ' <a href="'.get_term_link($category).'">'.$category->name.'</a> /';
               }
-            }            
+            }
           }
         ?>
         <span class="d-none d-md-inline-block"><a href="<?php echo get_option("siteurl");?>">Home</a> / <?php echo $listmenu;?></span> <?php echo $lastitem;?>
@@ -75,8 +75,8 @@ $sku = $product->get_sku();
     <div class="row mt-3">
       <div class="col-12">
         <div class="hero-product">
-          <?php 
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+          <?php
+            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
             if( $featured_img_url )
               echo '<img src="'.$featured_img_url.'" alt="hero product marquee hero" class="img-fluid media-bg">';
 
@@ -84,7 +84,7 @@ $sku = $product->get_sku();
             if( $video_url )
               echo '<a href="'.$video_url.'" data-fancybox class="video-link"><img src="'.$themeurl.'/images/icon-video-blue.svg" alt="icon video" class="img-fluid"></a>';
           ?>
-          
+
           <div class="label">
             <div class="text-area">
                <div class="shortdescription"><?php the_excerpt(); ?></div>
@@ -147,7 +147,7 @@ $sku = $product->get_sku();
     <div class="container">
       <div class="row features-product collapse show collapseProductOverview" id="collapseFeatures">
         <div class="col-12 text-area">
-          <h3 class="mb-4">Features & Positions</h3>
+          <h3 class="mb-4"><?php the_field('section_title'); ?></h3>
         </div>
         <div class="col-12 media-area">
           <!-- main slider carousel items -->
@@ -166,7 +166,7 @@ $sku = $product->get_sku();
                           <div class="smallcontent">'.$feature["content"].'</div>
                         </div>
                         <img src="'.$feature["image"].'" alt="'.$feature["title"].'" class="img-fluid">
-                      </div>                
+                      </div>
                      ';
                 $counter++;
               }
@@ -194,7 +194,7 @@ $sku = $product->get_sku();
                 		}
                 		echo '<tr>
 								<td>'.$speclist["left_text"].'</td>
-								<td>'.$speclist["right_text"].'</td>                		
+								<td>'.$speclist["right_text"].'</td>
                 			 </tr>';
                 	}
                 	echo '</tbody></table>';
@@ -214,7 +214,7 @@ $sku = $product->get_sku();
                 		}
                 		echo '<tr>
 								<td>'.$speclist["left_text"].'</td>
-								<td>'.$speclist["right_text"].'</td>                		
+								<td>'.$speclist["right_text"].'</td>
                 			 </tr>';
                 	}
                 	echo '</tbody></table>';
@@ -236,12 +236,12 @@ $sku = $product->get_sku();
                 $class="";
                 if($counter<1)
                   $class="active";
-                echo '    
+                echo '
                       <li class="list-inline-item '.$class.'">
                         <a id="carousel-selector-'.$counter.'" class="selected" data-slide-to="'.$counter.'" data-target="#myCarousel">
                           <img src="'.$feature["image"].'" alt="'.$feature["title"].'" class="img-fluid">
                         </a>
-                      </li>          
+                      </li>
 
                      ';
                 $counter++;
