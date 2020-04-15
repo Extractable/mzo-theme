@@ -3,7 +3,7 @@ $themesite = get_stylesheet_directory_uri();
 
 $image = get_sub_field("image");
 $video = get_sub_field("video");
-$sub_title = get_sub_field("sub_title");
+$sub_title = nl2br(get_sub_field("sub_title"));
 $title = get_sub_field("title");
 $content = get_sub_field("content");
 $button_text = get_sub_field("button_text");
