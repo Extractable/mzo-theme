@@ -92,21 +92,22 @@ if($term->parent==0){
       		foreach( $termdatas as $termdata ){
       			$thumbnail_id = get_woocommerce_term_meta($termdata->term_id, 'thumbnail_id', true);
       			$image = wp_get_attachment_url($thumbnail_id);
-      			$termlink = get_term_link($termdata->name, "product_cat");
+            if($termdata){
+    			    $termlink = get_term_link($termdata, "product_cat");
 
-                $catContent = $termdata->description;
-                $catContent = strip_tags($catContent);
-                if (strlen($catContent) > 133) {
+              $catContent = $termdata->description;
+              $catContent = strip_tags($catContent);
+              if (strlen($catContent) > 133) {
 
-                    // truncate string
-                    $stringCut = substr($catContent, 0, 133);
-                    $endPoint = strrpos($stringCut, ' ');
+                  // truncate string
+                  $stringCut = substr($catContent, 0, 133);
+                  $endPoint = strrpos($stringCut, ' ');
 
-                    //if the string doesn't contain any space then it will cut without word basis.
-                    $catContent = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                    $catContent .= '...';
-                }
-
+                  //if the string doesn't contain any space then it will cut without word basis.
+                  $catContent = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                  $catContent .= '...';
+              }
+            }
       			echo '
 				        <div class="one-third-product productlistdata">
 				          <a href="'.$termlink.'">
@@ -248,11 +249,11 @@ else{
     <div class="row">
       <div class="col-lg-3 filter-area">
         <div class="toggle-filter d-block d-lg-none">
-          <a data-toggle="collapse" class="collapsed" href="#filter-toggle" role="button">Filters <span class="toggle-plus"></span><span class="toggle-minus" style="display: none;"></span></a>
+          <a data-toggle="collapse" class="collapsed" data-target="#filter-toggle" role="button">Filters <span class="toggle-plus"></span><span class="toggle-minus" style="display: none;"></span></a>
         </div>
         <div class="collapse" id="filter-toggle">
           <div class="toggle-filter-inside d-block d-lg-none">
-            <a data-toggle="collapse" class="collapsed" href="#filter-toggle-category" role="button">Category <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
+            <a data-toggle="collapse" class="collapsed" data-target="#filter-toggle-category" role="button">Category <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
           </div>
           <div class="category-list collapse" id="filter-toggle-category">
             <h6>Category</h6>
@@ -276,7 +277,7 @@ else{
               }
               echo '
                     <div class="toggle-filter-inside d-block d-lg-none">
-                      <a data-toggle="collapse" class="collapsed" href="#filter-toggle-'.$termlist->name.'" role="button">'.$termlist->label.' <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
+                      <a data-toggle="collapse" class="collapsed" href="#filter-toggle-'.$termlist->name.'" role="button aria-expanded="true" aria-controls="filter-toggle-'.$termlist->name.'">'.$termlist->label.' <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
                     </div>
                     <div class="filter-checkbox collapse" id="filter-toggle-'.$termlist->name.'">
                       <h6>'.$termlist->label.' <a href="#" class="calist '.$termlist->name.'ca clearall" style="display:none;">Clear All</a></h6>
@@ -287,10 +288,10 @@ else{
           }
           ?>
 
-          <div class="d-block d-lg-none">
+          <!--<div class="d-block d-lg-none">
             <a href="#" class="btn btn-primary my-2 w-100">Done</a>
             <a href="#" class="btn btn-light bg-white mb-4 w-100">Reset</a>
-          </div>
+          </div>//-->
         </div>
       </div>
       <div class="col-lg-9">
