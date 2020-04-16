@@ -37,7 +37,7 @@ $sku = $product->get_sku();
               foreach($terms[$category->term_id]->children as $children){
                 if ($counter==$totalcat) {
                     //last item
-                    $lastitem = '<span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-right mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="'.get_term_link($children).'">'.$children->name.'</a>';
+                    $lastitem = '<span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-left mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="'.get_term_link($children).'">'.$children->name.'</a>';
                 } else {
                     $listmenu .= ' <a href="'.get_term_link($children).'">'.$children->name.'</a> /';
                 }
@@ -51,7 +51,7 @@ $sku = $product->get_sku();
               $counter++;
               if($counter==$totalcat){
                 //last item
-                $lastitem = '<span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-right mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="'.get_term_link($category).'">'.$category->name.'</a>';
+                $lastitem = '<span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-left mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="'.get_term_link($category).'">'.$category->name.'</a>';
               }
               else{
                 $listmenu .= ' <a href="'.get_term_link($category).'">'.$category->name.'</a> /';
@@ -96,7 +96,7 @@ $sku = $product->get_sku();
               <?php
               $request = get_field("request");
               if($request){
-                echo '<div class="custom-button-dropdown"><a href="#collapseCustomDropdown" class="main-button collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCustomDropdown">Request Information</a><div id="collapseCustomDropdown" class="dropdown-button collapse">';
+                echo '<div class="custom-button-dropdown"><a  data-target="#collapseCustomDropdown" class="main-button collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCustomDropdown">Request Information</a><div id="collapseCustomDropdown" class="dropdown-button collapse">';
                 foreach($request as $reqdata){
                   echo '<a href="'.$reqdata["url"].'">'.$reqdata["title"].' <i class="fas fa-arrow-right"></i></a>';
                 }
