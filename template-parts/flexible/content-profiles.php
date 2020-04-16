@@ -101,9 +101,11 @@ $profiles = get_sub_field("profiles");
                                             </div>
                                         <?php endif; ?>
                                     </div>
-                                    <div class="profile-content">
-                                        <?php echo $profile["full_profile"]; ?>
-                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-content">
+                                    <?php echo $profile["full_profile"]; ?>
                                 </div>
                             </div>
 

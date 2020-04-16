@@ -107,6 +107,7 @@
     flex: 1;
     align-items: flex-start;
     padding-left: 20px;
+    width: 100%;
 
     h5 {
       font-size: 24px;
@@ -170,6 +171,7 @@
     border-top: 1px solid #004E8F;
     padding-top: 20px;
     margin-top: 10px;
+    margin-left: 120px;
 
     p {
       font-size: 16px;
@@ -179,6 +181,7 @@
   }
   @media (max-width: 640px) {
     .profile-full {
+        padding-right: 20px;
       p {
         font-size: 16px;
       }
@@ -205,6 +208,11 @@
     padding: {
       left: 20px;
       right: 20px;
+    }
+
+    .profile-content {
+        margin-left: 0;
+        margin-top: 20px;
     }
 
     .profile-meta {
