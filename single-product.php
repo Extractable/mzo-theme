@@ -226,7 +226,7 @@ $form_content = get_field('form_content', 'option');
 		  <div class="container">
 		    <div class="row">
 		      <div class="col-12">
-		        <h3>Related Products</h3>
+		        <h3>Related products</h3>
 		      </div>
 		    </div>
 		    <div class="row mt-4 related-cards">
@@ -244,12 +244,12 @@ $form_content = get_field('form_content', 'option');
                             else:
                                 $sub_title = '<p class="eyebrow">&nbsp;</p>';
                             endif;
-                            $description = '<p class="small">'.get_the_excerpt().'</p>';
+                            $description = str_replace("<p>",'<p class="small">',wpautop(get_the_excerpt()));
                             $link = '<p class="link"><a href="'.get_permalink().'">Learn More <i class="fas fa-angle-right ml-2"></i></a></p>';
                         }
                         else{
                             $sub_title = '<p class="eyebrow text-uppercase">'.$sub_title.'</p>';
-                            $description = '<p class="desc d-block d-md-none">'.get_the_excerpt().'</p>';
+                            $description = str_replace("<p>",'<p class="desc d-block d-md-none">',wpautop(get_the_excerpt()));
                             $link = '<p class="link"><a href="'.$term["url"].'">'.$term["title"].'</a></p>';
                         }
                         if($featured_img_url == "")

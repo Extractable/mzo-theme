@@ -46,12 +46,12 @@ $related = get_sub_field("related");
                     $sub_title = '<p class="eyebrow">&nbsp;</p>';
                 endif;
                 //$sub_title = '<p class="eyebrow">Part #'.$sku.'</p>';
-                $description = '<p class="small">'.get_the_excerpt($postdata->ID).'</p>';
+                $description = str_replace("<p>",'<p class="small">',wpautop(get_the_excerpt($postdata->ID)));
                 $link = '<p class="link"><a href="'.get_permalink($postdata->ID).'">Learn More <i class="fas fa-angle-right ml-2"></i></a></p>';
               }
               else{
                 $sub_title = '<p class="eyebrow text-uppercase">'.$sub_title.'</p>';
-                $description = '<p class="desc d-block d-md-none">'.get_the_excerpt($postdata->ID).'</p>';
+                $description = str_replace("<p>",'<p class="desc d-block d-md-none">',wpautop(get_the_excerpt($postdata->ID)));
                 $link = '<p class="link"><a href="'.$term["url"].'">'.$term["title"].'</a></p>';
               }
 
