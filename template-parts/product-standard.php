@@ -286,7 +286,7 @@ $product_media = get_field("product_media");
               <div class="tab-pane fade" id="component" role="tabpanel" aria-labelledby="component-tab">
                   <div class="row">
                       <div class="col-lg-6">
-                        <?php the_field('components_right'); ?>
+                        <?php the_field('components'); ?>
                       </div>
                       <div class="col-lg-6">
                         <?php the_field('components_right'); ?>
