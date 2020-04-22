@@ -76,7 +76,10 @@ $sku = $product->get_sku();
       <div class="col-12">
         <div class="hero-product">
           <?php
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+            $header_image = get_field("header_image");
+            if($header_image)
+              $featured_img_url = $header_image;
             if( $featured_img_url )
               echo '<img src="'.$featured_img_url.'" alt="hero product marquee hero" class="img-fluid media-bg">';
 
