@@ -37,14 +37,32 @@
     background-position: center;
     &.video {
         a {
-            background-image: url('/wp-content/themes/mizuho/images/icon-video-blue.svg');
-            background-size: 80px;
-            background-repeat: no-repeat;
-            background-position: center;
             width: 100%;
             height: 100%;
             display: block;
             position: relative;
+            &:before {
+                content: '';
+                background: rgba(35,63,87,.7);
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            &:after {
+                content: '';
+                background-image: url('/wp-content/themes/mizuho/images/play-video-icon.svg');
+                background-size: 80px;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
         }
     }
     img {
