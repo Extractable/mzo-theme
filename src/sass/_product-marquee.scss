@@ -34,7 +34,19 @@
     order: 2;
     min-height: 475px;
     background-size: cover !important;
-
+    background-position: center;
+    &.video {
+        a {
+            background-image: url('/wp-content/themes/mizuho/images/icon-video-blue.svg');
+            background-size: 80px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+        }
+    }
     img {
       width: 100%;
       height: 100%;
@@ -43,10 +55,14 @@
   }
 }
 
+@media (max-width: 1024px) {
+    .col-md-6 {
+        margin-bottom: 0;
+    }
+}
 
 
-
-@media (max-width: 767.98px) {
+@media (max-width: 767px) {
   .product-marquee {
     background-size: 140%;
     background-repeat: no-repeat;
@@ -54,7 +70,8 @@
 
     .product-marquee-text-area {
       border-radius: 8px;
-      margin: -65px 0 0;
+      //margin: -65px 0 0;
+      margin: 0;
       padding: 30px 15px 20px;
       order: 2;
       background: none;
@@ -75,6 +92,7 @@
         margin-right: 0;
         padding: 0 15px;
         z-index: 2;
+        max-width: 100%;
 
         p,
         h2,
@@ -97,6 +115,7 @@
 
     .product-marquee-media-area {
       order: 1;
+      min-height: 300px !important;
     }
   }
 }

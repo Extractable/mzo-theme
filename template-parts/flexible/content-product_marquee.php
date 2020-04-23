@@ -15,14 +15,15 @@ if($button_url=="")
 if($image){
   $image = 'background-image:url('.$image.');';
 }
-if($video){
-  $image = $video;
-}
 ?>
-<section class="product-marquee extra-tall"  style="<?php echo $background_image;?>;">
+<section class="product-marquee extra-tall" style="<?php echo $background_image;?>;">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 px-0 product-marquee-media-area" style="<?php echo $image;?>"></div>
+      <div class="col-md-6 px-0 product-marquee-media-area<?php if($video): echo ' video'; endif; ?>" style="<?php echo $image;?>">
+        <?php if($video): ?>
+            <a href="<?php echo $video; ?>" data-fancybox="" class="link-label"></a>
+        <?php endif; ?>
+      </div>
       <div class="col-md-6 text-white product-marquee-text-area">
         <div class="fix-container-position">
           <?php if($title){?><h2 class="text-white mb-2 mb-md-4"><?php echo $title;?></h2><?php } ?>
