@@ -77,6 +77,7 @@ $footer_link_text = get_field('footer_link_text', 'option');
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.10/iframeResizer.min.js"></script>
 <script src="<?php echo $themesite;?>/assets/js/theme.js?time=<?php echo time(); ?>"></script>
 
 <?php wp_footer(); ?>
