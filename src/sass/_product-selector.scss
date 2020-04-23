@@ -92,6 +92,10 @@
   .owl-item {
     pointer-events: none;
 
+    img {
+        width: auto;
+    }
+
     &.active {
       pointer-events: all;
     }
