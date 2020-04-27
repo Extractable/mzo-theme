@@ -128,6 +128,7 @@ $form_content = get_field('form_content', 'option');
 		<?php
 		$resources_title = get_field("resources_title");
 		$resources_list = get_field("resources_list");
+        $resourceContentPro = get_sub_field('content');
 		if($resources_title){
 		?>
 		<section class="resources-icons">

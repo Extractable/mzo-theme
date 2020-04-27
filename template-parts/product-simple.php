@@ -94,9 +94,10 @@ $sku = $product->get_sku();
             </div>
             <div class="button-area">
               <?php
+              $dropdown_title = get_field("dropdown_title");
               $request = get_field("request");
               if($request){
-                echo '<div class="custom-button-dropdown"><a  data-target="#collapseCustomDropdown" class="main-button collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCustomDropdown">Request Information</a><div id="collapseCustomDropdown" class="dropdown-button collapse">';
+                echo '<div class="custom-button-dropdown"><a  data-target="#collapseCustomDropdown" class="main-button collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCustomDropdown">'. $dropdown_title .'</a><div id="collapseCustomDropdown" class="dropdown-button collapse">';
                 foreach($request as $reqdata){
                   echo '<a href="'.$reqdata["url"].'">'.$reqdata["title"].' <i class="fas fa-arrow-right"></i></a>';
                 }
@@ -156,7 +157,7 @@ $sku = $product->get_sku();
         ?>
       </div>
       <div class="col-md-1 <?php echo $order2;?>"></div>
-      <div class="col-md-5 media-area order-1 <?php echo $order3;?>" style="border: 2px solid red;">
+      <div class="col-md-5 media-area order-1 <?php echo $order3;?>">
         <?php
           echo $media;
         ?>
