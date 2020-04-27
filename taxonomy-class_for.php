@@ -337,21 +337,21 @@ else{
 			            <a data-toggle="collapse" class="collapsed" href="#filter-class" role="button">Class <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-checkbox collapse" id="filter-class">
-			            <h6>Class <a href="#" class="classclassca clearall" style="display:none;">Clear All</a></h6>
+			            <h6>Class <a class="classclassca clearall" style="display:none;">Clear All</a></h6>
 			            <?php echo $htmlclass;?>
 			          </div>
 			          <div class="toggle-filter-inside d-block d-lg-none">
 			            <a data-toggle="collapse" class="collapsed" href="#filter-product" role="button">Product <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-checkbox collapse" id="filter-product">
-			            <h6>Product <a href="#" class="classproductca clearall" style="display:none;">Clear All</a></h6>
+			            <h6>Product <a class="classproductca clearall" style="display:none;">Clear All</a></h6>
 			            <?php echo $htmlproduct;?>
 			          </div>
 			          <div class="toggle-filter-inside d-block d-lg-none">
 			            <a data-toggle="collapse" class="collapsed" href="#filter-type" role="button">Type <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-checkbox collapse" id="filter-type">
-			            <h6>Type <a href="#" class="classtypeca clearall" style="display:none;">Clear All</a></h6>
+			            <h6>Type <a class="classtypeca clearall" style="display:none;">Clear All</a></h6>
 			            <?php echo $htmltype;?>
 			          </div>
 			          <div class="d-block d-lg-none">

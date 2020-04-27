@@ -280,7 +280,7 @@ else{
                       <a data-toggle="collapse" class="collapsed" href="#filter-toggle-'.$termlist->name.'" role="button aria-expanded="true" aria-controls="filter-toggle-'.$termlist->name.'">'.$termlist->label.' <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
                     </div>
                     <div class="filter-checkbox collapse" id="filter-toggle-'.$termlist->name.'">
-                      <h6>'.$termlist->label.' <a href="#" class="calist '.$termlist->name.'ca clearall" style="display:none;">Clear All</a></h6>
+                      <h6>'.$termlist->label.' <a class="calist '.$termlist->name.'ca clearall" style="display:none;">Clear All</a></h6>
                       '.$htmlterm.'
                     </div>
                    ';

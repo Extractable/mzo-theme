@@ -131,8 +131,8 @@ if($header_sub_title)
 					'tax_query' => array(
 					    'relation' => 'AND',
 					    $additionalfilter
-					),    
-				 );  	
+					),
+				 );
 
 
     $termdatas = get_terms( array( 'taxonomy' => 'resource_type', 'hide_empty' => false ) );
@@ -142,7 +142,7 @@ if($header_sub_title)
 		              <div class="custom-control custom-checkbox">
 		                <input type="checkbox" class="custom-control-input" id="resourcetype_'.$termdata->slug.'" name="resourcetype_'.$termdata->slug.'" rel="resourcetype" value="'.$termdata->slug.'">
 		                <label class="custom-control-label" for="resourcetype_'.$termdata->slug.'">'.$termdata->name.'</label>
-		              </div>                  
+		              </div>
 		             ';
 	}
     $termdatas = get_terms( array( 'taxonomy' => 'resource_surgical_table', 'hide_empty' => false ) );
@@ -152,7 +152,7 @@ if($header_sub_title)
 			              <div class="custom-control custom-checkbox">
 			                <input type="checkbox" class="custom-control-input" id="resourcesurgical_'.$termdata->slug.'" name="resourcesurgical_'.$termdata->slug.'" rel="resourcesurgical" value="'.$termdata->slug.'">
 			                <label class="custom-control-label" for="resourcesurgical_'.$termdata->slug.'">'.$termdata->name.'</label>
-			              </div>                  
+			              </div>
 			             ';
 	}
     $termdatas = get_terms( array( 'taxonomy' => 'resource_other_product', 'hide_empty' => false ) );
@@ -162,7 +162,7 @@ if($header_sub_title)
 			              <div class="custom-control custom-checkbox">
 			                <input type="checkbox" class="custom-control-input" id="resourceother_'.$termdata->slug.'" name="resourceother_'.$termdata->slug.'" rel="resourceother" value="'.$termdata->slug.'">
 			                <label class="custom-control-label" for="resourceother_'.$termdata->slug.'">'.$termdata->name.'</label>
-			              </div>                  
+			              </div>
 			           ';
 	}
 
@@ -179,7 +179,7 @@ if($header_sub_title)
             $permalink = get_permalink();
             $title = get_the_title();
             $content = wp_trim_words(strip_tags(get_the_excerpt()), 10, "");
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
             $cta_text = get_field("cta_text");
             $cta_url = get_field("cta_url");
             if($cta_url=="")
@@ -196,7 +196,7 @@ if($header_sub_title)
 	                        <h5><a href="'.$permalink.'">'.$title.'</a></h5>
 			                '.$cta_text.'
 			              </div>
-			            </div>                      
+			            </div>
 	                  ';
             $countercol++;
             if($countercol>=4){
@@ -208,7 +208,7 @@ if($header_sub_title)
 	$stylesmp = "";
 	if($shownav){
 		$stylesmp = "display:block;";
-	}         
+	}
 	else{
 		$stylesmp = "display:none;";
 	}
@@ -237,21 +237,21 @@ if($header_sub_title)
 						            <a data-toggle="collapse" class="collapsed" href="#filter-type" role="button">Type <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 						          </div>
 						          <div class="filter-checkbox collapse" id="filter-type">
-						            <h6>Type <a href="#" class="resourcetypeca clearall" style="display:none;">Clear All</a></h6>
+							            <h6>Type <a class="resourcetypeca clearall" style="display:none;">Clear All</a></h6>
 						            '.$htmltype.'
 						          </div>
 						          <div class="toggle-filter-inside d-block d-lg-none">
 						            <a data-toggle="collapse" class="collapsed" href="#filter-surgical-tables" role="button">Surgical Tables <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 						          </div>
 						          <div class="filter-checkbox collapse" id="filter-surgical-tables">
-						            <h6>Surgical Tables <a href="#" class="resourcesurgicalca clearall" style="display:none;">Clear All</a></h6>
+						            <h6>Surgical Tables <a class="resourcesurgicalca clearall" style="display:none;">Clear All</a></h6>
 						            '.$htmlsurgical.'
 						          </div>
 						          <div class="toggle-filter-inside d-block d-lg-none">
 						            <a data-toggle="collapse" class="collapsed" href="#filter-other" role="button">Other Products <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 						          </div>
 						          <div class="filter-checkbox collapse" id="filter-other">
-						            <h6>Other Products <a href="#" class="resourceotherca clearall" style="display:none;">Clear All</a></h6>
+						            <h6>Other Products <a class="resourceotherca clearall" style="display:none;">Clear All</a></h6>
 						            '.$htmlotherp.'
 						          </div>
 						          <div class="d-block d-lg-none">
@@ -282,7 +282,7 @@ if($header_sub_title)
 						      </div>
 						    </div>
 						  </div>
-						</section>	
+						</section>
 				   ';
 
 

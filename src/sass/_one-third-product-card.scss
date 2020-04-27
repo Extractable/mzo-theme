@@ -34,7 +34,8 @@
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         width: 100%;
-        min-height: 93px;
+        //min-height: 93px;
+        min-height: 120px;
 
         &::before {
           content: "";
@@ -97,7 +98,7 @@
 
           p,
           a.label-link {
-            max-height: 200px ;  
+            max-height: 200px ;
           }
         }
       }
@@ -118,7 +119,7 @@
         &:nth-child(5n+3), &.pcol3 {
           margin-right: 2.7%;
         }
-        
+
         img {
           height: 330px;
         }
