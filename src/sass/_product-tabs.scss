@@ -41,14 +41,14 @@
 
   .tab-content {
     background: #f7f7f7;
-    padding: 20px 30px;
+    padding: 40px 30px;
     font-size: 16px;
     z-index: 2;
     position: relative;
 
     h5 {
       margin-bottom: 20px;
-      margin-top: 30px;
+      margin-top: 0 !important;
     }
 
     p {
