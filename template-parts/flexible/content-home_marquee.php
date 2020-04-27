@@ -3,7 +3,7 @@ $themesite = get_stylesheet_directory_uri();
 
 $background_image = get_sub_field("background_image");
 if($background_image){
-  $background_image = ", url(".$background_image.")";
+  $background_image_bg = ", url(".$background_image.")";
 }
 $background_video = get_sub_field("background_video");
 $sub_title = get_sub_field("sub_title");
@@ -22,14 +22,14 @@ else{
   $layout = "homepage-marquee";
 }
 ?>
-<section class="<?php echo $layout;?>" style="background-image: url(<?php echo $themesite;?>/images/homepage-bottom-mask-invert.png)<?php echo $background_image;?>;">
+<section class="<?php echo $layout;?>" style="background-image: url(<?php echo $themesite;?>/images/homepage-bottom-mask-invert.png)<?php echo $background_image_bg;?>;">
   <?php
     if($background_video){
       echo '<div class="backgroundvideo">'.$background_video.'</div>';
     }
   ?>
   <div class="bg-mobile d-block d-md-none">
-    <img src="<?php echo $themesite;?>/images/homepage_marquee_hero.jpg" alt="mobile-bg" class="img-fluid">
+    <img src="<?php echo $background_image; ?>" alt="mobile-bg" class="img-fluid">
   </div>
   <div class="container">
     <div class="row">
