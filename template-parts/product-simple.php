@@ -20,7 +20,7 @@ $sku = $product->get_sku();
                   $terms[$term->parent]->children[] = $term;
                   unset($terms[$key]);
               }
-          }        
+          }
 
           $categories = get_the_terms(get_the_ID(), 'product_cat', $args);
           $counter=0;
@@ -56,7 +56,7 @@ $sku = $product->get_sku();
               else{
                 $listmenu .= ' <a href="'.get_term_link($category).'">'.$category->name.'</a> /';
               }
-            }            
+            }
           }
         ?>
         <span class="d-none d-md-inline-block"><a href="<?php echo get_option("siteurl");?>">Home</a> / <?php echo $listmenu;?></span> <?php echo $lastitem;?>
@@ -75,8 +75,8 @@ $sku = $product->get_sku();
     <div class="row mt-3">
       <div class="col-12">
         <div class="hero-product">
-          <?php 
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+          <?php
+            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
           	$header_image = get_field("header_image");
           	if($header_image)
           		$featured_img_url = $header_image;
@@ -87,7 +87,7 @@ $sku = $product->get_sku();
             if( $video_url )
               echo '<a href="'.$video_url.'" data-fancybox class="video-link"><img src="'.$themeurl.'/images/icon-video-blue.svg" alt="icon video" class="img-fluid"></a>';
           ?>
-          
+
           <div class="label">
             <div class="text-area">
                <div class="shortdescription"><?php the_excerpt(); ?></div>
@@ -156,7 +156,7 @@ $sku = $product->get_sku();
         ?>
       </div>
       <div class="col-md-1 <?php echo $order2;?>"></div>
-      <div class="col-md-5 media-area order-1 <?php echo $order3;?>">
+      <div class="col-md-5 media-area order-1 <?php echo $order3;?>" style="border: 2px solid red;">
         <?php
           echo $media;
         ?>
