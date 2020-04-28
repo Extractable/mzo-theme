@@ -37,8 +37,8 @@ $related = get_sub_field("related");
                 $featured_img_url = get_stylesheet_directory_uri()."/images/related_products_productname_hero1.jpg";
               $term = get_primary_taxonomy_term($postdata->ID);
 
-              $sub_title = get_field("sub_title",$postdata->ID);
               if(get_post_type($postdata->ID)=="product"){
+                $sub_title = get_field("sub_title",$postdata->ID);
                 $sku = get_post_meta($postdata->ID,"_sku",true);
                 if( $sku ):
                     $sub_title = '<p class="eyebrow">Part #'.$sku.'</p>';
@@ -50,7 +50,13 @@ $related = get_sub_field("related");
                 $link = '<p class="link"><a href="'.get_permalink($postdata->ID).'">Learn More <i class="fas fa-angle-right ml-2"></i></a></p>';
               }
               else{
-                $sub_title = '<p class="eyebrow text-uppercase">'.$sub_title.'</p>';
+                $sub_title = get_field("eyebrow_text",$postdata->ID);
+                if( $sub_title ):
+                    $sub_title = '<p class="eyebrow text-uppercase">'.$sub_title.'</p>';
+                else:
+                    $sub_title = '<p class="eyebrow">&nbsp;</p>';
+                endif;
+
                 $description = str_replace("<p>",'<p class="desc d-block d-md-none">',wpautop(get_the_excerpt($postdata->ID)));
                 $link = '<p class="link"><a href="'.$term["url"].'">'.$term["title"].'</a></p>';
               }

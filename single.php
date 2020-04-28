@@ -52,7 +52,7 @@ $hide_social = get_field("hide_social");
 			      </div>
 			    </div>
 			  </div>
-			</section>		
+			</section>
 
 			<section class="article-page-banner default-banner section-padding" style="<?php echo $background_color.$background_image;?>">
 			  <div class="container">
@@ -63,7 +63,7 @@ $hide_social = get_field("hide_social");
 			      </div>
 			    </div>
 			  </div>
-			</section>		
+			</section>
 			<section class="article-page">
 			  <div class="container">
 			  	<?php if($hide_date && $hide_author && $hide_social){} else{?>
@@ -79,11 +79,11 @@ $hide_social = get_field("hide_social");
 			      			echo '<p>By <a href="'.get_the_author_url().'">'.get_the_author_meta('display_name').'</a></p>';
 			      		}
 			      	?>
-			        
+
 			      </div>
 			      <div class="col-md-6">
 			        <div class="article-social text-md-right mb-2">
-			        	<?php 
+			        	<?php
 			        		if(!$hide_social){
 			        			echo do_shortcode('[ssba-buttons]');
 			        		}
@@ -169,95 +169,28 @@ $hide_social = get_field("hide_social");
 						}
 						else{
 							echo do_shortcode($post->post_content);
-						}		    		
+						}
 			    	?>
 			    	</div>
 			    </div>
 			  </div>
-			</section>				
+			</section>
 			<?php
 		endwhile; // End of the loop.
 		?>
-		<?php
 
-		if($posttype=="post"){
-			$related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 3, 'post__not_in' => array($post->ID) ) );
-		}
-		else if($posttype=="resource"){
-			$cats = wp_get_object_terms( $post->ID, 'resource_for', array( 'fields' => 'ids' ) );
-			$related = get_posts( array( 'category__in' => $cats, 'numberposts' => 3, 'post__not_in' => array($post->ID) ) );
-			$related = get_posts(array(
-										  'post_type' => 'resource',
-										  'numberposts' => 3,
-										  'tax_query' => array(
-										    array(
-										      'taxonomy' => 'resource_for',
-										      'field' => 'term_id', 
-										      'terms' => $cats,
-										      'include_children' => false
-										    )
-										  )
-									   ));					
-		}
-		if( $related ) {
+		<!-- Global Modules -->
+		<?php
+		while ( have_posts() ) :
+			the_post();
+			if( have_rows('content') ):
+				while ( have_rows('content') ) : the_row();
+					get_template_part("template-parts/flexible/content", get_row_layout());
+				endwhile;
+			endif;
+		endwhile; // End of the loop.
 		?>
-		<section class="related-product-cards">
-		  <div class="container">
-		    <div class="row">
-		      <div class="col-12">
-		        <h3>Related Content</h3>
-		      </div>
-		    </div>
-		    <div class="row mt-4">
-		      <div class="col-12 related-cards">
-		      	<?php
-					foreach( $related as $post ) {
-						setup_postdata($post); 
-						$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
-						$sub_title = get_field("sub_title");
-						if($featured_img_url == "")
-							$featured_img_url = get_stylesheet_directory_uri()."/images/related_products_productname_hero1.jpg"; 
-						$term = get_primary_taxonomy_term();
-						echo '
-						        <div class="related-card">
-						          <img src="'.$featured_img_url.'" alt="'.$post->post_title.'" class="img-fluid">
-						          <div class="text-area">
-						            <p class="eyebrow text-uppercase">'.$sub_title.'</p>
-						            <p class="title"><a href="#">'.$post->post_title.'</a></p>
-						            <p class="desc d-block d-md-none">'.get_the_excerpt().'</p>
-						            <p class="link"><a href="'.$term["url"].'">'.$term["title"].'</a></p>
-						          </div>
-						        </div>						
-							 ';
-					}
-				wp_reset_postdata();
-		      	?>
-		      </div>
-		    </div>
-		  </div>
-		</section>
-		<?php } ?>
-		<section class="contact-us section-padding">
-		  <div class="container">
-		    <div class="row">
-		      <div class="col-lg-8 mx-auto text-center">
-		        <?php 
-		        	if($form_title){
-		        		echo '<h2>'.$form_title.'</h2>';
-		        	} 
-		        	if($form_sub_title){
-		        		echo '<h6 class="px-md-3">'.$form_sub_title.'</h6>';
-		        	} 
-		        ?>
-		      </div>
-		    </div>
-		    <div class="row mt-4">
-		      <div class="col-lg-8 mx-auto">
-		      	<?php echo do_shortcode($form_content);?>
-		      </div>
-		    </div>
-		  </div>
-		</section>
+		<!-- /Global Modules -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
