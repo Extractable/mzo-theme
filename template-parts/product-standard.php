@@ -24,39 +24,78 @@ $product_media = get_field("product_media");
               }
           }
 
-          $categories = get_the_terms(get_the_ID(), 'product_cat', $args);
-          $counter=0;
-          $totalcat = count($categories);
-          $lastitem = "";
-          $listmenu = "";
-          $parentchild = 0;
-          foreach ($terms as $category) {
-            if($category->parent==0){
-              $parentchild = 1;
-              $listmenu .= ' <a href="'.get_term_link($category).'">'.$category->name.'</a> /';
-              $totalcat = count($terms[$category->term_id]->children);
-              $counter = 1;
-              foreach($terms[$category->term_id]->children as $children){
-                if ($counter==$totalcat) {
-                    //last item
-                    $lastitem = '<span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-left mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="'.get_term_link($children).'">'.$children->name.'</a>';
-                } else {
-                    $listmenu .= ' <a href="'.get_term_link($children).'">'.$children->name.'</a> /';
-                }
-                $counter++;
+          $wpseo_primary_term = new WPSEO_Primary_Term( 'product_cat', get_the_ID() );
+          $wpseo_primary_term = $wpseo_primary_term->get_primary_term();
+          $termseo = get_term( $wpseo_primary_term );
+          if(@$termseo->term_id){
+              $listmenuArray = Array();
+              $listmenuArray[] = Array("link" => get_term_link($termseo->term_id), "name" => $termseo->name);
+              if($termseo->parent>0){
+                $termseo2 = get_term( $termseo->parent, "product_cat" ); 
+                $listmenuArray[] = Array("link" => get_term_link($termseo2->term_id), "name" => $termseo2->name);
+                if($termseo2->parent>0){
+                  $termseo3 = get_term( $termseo2->parent, "product_cat" ); 
+                  $listmenuArray[] = Array("link" => get_term_link($termseo3->term_id), "name" => $termseo3->name);
+                  if($termseo3->parent>0){
+                    $termseo4 = get_term( $termseo3->parent, "product_cat" ); 
+                    $listmenuArray[] = Array("link" => get_term_link($termseo4->term_id), "name" => $termseo4->name);
+                    if($termseo4->parent>0){
+                      $termseo5 = get_term( $termseo4->parent, "product_cat" ); 
+                      $listmenuArray[] = Array("link" => get_term_link($termseo5->term_id), "name" => $termseo5->name);
+                      if($termseo5->parent>0){
+                        $termseo6 = get_term( $termseo5->parent, "product_cat" ); 
+                        $listmenuArray[] = Array("link" => get_term_link($termseo6->term_id), "name" => $termseo6->name);
+                      }                         
+                    }                          
+                  }                      
+                }                
               }
-              break;
-            }
+              $lastitem = "";
+              $listmenu = "";
+              for($counter=(count($listmenuArray)-1);$counter>=0;$counter--){
+                  if ($counter==0) {
+                      //last item
+                      $lastitem = '<span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-left mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="'.$listmenuArray[$counter]["link"].'">'.$listmenuArray[$counter]["name"].'</a>';
+                  } else {
+                      $listmenu .= ' <a href="'.$listmenuArray[$counter]["link"].'">'.$listmenuArray[$counter]["name"].'</a> /';
+                  }
+              }
           }
-          if($parentchild<1){
-            foreach($categories as $category){
-              $counter++;
-              if($counter==$totalcat){
-                //last item
-                $lastitem = '<span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-left mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="'.get_term_link($category).'">'.$category->name.'</a>';
-              }
-              else{
+          else{
+            $categories = get_the_terms(get_the_ID(), 'product_cat', $args);
+            $counter=0;
+            $totalcat = count($categories);
+            $lastitem = "";
+            $listmenu = "";
+            $parentchild = 0;
+            foreach ($terms as $category) {
+              if($category->parent==0){
+                $parentchild = 1;
                 $listmenu .= ' <a href="'.get_term_link($category).'">'.$category->name.'</a> /';
+                $totalcat = count($terms[$category->term_id]->children);
+                $counter = 1;
+                foreach($terms[$category->term_id]->children as $children){
+                  if ($counter==$totalcat) {
+                      //last item
+                      $lastitem = '<span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-left mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="'.get_term_link($children).'">'.$children->name.'</a>';
+                  } else {
+                      $listmenu .= ' <a href="'.get_term_link($children).'">'.$children->name.'</a> /';
+                  }
+                  $counter++;
+                }
+                break;
+              }
+            }
+            if($parentchild<1){
+              foreach($categories as $category){
+                $counter++;
+                if($counter==$totalcat){
+                  //last item
+                  $lastitem = '<span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-left mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="'.get_term_link($category).'">'.$category->name.'</a>';
+                }
+                else{
+                  $listmenu .= ' <a href="'.get_term_link($category).'">'.$category->name.'</a> /';
+                }
               }
             }
           }
