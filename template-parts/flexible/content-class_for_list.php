@@ -38,7 +38,7 @@ $class_for = get_sub_field("class_for");
             echo '
                   <div class="col px-3 px-md-2">
                     <div class="item">
-                      <a href="#" class="d-flex flex-column justify-content-center text-center">
+                      <a href="'.$classfor["link"].'" target="'.$classfor["target"].'" class="d-flex flex-column justify-content-center text-center">
                         <div class="square-image">
                           <img src="'.$classfor["image"].'" alt="'.$term->name.'" class="mx-auto">
                         </div>
@@ -46,7 +46,7 @@ $class_for = get_sub_field("class_for");
                         <p class="small">'.$classfor["description"].'</p>
                       </a>
                     </div>
-                  </div>            
+                  </div>
                  ';
           }
         ?>

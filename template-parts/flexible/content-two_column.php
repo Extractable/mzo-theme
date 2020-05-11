@@ -46,6 +46,7 @@ $bullet_points = get_sub_field("bullet_points");
 $button_type = get_sub_field("button_type");
 $button_text = get_sub_field("button_text");
 $button_url = get_sub_field("button_url");
+$button_target = get_sub_field("button_target");
 if($button_url=="")
   $button_url="#";
 if($bullet_points_color){
@@ -90,13 +91,13 @@ if($bullet_points_no_dots){
           }
           if($button_text){
             if($button_type=="simple"){
-              echo '<p><a class="link-text" href="'.$button_url.'">'.$button_text.'</a></p>';
+              echo '<p><a class="link-text" href="'.$button_url.'" target="'.$button_target.'">'.$button_text.'</a></p>';
             }
             else if($button_type=="button"){
-              echo '<p><a class="btn btn-primary my-3" href="'.$button_url.'">'.$button_text.'</a></p>';
+              echo '<p><a class="btn btn-primary my-3" href="'.$button_url.'" target="'.$button_target.'">'.$button_text.'</a></p>';
             }
             else if($button_type=="caret"){
-              echo '<p><a class="link-text" href="'.$button_url.'">'.$button_text.' <i class="fas fa-angle-right ml-2"></i></a></p>';
+              echo '<p><a class="link-text" href="'.$button_url.'" target="'.$button_target.'">'.$button_text.' <i class="fas fa-angle-right ml-2"></i></a></p>';
             }
           }
         ?>

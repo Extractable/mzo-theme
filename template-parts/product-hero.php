@@ -151,7 +151,7 @@ $sku = $product->get_sku();
               if($download_brochure_text){
                 echo  '
                         <div class="download-brochure">
-                          <p><a href="'.$download_brochure_url.'">'.$download_brochure_text.' <img src="'.$themeurl.'/images/button-download.svg" alt="download icon" class="img-fluid ml-2"></a></p>
+                          <p><a href="'.$download_brochure_url.'" target="_blank">'.$download_brochure_text.' <img src="'.$themeurl.'/images/button-download.svg" alt="download icon" class="img-fluid ml-2"></a></p>
                         </div>
                       ';
               }

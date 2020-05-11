@@ -44,12 +44,14 @@ $bullet_points = get_sub_field("bullet_points");
 $button_type = get_sub_field("button_type");
 $button_text = get_sub_field("button_text");
 $button_url = get_sub_field("button_url");
+$button_target = get_sub_field("button_target");
 if($button_url=="")
   $button_url="#";
 
 $button_type_2 = get_sub_field("button_type_2");
 $button_text_2 = get_sub_field("button_text_2");
 $button_url_2 = get_sub_field("button_url_2");
+$button_target_2 = get_sub_field("button_target_2");
 if($button_url_2=="")
   $button_url_2="#";
 
@@ -97,24 +99,24 @@ if($bullet_points_no_dots){
             echo '<div class="row pt-2 pt-md-4">';
             echo '<div class="col-md-6">';
             if($button_type=="simple"){
-              echo '<a class="link-text" href="'.$button_url.'">'.$button_text.'</a>';
+              echo '<a class="link-text" href="'.$button_url.'" target="'.$button_target.'">'.$button_text.'</a>';
             }
             else if($button_type=="button"){
-              echo '<a class="btn btn-primary my-3" href="'.$button_url.'">'.$button_text.'</a>';
+              echo '<a class="btn btn-primary my-3" href="'.$button_url.'" target="'.$button_target.'">'.$button_text.'</a>';
             }
             else if($button_type=="caret"){
-              echo '<a class="link-text" href="'.$button_url.'">'.$button_text.' <i class="fas fa-angle-right ml-2"></i></a>';
+              echo '<a class="link-text" href="'.$button_url.'" target="'.$button_target.'">'.$button_text.' <i class="fas fa-angle-right ml-2"></i></a>';
             }
             echo '</div>';
             echo '<div class="col-md-6 d-inline-flex align-items-center justify-content-center justify-content-md-start">';
             if($button_type_2=="simple"){
-              echo '<a class="link-text" href="'.$button_url_2.'">'.$button_text_2.'</a>';
+              echo '<a class="link-text" href="'.$button_url_2.'" target="'.$button_target_2.'">'.$button_text_2.'</a>';
             }
             else if($button_type_2=="button"){
-              echo '<a class="btn btn-primary my-3" href="'.$button_url_2.'">'.$button_text_2.'</a>';
+              echo '<a class="btn btn-primary my-3" href="'.$button_url_2.'" target="'.$button_target_2.'">'.$button_text_2.'</a>';
             }
             else if($button_type_2=="caret"){
-              echo '<a class="link-text" href="'.$button_url_2.'">'.$button_text_2.' <i class="fas fa-angle-right ml-2"></i></a>';
+              echo '<a class="link-text" href="'.$button_url_2.'" target="'.$button_target_2.'">'.$button_text_2.' <i class="fas fa-angle-right ml-2"></i></a>';
             }
             echo '</div>';
           }
