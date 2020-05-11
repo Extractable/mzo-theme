@@ -15,10 +15,6 @@ $postnews = get_field( 'class_page', 'option' );
 $posttitle = get_the_title($postnews);
 $postlink = get_permalink($postnews);
 
-$form_title = get_field('form_title', 'option');
-$form_sub_title = get_field('form_sub_title', 'option');
-$form_content = get_field('form_content', 'option');
-
 $term = get_queried_object();
 $background_image = get_field('background_image', $term);
 if($background_image=="")
@@ -28,9 +24,7 @@ $header_title = get_field('header_title', $term);
 if($header_title=="")
 	$header_title = $term->name;
 $header_sub_title = get_field('header_sub_title', $term);
-$content_term = get_field('content', $term);
-$class_desc = get_field('class_desc', $term);
-$class_sub_desc = get_field('class_sub_desc', $term);
+$content = get_field('content', $term);
 $button_text = get_field('button_text', $term);
 $button_url = get_field('button_url', $term);
 if($button_url=="")
@@ -47,20 +41,20 @@ $termdatas = get_terms( array( 'taxonomy' => 'class_for', 'hide_empty' => false 
 $listcategory = "";
 foreach( $termdatas as $termdata ){
 	if($term->slug==$termdata->slug){
-		$listcategory .= ' <li><a href="'.get_term_link($termdata).'" rel="'.$termdata->slug.'" class="active">'.$termdata->name.'</a></li>';
+		$listcategory .= ' <li><a href="#" rel="'.$termdata->slug.'" class="active">'.$termdata->name.'</a></li>';
 	}
 	else{
-		$listcategory .= ' <li><a href="'.get_term_link($termdata).'" rel="'.$termdata->slug.'">'.$termdata->name.'</a></li>';
+		$listcategory .= ' <li><a href="#" rel="'.$termdata->slug.'">'.$termdata->name.'</a></li>';
 	}
 }
 
 $additionalfilter = Array();
 $category = @$_REQUEST["cat"];
-if($term!=""){
+if($category!=""){
 	$additionalfilter[] =array(
 	                              'taxonomy' => "class_for",
 	                              'field' => 'slug',
-	                              'terms' => explode(",",$term->slug),
+	                              'terms' => explode(",",$category),
 	                              'operator' => 'IN',
 	                          );
 }
@@ -83,7 +77,7 @@ if($class_class!=""){
 	                          );
 }
 $class_product = @$_REQUEST["class_product"];
-if(@$class_other_product!=""){
+if($class_other_product!=""){
 	$additionalfilter[] =array(
 	                              'taxonomy' => "class_product",
 	                              'field' => 'slug',
@@ -113,8 +107,8 @@ $args = array(
 				'tax_query' => array(
 				    'relation' => 'AND',
 				    $additionalfilter
-				),
-			 );
+				),    
+			 );  	
 
 
 $termdatas = get_terms( array( 'taxonomy' => 'class_class', 'hide_empty' => false ) );
@@ -124,7 +118,7 @@ foreach( $termdatas as $termdata ){
 		              <div class="custom-control custom-checkbox">
 		                <input type="checkbox" class="custom-control-input" id="classclass_'.$termdata->slug.'" name="classclass_'.$termdata->slug.'" rel="classclass" value="'.$termdata->slug.'">
 		                <label class="custom-control-label" for="classclass_'.$termdata->slug.'">'.$termdata->name.'</label>
-		              </div>
+		              </div>                  
 		             ';
 }
 $termdatas = get_terms( array( 'taxonomy' => 'class_product', 'hide_empty' => false ) );
@@ -134,7 +128,7 @@ foreach( $termdatas as $termdata ){
 		              <div class="custom-control custom-checkbox">
 		                <input type="checkbox" class="custom-control-input" id="classproduct_'.$termdata->slug.'" name="classproduct_'.$termdata->slug.'" rel="classproduct" value="'.$termdata->slug.'">
 		                <label class="custom-control-label" for="classproduct_'.$termdata->slug.'">'.$termdata->name.'</label>
-		              </div>
+		              </div>                  
 		           ';
 }
 $termdatas = get_terms( array( 'taxonomy' => 'class_type', 'hide_empty' => false ) );
@@ -144,7 +138,7 @@ foreach( $termdatas as $termdata ){
 	              <div class="custom-control custom-checkbox">
 	                <input type="checkbox" class="custom-control-input" id="classtype_'.$termdata->slug.'" name="classtype_'.$termdata->slug.'" rel="classtype" value="'.$termdata->slug.'">
 	                <label class="custom-control-label" for="classtype_'.$termdata->slug.'">'.$termdata->name.'</label>
-	              </div>
+	              </div>                  
 	             ';
 }
 
@@ -162,19 +156,14 @@ if ( $query->have_posts() ) {
         $permalink = get_permalink();
         $title = get_the_title();
         $content = get_the_content();//wp_trim_words(strip_tags(get_the_excerpt()), 10, "");
-        $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+        $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
         $sku = get_field("sku");
         $price = get_field("price");
         $download_brochure_link = get_field("download_brochure_link");
         $register_link = get_field("register_link");
         $datas = get_field("data");
         $contentdata = '';
-
         $countertemp=$countertemp+1;
-		//$queryURL = parse_url( html_entity_decode( esc_url( add_query_arg( $arr_params ) ) ) );
-		//parse_str( $queryURL['query'], $getVar );
-		$classTitle = get_field("class_title");
-		//echo 'Describe yourself: ' . $variableNum1 . '. What do you like most about PHP? ' . $variableNum2;
         foreach($datas as $data){
         	$class = "";
         	$text = "REGISTER";
@@ -182,14 +171,15 @@ if ( $query->have_posts() ) {
         		$class = "disabled";
         		$text = "Class Full";
         	}
-
-			$classDate = $data["date"];
+        	if($data["url"]==""){
+        		$data["url"]="#";
+        	}
 			$contentdata .= '
 				                <tr>
 				                  <td>'.$data["date"].'</td>
 				                  <td>'.$data["location"].'</td>
-				                  <td><a href="/registration/?training='.$classTitle.'&date='.$classDate.'" class="btn btn-primary '.$class.'">'.$text.'</a></td>
-				                </tr>
+				                  <td><a href="'.$data["url"].'" class="btn btn-primary '.$class.'">'.$text.'</a></td>
+				                </tr>			
 							';
         }
         $buttonhtml  = '';
@@ -267,7 +257,7 @@ if ( $query->have_posts() ) {
 			              </tbody>
 			            </table>
 			          </div>
-			        </div>
+			        </div>                 
                   ';
         $countercol++;
         if($countercol>=4){
@@ -279,7 +269,7 @@ wp_reset_postdata();
 $stylesmp = "";
 if($shownav){
 	$stylesmp = "display:block;";
-}
+}         
 else{
 	$stylesmp = "display:none;";
 }
@@ -287,17 +277,16 @@ else{
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-			<!-- breadcrumb -->
+
 			<section class="top-breadcrumb">
 			  <div class="container">
 			    <div class="row">
 			      <div class="col-12">
-			        <span class="d-none d-md-inline-block"><a href="<?php echo get_option("siteurl");?>">Home</a> /</span> <span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-right mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="<?php echo $postlink;?>"><?php echo $posttitle;?></a> <span class="d-none d-md-inline-block" style="padding-right: 5px;">/</span><span class="d-inline-block d-md-none" style="padding-right: 5px;"></span><span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-right mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="<?php echo get_term_link($term);?>"><?php echo $term->name;?></a>
+			        <span class="d-none d-md-inline-block"><a href="#">Home</a> /</span> <span class="d-inline-flex align-items-center d-md-none"><a href="#"><i class="fas fa-angle-right mr-2"></i><span class="d-none">breadcrumb</span></a></span><a href="<?php echo $postlink;?>"><?php echo $posttitle;?></a>
 			      </div>
 			    </div>
 			  </div>
 			</section>
-			<!-- Hero -->
 			<section class="product-marquee extra-tall">
 			  <div class="container-fluid">
 			    <div class="row">
@@ -308,7 +297,7 @@ else{
 			          <?php
 			          	echo $header_title;
 			          	echo $header_sub_title;
-						echo $content_term;
+			          	echo do_shortcode($content);
 			          	if($button_text){
 			          		echo '<a href="'.$button_url.'" class="text-link-arrow text-white mt-2 mt-md-4">'.$button_text.' <i class="fas fa-angle-right ml-2"></i></a>';
 			          	}
@@ -318,6 +307,7 @@ else{
 			    </div>
 			  </div>
 			</section>
+
 
 			<section class="class-details section-padding classdata">
 			  <div class="container">
@@ -341,21 +331,21 @@ else{
 			            <a data-toggle="collapse" class="collapsed" href="#filter-class" role="button">Class <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-checkbox collapse" id="filter-class">
-			            <h6>Class <a class="classclassca clearall" style="display:none;">Clear All</a></h6>
+			            <h6>Class <a href="#" class="classclassca clearall" style="display:none;">Clear All</a></h6>
 			            <?php echo $htmlclass;?>
 			          </div>
 			          <div class="toggle-filter-inside d-block d-lg-none">
 			            <a data-toggle="collapse" class="collapsed" href="#filter-product" role="button">Product <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-checkbox collapse" id="filter-product">
-			            <h6>Product <a class="classproductca clearall" style="display:none;">Clear All</a></h6>
+			            <h6>Product <a href="#" class="classproductca clearall" style="display:none;">Clear All</a></h6>
 			            <?php echo $htmlproduct;?>
 			          </div>
 			          <div class="toggle-filter-inside d-block d-lg-none">
 			            <a data-toggle="collapse" class="collapsed" href="#filter-type" role="button">Type <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-checkbox collapse" id="filter-type">
-			            <h6>Type <a class="classtypeca clearall" style="display:none;">Clear All</a></h6>
+			            <h6>Type <a href="#" class="classtypeca clearall" style="display:none;">Clear All</a></h6>
 			            <?php echo $htmltype;?>
 			          </div>
 			          <div class="d-block d-lg-none">
@@ -366,13 +356,8 @@ else{
 			      </div>
 			      <div class="col-lg-9">
 			        <?php echo $class_promo_text;?>
-					<?php if( $class_desc) : ?>
-						<div class="class-desc">
-							<?php echo $class_desc;?>
-						</div>
-					<?php endif; ?>
 			        <div class="classloaddata">
-			        <?php echo $listp;?>
+			        <?php echo $listp;?>	
 			    	</div>
 					<div style="width: 100%;">
 						<input type="hidden" name="cat" class="field_cat" value="">
@@ -384,38 +369,11 @@ else{
 						<div class="product-class-more showmoreclass" style="<?php echo $stylesmp;?>">
 						  <button id="myBtn">Show More <i class="fas fa-plus"></i></button>
 						</div>
-					</div>
-					<?php if( $class_sub_desc) : ?>
-						<div class="class-sub-desc">
-							<?php echo $class_sub_desc;?>
-						</div>
-					<?php endif; ?>
+					</div>		        
 			      </div>
 			    </div>
 			  </div>
-			</section>
-
-			<section class="contact-us section-padding">
-			  <div class="container">
-			    <div class="row">
-			      <div class="col-lg-8 mx-auto text-center">
-			        <?php
-			        	if($form_title){
-			        		echo '<h2>'.$form_title.'</h2>';
-			        	}
-			        	if($form_sub_title){
-			        		echo '<h6 class="px-md-3">'.$form_sub_title.'</h6>';
-			        	}
-			        ?>
-			      </div>
-			    </div>
-			    <div class="row mt-4">
-			      <div class="col-lg-8 mx-auto">
-			      	<?php echo do_shortcode($form_content);?>
-			      </div>
-			    </div>
-			  </div>
-			</section>
+			</section>	
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

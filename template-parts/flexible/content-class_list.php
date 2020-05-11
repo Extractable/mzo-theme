@@ -45,7 +45,7 @@ $classes = get_sub_field("classes");
         $register_link = get_field("register_link",$class);
         $register_date = get_field("register_date",$class);
         if($register_link)
-          $register_link = '<a href="'.$register_link.'" class="btn btn-primary" target="_blank">REGISTER</a>';
+          $register_link = '<a href="/registration/?training='.$classdata->post_title.'&date='.$register_date.'" class="btn btn-primary">REGISTER</a>';
         $counter++;
         echo '
               <div class="col-md-4">
@@ -64,7 +64,7 @@ $classes = get_sub_field("classes");
                     </div>
                   </div>
                 </div>
-              </div>        
+              </div>
              ';
         if($counter>=3)
           break;

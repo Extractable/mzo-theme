@@ -1,0 +1,63 @@
+.class-registration {
+    padding: 60px;
+
+    .registration-form {
+        p {
+            line-height: 1.6em;
+        }
+        .gform_wrapper {
+            display: block !important;
+        }
+
+        .registration-intro {
+            padding-bottom: 10px;
+            hr {
+                margin-top: 40px;
+            }
+        }
+
+        .registered {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            .trainingdate {
+                color: #0073d1;
+                font-size: 18px;
+                font-weight: 600;
+                padding-bottom: 20px;
+            }
+        }
+
+        ul.gfield_checkbox {
+            margin-top: 0 !important;
+            input {
+                margin-top: -4px !important;
+                margin-right: 5px !important;
+            }
+        }
+
+        ul.gfield_radio {
+            margin-top: 0 !important;
+            input {
+                margin-top: -4px !important;
+                margin-right: 5px !important;
+            }
+        }
+
+        .gfield_label {
+            font-weight: 400 !important;
+        }
+
+        .gform_footer {
+
+            input[type=submit] {
+                border: 0;
+                font-size: 18px;
+                font-weight: 500;
+                padding: 10px 22px;
+                background: #0073D1;
+                padding: 10px 35px;
+                color: #FFF;
+            }
+        }
+    }
+}

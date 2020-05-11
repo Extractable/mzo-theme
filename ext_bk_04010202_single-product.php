@@ -59,7 +59,7 @@ $form_content = get_field('form_content', 'option');
 		  <div class="container">
 		    <div class="row">
 		      <div class="col-md-12">
-		        <h3>Accessories (<?php echo $accessories_count = count(get_field('accessories_list')); ?>)</h3>
+		        <h3>Accessories</h3>
 		      </div>
 		    </div>
             <div class="row mt-4 accessories-cards">
@@ -74,7 +74,6 @@ $form_content = get_field('form_content', 'option');
 
                     $sku = get_post_meta($post,"_sku",true);
                     $showLink = get_field('show_link');
-                    $customLink = get_field('custom_url');
 
                     $listterm = '';
                     foreach ($qterms as $qterm) {
@@ -87,23 +86,13 @@ $form_content = get_field('form_content', 'option');
                         <div>
                             <img src="<?php echo $featured_img_url; ?>" alt="<?php echo $post->post_title; ?>" class="img-fluid">
                             <div class="text-area">
-                                <p class="eyebrow">
-                                <?php if( $sku ): ?>
-                                    Part #<?php echo $sku; ?>
-                                <?php else : ?>
-                                    &nbsp;
-                                <?php endif; ?>
-                                </p>
+                                <p class="eyebrow">Part #<?php echo $sku; ?></p>
                                 <p class="title"><?php the_title(); ?></p>
                                 <?php if( the_excerpt() ) : ?>
                                     <p class="small"><?php the_excerpt(); ?></p>
                                 <?php endif; ?>
-                                <?php if( $showLink ):
-                                        if( $customLink ): ?>
-                                            <p class="link"><a href="<?php echo $customLink['url']; ?>" target="<?php echo $customLink['target']; ?>"><?php echo $customLink['title']; ?><i class="fas fa-angle-right ml-2"></i></a></p>
-                                        <?php else : ?>
-                                            <p class="link"><a href="<?php the_permalink(); ?>">Learn More <i class="fas fa-angle-right ml-2"></i></a></p>
-                                    <?php endif; ?>
+                                <?php if( $showLink ): ?>
+                                    <p class="link"><a href="<?php the_permalink(); ?>">Learn More <i class="fas fa-angle-right ml-2"></i></a></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -124,7 +113,6 @@ $form_content = get_field('form_content', 'option');
         ?>
         <!-- /Accessories -->
 
-        <!-- Resources -->
 		<?php
 		$resources_title = get_field("resources_title");
 		$resources_list = get_field("resources_list");
@@ -144,24 +132,21 @@ $form_content = get_field('form_content', 'option');
                                 $resouceLinkPro = get_sub_field('resource_link');
                                 $resourceContentPro = get_sub_field('content');
                             ?>
+
                             <div class="col-lg-4 col-md-6">
                               <div class="row resources">
                                 <div class="col-2 col-md-3 px-0">
                                   <a href="<?php echo $resouceLinkPro['url']; ?>" target="<?php echo $resouceLinkPro['target']; ?>"><img src="<?php the_sub_field('icon'); ?>"></a>
                                 </div>
                                 <div class="col-10 col-md-9">
-                                    <div class="resource-content">
-                                        <h3><?php the_sub_field('title'); ?></h3>
-                                        <?php
-                                            if( $resourceContentPro ) {
-                                                echo $resourceContentPro;
-                                            }
-                                        ?>
-                                    </div>
+                                    <h3><?php the_sub_field('title'); ?></h3>
+                                    <?php
+                                        if( $resourceContentPro ) {
+                                            echo $resourceContentPro;
+                                        }
+                                    ?>
                                     <?php if( $resouceLinkPro ) : ?>
-                                        <div class="resource-link">
-                                            <a class="text-link-arrow" href="<?php echo $resouceLinkPro['url']; ?>" target="<?php echo $resouceLinkPro['target']; ?>"><?php echo $resouceLinkPro['title']; ?> <i class="fas fa-angle-right ml-2"></i></a>
-                                        </div>
+                                        <a class="text-link-arrow" href="<?php echo $resouceLinkPro['url']; ?>" target="<?php echo $resouceLinkPro['target']; ?>"><?php echo $resouceLinkPro['title']; ?> <i class="fas fa-angle-right ml-2"></i></a>
                                     <?php endif; ?>
                                 </div>
                               </div>
@@ -176,62 +161,57 @@ $form_content = get_field('form_content', 'option');
 		<?php } ?>
 
         <!-- Related Products -->
-        <?php
-            if(get_post_type()=="post"){
-                $related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 3, 'post__not_in' => array($post->ID) ) );
-            }
-            if(get_post_type()=="product"){
-
-                global $product;
-                $cross_sell_ids = $product->get_cross_sell_ids();
-                if(count($cross_sell_ids)>0){
-                    $args = array(
-                                    'posts_per_page' => 12,
-                                    'post_type' => 'product',
-                                    'post__in' => $cross_sell_ids,
-                                    'orderby' => 'post__in'
-                                 );
-                    $related = get_posts(
-                        array(
-                            'post_type' => 'product',
-                            'numberposts' => 3,
-                            'post__in' => $cross_sell_ids,
-                            'orderby' => 'post__in'
-                        )
-                    );
-                }/*
-                else{
-                    $curcat = get_primary_taxonomy_term($post->ID,"product_cat");
-                    $related = get_posts(
-                        array(
-                            'post_type' => 'product',
-                            'numberposts' => 3,
-                            'post__not_in' => array($post->ID),
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => "product_cat",
-                                    'field' => 'slug',
-                                    'terms' => array($curcat["slug"]),
-                                    'operator' => 'IN',
-                                )
-                             )
-                        )
-                    );
-                }
-                */
-            }
-            if( $related ) :
-         ?>
 		<section class="related-product-cards">
 		  <div class="container">
 		    <div class="row">
 		      <div class="col-12">
-		        <h3>Related products</h3>
+		        <h3>Related Products</h3>
 		      </div>
 		    </div>
 		    <div class="row mt-4 related-cards">
                 <?php
+                if(get_post_type()=="post"){
+                    $related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 3, 'post__not_in' => array($post->ID) ) );
+                }
+                if(get_post_type()=="product"){
 
+                    global $product;
+                    $cross_sell_ids = $product->get_cross_sell_ids();
+                    if(count($cross_sell_ids)>0){
+                        $args = array(
+                                        'posts_per_page' => 12,
+                                        'post_type' => 'product',
+                                        'post__in' => $cross_sell_ids,
+                                        'orderby' => 'post__in'
+                                     );
+                        $related = get_posts(
+                            array(
+                                'post_type' => 'product',
+                                'numberposts' => 3,
+                                'post__in' => $cross_sell_ids,
+                                'orderby' => 'post__in'
+                            )
+                        );
+                    }
+                    else{
+                        $curcat = get_primary_taxonomy_term($post->ID,"product_cat");
+                        $related = get_posts(
+                            array(
+                                'post_type' => 'product',
+                                'numberposts' => 3,
+                                'post__not_in' => array($post->ID),
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => "product_cat",
+                                        'field' => 'slug',
+                                        'terms' => array($curcat["slug"]),
+                                        'operator' => 'IN',
+                                    )
+                                 )
+                            )
+                        );
+                    }
+                }
                 if( $related ) {
                     foreach( $related as $post ) {
                         setup_postdata($post);
@@ -239,17 +219,13 @@ $form_content = get_field('form_content', 'option');
                         $sub_title = get_field("sub_title");
                         if(get_post_type()=="product"){
                             $sku = get_post_meta($post->ID,"_sku",true);
-                            if( $sku ):
-                                $sub_title = '<p class="eyebrow">Part #'.$sku.'</p>';
-                            else:
-                                $sub_title = '<p class="eyebrow">&nbsp;</p>';
-                            endif;
-                            $description = str_replace("<p>",'<p class="small">',wpautop(get_the_excerpt()));
+                            $sub_title = '<p class="eyebrow">Part #'.$sku.'</p>';
+                            $description = '<p class="small">'.get_the_excerpt().'</p>';
                             $link = '<p class="link"><a href="'.get_permalink().'">Learn More <i class="fas fa-angle-right ml-2"></i></a></p>';
                         }
                         else{
                             $sub_title = '<p class="eyebrow text-uppercase">'.$sub_title.'</p>';
-                            $description = str_replace("<p>",'<p class="desc d-block d-md-none">',wpautop(get_the_excerpt()));
+                            $description = '<p class="desc d-block d-md-none">'.get_the_excerpt().'</p>';
                             $link = '<p class="link"><a href="'.$term["url"].'">'.$term["title"].'</a></p>';
                         }
                         if($featured_img_url == "")
@@ -272,14 +248,11 @@ $form_content = get_field('form_content', 'option');
                              ';
                     }
                 }
-            ?>
+                wp_reset_postdata();
+                ?>
 		    </div>
 		  </div>
 		</section>
-        <?php
-            endif;
-            wp_reset_postdata();
-        ?>
 
         <!-- Global Contact Form -->
 		<section class="contact-us section-padding">

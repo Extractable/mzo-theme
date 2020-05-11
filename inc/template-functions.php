@@ -19,9 +19,9 @@ function cc_mime_types($mimes) {
 
 function fix_svg_thumb_display() {
   echo '
-    <style type="text/css">td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail { 
-      width: 100% !important; 
-      height: auto !important; 
+    <style type="text/css">td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {
+      width: 100% !important;
+      height: auto !important;
     }</style>
   ';
 }
@@ -29,7 +29,7 @@ add_action('admin_head', 'fix_svg_thumb_display');
 
 add_filter('upload_mimes', 'cc_mime_types');
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Theme General Settings',
 		'menu_title'	=> 'Theme Settings',
@@ -37,7 +37,7 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-	
+
 }
 
 
@@ -73,7 +73,7 @@ function mizuho_codex_init() {
         'items_list_navigation' => _x( 'Classes list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'textdomain' ),
         'items_list'            => _x( 'Classes list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain' ),
     );
- 
+
     $args = array(
         'labels'             => $labels,
         'public'             => true,
@@ -88,7 +88,7 @@ function mizuho_codex_init() {
         'menu_position'      => null,
         'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
     );
- 
+
     register_post_type( 'class', $args );
 
 
@@ -118,7 +118,7 @@ function mizuho_codex_init() {
         'items_list_navigation' => _x( 'Resources list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'textdomain' ),
         'items_list'            => _x( 'Resources list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain' ),
     );
- 
+
     $args = array(
         'labels'             => $labels,
         'public'             => true,
@@ -133,10 +133,10 @@ function mizuho_codex_init() {
         'menu_position'      => null,
         'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
     );
- 
-    register_post_type( 'resource', $args );    
+
+    register_post_type( 'resource', $args );
 }
- 
+
 add_action( 'init', 'mizuho_codex_init' );
 
 
@@ -287,7 +287,7 @@ function productlist(){
 					      </div>
 					    </div>
 					  </div>
-					</section>	
+					</section>
 				   ';
 	return $contentHTML;
 }
@@ -345,7 +345,7 @@ function productfour(){
 					      </div>
 					    </div>
 					  </div>
-					</section>	
+					</section>
 				   ';
 	return $contentHTML;
 }
@@ -412,8 +412,8 @@ function resources(){
 					'tax_query' => array(
 					    'relation' => 'AND',
 					    $additionalfilter
-					),    
-				 );  	
+					),
+				 );
 
 
     $termdatas = get_terms( array( 'taxonomy' => 'resource_type', 'hide_empty' => false ) );
@@ -423,7 +423,7 @@ function resources(){
 		              <div class="custom-control custom-checkbox">
 		                <input type="checkbox" class="custom-control-input" id="resourcetype_'.$termdata->slug.'" name="resourcetype_'.$termdata->slug.'" rel="resourcetype" value="'.$termdata->slug.'">
 		                <label class="custom-control-label" for="resourcetype_'.$termdata->slug.'">'.$termdata->name.'</label>
-		              </div>                  
+		              </div>
 		             ';
 	}
     $termdatas = get_terms( array( 'taxonomy' => 'resource_surgical_table', 'hide_empty' => false ) );
@@ -433,7 +433,7 @@ function resources(){
 			              <div class="custom-control custom-checkbox">
 			                <input type="checkbox" class="custom-control-input" id="resourcesurgical_'.$termdata->slug.'" name="resourcesurgical_'.$termdata->slug.'" rel="resourcesurgical" value="'.$termdata->slug.'">
 			                <label class="custom-control-label" for="resourcesurgical_'.$termdata->slug.'">'.$termdata->name.'</label>
-			              </div>                  
+			              </div>
 			             ';
 	}
     $termdatas = get_terms( array( 'taxonomy' => 'resource_other_product', 'hide_empty' => false ) );
@@ -443,7 +443,7 @@ function resources(){
 			              <div class="custom-control custom-checkbox">
 			                <input type="checkbox" class="custom-control-input" id="resourceother_'.$termdata->slug.'" name="resourceother_'.$termdata->slug.'" rel="resourceother" value="'.$termdata->slug.'">
 			                <label class="custom-control-label" for="resourceother_'.$termdata->slug.'">'.$termdata->name.'</label>
-			              </div>                  
+			              </div>
 			           ';
 	}
 
@@ -460,7 +460,7 @@ function resources(){
             $permalink = get_permalink();
             $title = get_the_title();
             $content = wp_trim_words(strip_tags(get_the_excerpt()), 10, "");
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
             $cta_text = get_field("cta_text");
             $cta_url = get_field("cta_url");
             if($cta_url=="")
@@ -477,7 +477,7 @@ function resources(){
 	                        <h5><a href="'.$permalink.'">'.$title.'</a></h5>
 			                '.$cta_text.'
 			              </div>
-			            </div>                      
+			            </div>
 	                  ';
             $countercol++;
             if($countercol>=4){
@@ -489,7 +489,7 @@ function resources(){
 	$stylesmp = "";
 	if($shownav){
 		$stylesmp = "display:block;";
-	}         
+	}
 	else{
 		$stylesmp = "display:none;";
 	}
@@ -563,7 +563,7 @@ function resources(){
 						      </div>
 						    </div>
 						  </div>
-						</section>	
+						</section>
 				   ';
 	return $contentHTML;
 }
@@ -620,8 +620,8 @@ function productload() {
 					        'operator' => 'IN',
 					    ),
 					    $additionalfilter
-					),    
-				 );  
+					),
+				 );
 
     $query = new WP_Query( $args );
     $shownav = 1;
@@ -635,7 +635,7 @@ function productload() {
             $permalink = get_permalink();
             $title = get_the_title();
             $content = wp_trim_words(strip_tags(get_the_excerpt()), 10, "");
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 
             echo '
                   <div class="one-third-product productlistdata pcol'.$countercol.'">
@@ -646,7 +646,7 @@ function productload() {
                         <p>'.$content.'</p>
                         </a><a href="'.$permalink.'" class="label-link">Learn More <i class="fas fa-angle-right ml-1"></i></a>
                       </div>
-                  </div>                        
+                  </div>
                  ';
 	        $countercol++;
 	        if($countercol>=4){
@@ -665,7 +665,7 @@ function productload() {
     }
     echo '<script>
     		jQuery(document).ready(function(){
-    			'.$addjs.' 			
+    			'.$addjs.'
     		});
     	  </script>
     	 ';
@@ -732,8 +732,8 @@ function resourceload() {
 					'tax_query' => array(
 					    'relation' => 'AND',
 					    $additionalfilter
-					),    
-				 );  
+					),
+				 );
     $query = new WP_Query( $args );
     $shownav = 1;
     if($query->found_posts <= $query->post_count+$offset){
@@ -746,7 +746,7 @@ function resourceload() {
             $permalink = get_permalink();
             $title = get_the_title();
             $content = wp_trim_words(strip_tags(get_the_excerpt()), 10, "");
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 
             $cta_text = get_field("cta_text");
             $cta_url = get_field("cta_url");
@@ -764,7 +764,7 @@ function resourceload() {
                         <h5><a href="'.$permalink.'">'.$title.'</a></h5>
 		                '.$cta_text.'
 		              </div>
-		            </div>                         
+		            </div>
                  ';
 	        $countercol++;
 	        if($countercol>=4){
@@ -783,7 +783,7 @@ function resourceload() {
     }
     echo '<script>
     		jQuery(document).ready(function(){
-    			'.$addjs.' 			
+    			'.$addjs.'
     		});
     	  </script>
     	 ';
@@ -797,7 +797,7 @@ add_action( 'wp_ajax_nopriv_classload', 'classload' );
 add_action( 'wp_ajax_classload', 'classload' );
 
 function classload() {
-
+    $themeurl = get_stylesheet_directory_uri();
 	$additionalfilter = Array();
 	$category = @$_REQUEST["cat"];
 	if($category!=""){
@@ -850,8 +850,8 @@ function classload() {
 					'tax_query' => array(
 					    'relation' => 'AND',
 					    $additionalfilter
-					),    
-				 );  
+					),
+				 );
     $query = new WP_Query( $args );
     $shownav = 1;
     if($query->found_posts <= $query->post_count+$offset){
@@ -864,11 +864,12 @@ function classload() {
 	        $permalink = get_permalink();
 	        $title = get_the_title();
 	        $content = get_the_content();//wp_trim_words(strip_tags(get_the_excerpt()), 10, "");
-	        $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+	        $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 	        $sku = get_field("sku");
 	        $price = get_field("price");
 	        $download_brochure_link = get_field("download_brochure_link");
 	        $register_link = get_field("register_link");
+            $classTitle = get_field("class_title");
 	        $datas = get_field("data");
 	        $contentdata = '';
 	        $counter = 0;
@@ -883,12 +884,13 @@ function classload() {
 	        	if($data["url"]==""){
 	        		$data["url"]="#";
 	        	}
+                $classDate = $data["date"];
 				$contentdata .= '
 					                <tr>
 					                  <td>'.$data["date"].'</td>
 					                  <td>'.$data["location"].'</td>
-					                  <td><a href="'.$data["url"].'" class="btn btn-primary '.$class.'">'.$text.'</a></td>
-					                </tr>			
+                                      <td><a href="/registration/?training='.$classTitle.'&date='.$classDate.'" class="btn btn-primary '.$class.'">'.$text.'</a></td>
+					                </tr>
 								';
 	        }
 	        $buttonhtml  = '';
@@ -944,7 +946,7 @@ function classload() {
 				          <div class="class-toggle collapse" id="classdata'.$counter.'">
 				            <div class="d-flex justify-content-end mb-n3 mx-n4">
 				              <a href="#" data-toggle="collapse" data-target="#classdata'.$counter.'" aria-expanded="true" aria-controls="classdata'.$counter.'">
-				                <img src="'.$themeurl.'/images/toggle-times.svg" alt="close toggle"><span class="d-none">Close</span>
+                                <img src="'.$themeurl.'/images/toggle-times.svg" alt="close toggle"><span class="d-none">Close</span>
 				              </a>
 				            </div>
 				            <table>
@@ -966,12 +968,12 @@ function classload() {
 				              </tbody>
 				            </table>
 				          </div>
-				        </div>                 
+				        </div>
 	                  ';
 	        $countercol++;
 	        if($countercol>=4){
 	          $countercol = 1;
-	        }        	
+	        }
         }
     }
     else{
@@ -985,7 +987,7 @@ function classload() {
     }
     echo '<script>
     		jQuery(document).ready(function(){
-    			'.$addjs.' 			
+    			'.$addjs.'
     		});
     	  </script>
     	 ';
