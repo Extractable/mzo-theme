@@ -29,24 +29,24 @@ $sku = $product->get_sku();
               $listmenuArray = Array();
               $listmenuArray[] = Array("link" => get_term_link($termseo->term_id), "name" => $termseo->name);
               if($termseo->parent>0){
-                $termseo2 = get_term( $termseo->parent, "product_cat" ); 
+                $termseo2 = get_term( $termseo->parent, "product_cat" );
                 $listmenuArray[] = Array("link" => get_term_link($termseo2->term_id), "name" => $termseo2->name);
                 if($termseo2->parent>0){
-                  $termseo3 = get_term( $termseo2->parent, "product_cat" ); 
+                  $termseo3 = get_term( $termseo2->parent, "product_cat" );
                   $listmenuArray[] = Array("link" => get_term_link($termseo3->term_id), "name" => $termseo3->name);
                   if($termseo3->parent>0){
-                    $termseo4 = get_term( $termseo3->parent, "product_cat" ); 
+                    $termseo4 = get_term( $termseo3->parent, "product_cat" );
                     $listmenuArray[] = Array("link" => get_term_link($termseo4->term_id), "name" => $termseo4->name);
                     if($termseo4->parent>0){
-                      $termseo5 = get_term( $termseo4->parent, "product_cat" ); 
+                      $termseo5 = get_term( $termseo4->parent, "product_cat" );
                       $listmenuArray[] = Array("link" => get_term_link($termseo5->term_id), "name" => $termseo5->name);
                       if($termseo5->parent>0){
-                        $termseo6 = get_term( $termseo5->parent, "product_cat" ); 
+                        $termseo6 = get_term( $termseo5->parent, "product_cat" );
                         $listmenuArray[] = Array("link" => get_term_link($termseo6->term_id), "name" => $termseo6->name);
-                      }                         
-                    }                          
-                  }                      
-                }                
+                      }
+                    }
+                  }
+                }
               }
               $lastitem = "";
               $listmenu = "";
@@ -115,7 +115,7 @@ $sku = $product->get_sku();
       <div class="col-12">
         <div class="hero-product">
           <?php
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
             $header_image = get_field("header_image");
             if($header_image)
               $featured_img_url = $header_image;
@@ -135,7 +135,9 @@ $sku = $product->get_sku();
               <?php
               $request = get_field("request");
               if($request){
-                echo '<div class="custom-button-dropdown"><a href="#collapseCustomDropdown" class="main-button collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCustomDropdown">Request Information</a><div id="collapseCustomDropdown" class="dropdown-button collapse">';
+                echo '<div class="custom-button-dropdown" style="border: 2px solid red;">
+                    <div class="main-button collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCustomDropdown">Request Information</div>
+                    <div id="collapseCustomDropdown" class="dropdown-button collapse">';
                 foreach($request as $reqdata){
                   echo '<a href="'.$reqdata["url"].'">'.$reqdata["title"].' <i class="fas fa-arrow-right"></i></a>';
                 }

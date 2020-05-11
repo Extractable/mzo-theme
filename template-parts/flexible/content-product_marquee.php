@@ -16,7 +16,7 @@ if($image){
   $image = 'background-image:url('.$image.');';
 }
 ?>
-<section class="product-marquee extra-tall" style="<?php echo $background_image;?>;">
+<section class="product-marquee extra-tall" style="<?php echo $background_image;?>;" style="border: 2px solid hotpink;">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 px-0 product-marquee-media-area<?php if($video): echo ' video'; endif; ?>" style="<?php echo $image;?>">

@@ -161,18 +161,11 @@ jQuery(document).ready(function() {
     bigimage.data("owl.carousel").to(number, 300, true);
   });
 
-
-
-
-
-
-
-
-
   jQuery("a.hsearch").click(function(e) {
     jQuery(".search-form").toggle();
     e.preventDefault();
   });
+
   jQuery(".navbar-toggler i").click(function(e) {
     if (jQuery(".navbar-toggler").hasClass("collapsed")) {
       jQuery(".navbar-toggler").removeClass("collapsed");
@@ -184,6 +177,7 @@ jQuery(document).ready(function() {
       jQuery(".wpmm-menu").removeClass("mm-menu_opened");
     }
   });
+
   setTimeout(function() {
     jQuery(".mm-listview").append('<li class="mm-listitem">' + jQuery("#hiddenmenumobile").html() + '</li>');
   }, 500);
@@ -240,6 +234,16 @@ jQuery(document).ready(function() {
       }
     });
   })();
+
+  jQuery('.main-button').on('click', function() {
+    if( $(this).hasClass('collapsed') ) {
+        $(this).removeClass('collapsed').attr('aria-expanded', 'true');
+        $(this).next().slideDown().addClass('show');
+    }else {
+        $(this).addClass('collapsed').attr('aria-expanded', 'false');
+        $(this).next().slideUp().removeClass('show');
+    }
+  });
 
 
 });

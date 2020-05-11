@@ -206,6 +206,16 @@ jQuery(document).ready(function () {
       }
     });
   })();
+
+  jQuery('.main-button').on('click', function () {
+    if ($(this).hasClass('collapsed')) {
+      $(this).removeClass('collapsed').attr('aria-expanded', 'true');
+      $(this).next().slideDown().addClass('show');
+    } else {
+      $(this).addClass('collapsed').attr('aria-expanded', 'false');
+      $(this).next().slideUp().removeClass('show');
+    }
+  });
 });
 jQuery(window).scroll(function () {
   if (jQuery(window).scrollTop() > 100) {
