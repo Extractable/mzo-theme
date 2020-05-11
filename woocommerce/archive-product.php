@@ -61,7 +61,7 @@ if($header_title_text)
 if($header_sub_title)
 	$header_sub_title = '<h6 class="text-white mb-2 mb-md-4">'.$header_sub_title.'</h6>';
 if($button_text)
-	$button_text = '<a href="'.$button_text.'" class="btn btn-light my-2 my-md-3">'.$button_text.'</a>';
+	$button_text = '<a href="'.$button_url.'" class="btn btn-light my-2 my-md-3">'.$button_text.'</a>';
 ?>
 <section class="product-marquee">
   <div class="container-fluid">
