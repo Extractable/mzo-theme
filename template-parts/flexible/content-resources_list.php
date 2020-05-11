@@ -43,6 +43,15 @@ $classes = get_sub_field("resources");
         $classdata = get_post($class);
         $image = get_the_post_thumbnail( $class, 'full');
         $category = get_primary_taxonomy_term($class, "resource_for");
+        $ctaText = trim(get_field('cta_text', $class), '');
+        $ctaURL = get_field('cta_url', $class);
+        $linkTarget = get_field('link_target', $class);
+        if( $ctaURL === '' ) {
+            $ctaURL = get_permalink($class);
+        }
+        if( $ctaText === '' ) {
+            $ctaText = 'Learn More';
+        }
         $counter++;
         echo '
               <div class="col-md-4">
@@ -55,11 +64,11 @@ $classes = get_sub_field("resources");
                       <p class="eyebrow text-uppercase">'.$category["title"].'</p>
                       <p class="title">'.$classdata->post_title.'</p>
                       <p class="small">'.get_field("sub_title",$class).'</p>
-                      <a href="'.get_permalink($class).'" class="text-link-arrow">Learn More <i class="fas fa-angle-right ml-2"></i></a>
+                      <a href="'. $ctaURL .'" class="text-link-arrow" target="'.$linkTarget.'">'.$ctaText.' <i class="fas fa-angle-right ml-2"></i></a>
                     </div>
                   </div>
                 </div>
-              </div>       
+              </div>
              ';
         if($counter>=3)
           break;
