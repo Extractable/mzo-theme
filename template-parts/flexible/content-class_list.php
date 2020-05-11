@@ -32,7 +32,7 @@ $classes = get_sub_field("classes");
         }
       ?>
       <div class="col-md-3 text-md-right pt-2">
-        <a href="<?php echo get_option("siteurl");?>/class_for/all/" class="text-link-arrow">See All <i class="fas fa-angle-right ml-2"></i></a>
+        <a href="<?php echo get_option("siteurl");?>/class_for/biomedical-engineers/" class="text-link-arrow">See All <i class="fas fa-angle-right ml-2"></i></a>
       </div>
     </div>
     <div class="row no-gutters mt-3 mt-md-0">
