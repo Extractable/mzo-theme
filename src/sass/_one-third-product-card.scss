@@ -35,7 +35,7 @@
         border-bottom-right-radius: 8px;
         width: 100%;
         //min-height: 93px;
-        min-height: 120px;
+        min-height: 115px;
 
         &::before {
           content: "";
@@ -55,7 +55,7 @@
           color: #fff;
           font-size: 22px;
           font-weight: bold;
-          margin-bottom: 0;
+          margin-bottom: 5px;
           letter-spacing: -0.34px;
           z-index: 2;
           position: relative;
@@ -65,7 +65,7 @@
           color: #fff;
           font-size: 16px;
           font-weight: 500;
-          margin-top: 10px;
+          //margin-top: 10px;
           z-index: 2;
           position: relative;
           display: block;
@@ -75,6 +75,7 @@
           transition: max-height 0.5s ease-in-out;
           overflow: hidden;
           max-height: 0;
+          margin-bottom: 0;
         }
 
         a.label-link {

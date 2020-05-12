@@ -1,6 +1,5 @@
 .one-third-filtered-product-card {
   overflow: hidden;
-
   h6 {
     color: #004E8F;
     margin-bottom: 15px;
@@ -234,6 +233,7 @@
     flex-wrap: wrap;
     justify-content: normal;
 
+    /*
     &.height-three-lines {
 
       .one-third-product {
@@ -253,6 +253,7 @@
         }
       }
     }
+    */
 
     .one-third-product {
       position: relative;
@@ -287,7 +288,7 @@
         border-bottom-right-radius: 8px;
         width: 100%;
         //min-height: 85px;
-        min-height: 110px;
+        min-height: 115px;
 
         &::before {
           content: "";
@@ -307,7 +308,7 @@
           color: #fff;
           font-size: 22px;
           font-weight: bold;
-          margin-bottom: 0;
+          margin-bottom: 5px;
           letter-spacing: -0.34px;
           z-index: 2;
           position: relative;
@@ -318,7 +319,7 @@
           color: #fff;
           font-size: 16px;
           font-weight: 500;
-          margin-top: 10px;
+          //margin-top: 10px;
           z-index: 2;
           position: relative;
           padding-right: 14%;
@@ -329,6 +330,7 @@
           transition: max-height 0.5s ease-in-out;
           overflow: hidden;
           max-height: 0;
+          margin-bottom: 0;
         }
 
         a.label-link {

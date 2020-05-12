@@ -1121,7 +1121,7 @@ function searchcontactus() {
 							<input type="search" class="search-field" placeholder="I need help finding…" value="" id="s" name="s">
 							<button type="submit" class="search-submit"><i class="fas fa-search"></i></button>
 						</form>
-						<a href="#">Contact Us</a>
+						<a href="/support/#contactform">Contact Us</a>
 					</div>
 				  ';
 	return $contentHTML;
