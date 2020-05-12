@@ -215,7 +215,20 @@ jQuery(document).ready(function () {
       $(this).addClass('collapsed').attr('aria-expanded', 'false');
       $(this).next().slideUp().removeClass('show');
     }
-  });
+  }); // bind change event to selectbox
+
+  $('#selectRequestInformation').on('change', function () {
+    var url = $(this).val(); // get selected value
+
+    if (url) {
+      // require a URL
+      window.location = url; // redirect
+    }
+
+    return false;
+  }); //Reset selectbox on page load
+
+  $("#selectRequestInformation").val("");
 });
 jQuery(window).scroll(function () {
   if (jQuery(window).scrollTop() > 100) {

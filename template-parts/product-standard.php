@@ -31,24 +31,24 @@ $product_media = get_field("product_media");
               $listmenuArray = Array();
               $listmenuArray[] = Array("link" => get_term_link($termseo->term_id), "name" => $termseo->name);
               if($termseo->parent>0){
-                $termseo2 = get_term( $termseo->parent, "product_cat" ); 
+                $termseo2 = get_term( $termseo->parent, "product_cat" );
                 $listmenuArray[] = Array("link" => get_term_link($termseo2->term_id), "name" => $termseo2->name);
                 if($termseo2->parent>0){
-                  $termseo3 = get_term( $termseo2->parent, "product_cat" ); 
+                  $termseo3 = get_term( $termseo2->parent, "product_cat" );
                   $listmenuArray[] = Array("link" => get_term_link($termseo3->term_id), "name" => $termseo3->name);
                   if($termseo3->parent>0){
-                    $termseo4 = get_term( $termseo3->parent, "product_cat" ); 
+                    $termseo4 = get_term( $termseo3->parent, "product_cat" );
                     $listmenuArray[] = Array("link" => get_term_link($termseo4->term_id), "name" => $termseo4->name);
                     if($termseo4->parent>0){
-                      $termseo5 = get_term( $termseo4->parent, "product_cat" ); 
+                      $termseo5 = get_term( $termseo4->parent, "product_cat" );
                       $listmenuArray[] = Array("link" => get_term_link($termseo5->term_id), "name" => $termseo5->name);
                       if($termseo5->parent>0){
-                        $termseo6 = get_term( $termseo5->parent, "product_cat" ); 
+                        $termseo6 = get_term( $termseo5->parent, "product_cat" );
                         $listmenuArray[] = Array("link" => get_term_link($termseo6->term_id), "name" => $termseo6->name);
-                      }                         
-                    }                          
-                  }                      
-                }                
+                      }
+                    }
+                  }
+                }
               }
               $lastitem = "";
               $listmenu = "";
@@ -209,7 +209,10 @@ $product_media = get_field("product_media");
         <?php
           $request = get_field("request");
           if ($request) {
-              echo '<div class="request mb-3"><div class="position-relative select-form"><label for="selectRequestInformation" class="mr-3">Request</label><select class="custom-select border-dark" id="selectRequestInformation" required>';
+              echo '<div class="request mb-3"><div class="position-relative select-form">
+                <label for="selectRequestInformation" class="mr-3">Request</label>
+                <select class="custom-select border-dark" id="selectRequestInformation">
+                    <option value="">Select Option</option>';
               foreach ($request as $reqdata) {
                   echo '<option value="'.$reqdata["url"].'">'.$reqdata["title"].'</option>';
               }
