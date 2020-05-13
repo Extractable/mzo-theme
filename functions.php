@@ -247,10 +247,3 @@ function remove_thumbnail_dimensions( $html ){
 }
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
-
-
-function my_jquery_enqueue() {
-    wp_deregister_script( 'jquery' );
-}
-
-add_action( 'wp_enqueue_scripts', 'my_jquery_enqueue' );
