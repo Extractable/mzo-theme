@@ -201,6 +201,7 @@ jQuery(document).ready(function() {
     jQuery(".mm-listview").append('<li class="mm-listitem">' + jQuery("#hiddenmenumobile").html() + '</li>');
   }, 500);
 
+  /*
   setTimeout(function() {
     jQuery(".wpmm-menu .mm-navbars_top").hide();
     jQuery(".mm-menu_navbar_top-1 .mm-panels").css("top", "0px");
@@ -217,6 +218,7 @@ jQuery(document).ready(function() {
       }, 500);
     });
   }, 500);
+  */
 
   //Show More Accessories Cards
   (function() {
