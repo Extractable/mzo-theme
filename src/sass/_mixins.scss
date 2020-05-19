@@ -1,0 +1,279 @@
+// ----- Box Sizing ----- //
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// ----- Clearfix ----- //
+@mixin clearfix {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	};
+	&:after {
+		clear: both;
+	};
+}
+
+// ----- List Reset ----- //
+@mixin listReset {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+// ----- Circle ----- //
+@mixin circular($value: 50%) {
+	-moz-border-radius: $value;
+	-webkit-border-radius: $value;
+	border-radius: $value;
+}
+
+// ----- Rounded Corners ----- //
+@mixin rounded($radius: 0.5em) {
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+}
+
+// ----- Opacity ----- //
+@mixin opacity($opacity: 0) {
+	opacity: $opacity;
+	$opacity-ie: $opacity * 100;
+	filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// ----- Rotate ----- //
+@mixin rotate($degree) {
+	-ms-transform: rotate($degree); /* IE 9 */
+	-webkit-transform: rotate($degree); /* Chrome, Safari, Opera */
+	transform: rotate($degree);
+}
+
+// ----- Circle ----- //
+@mixin circular {
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+@mixin alignVertical($position: middle) {
+	&:before {
+		content: "";
+		display: inline-block;
+		vertical-align: $position;
+		height: 100%;
+	}
+}
+
+// ----- Gradients ----- //
+@mixin vertical-gradient($topColor, $bottomColor) {
+	background: $topColor; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient($topColor, $bottomColor); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient($topColor, $bottomColor); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient($topColor, $bottomColor); /* For Firefox 3.6 to 15 */
+	background: linear-gradient($topColor, $bottomColor); /* Standard syntax */
+}
+
+@mixin left-right-gradient($leftColor, $rightColor) {
+	background: $leftColor; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left, $leftColor , $rightColor); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right, $leftColor, $rightColor); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, $leftColor, $rightColor); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, $leftColor , $rightColor); /* Standard syntax */
+}
+
+@mixin right-left-gradient($leftColor, $rightColor) {
+	background: $leftColor; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(right, $leftColor , $rightColor); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(left, $leftColor, $rightColor); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(left, $leftColor, $rightColor); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to left, $leftColor , $rightColor); /* Standard syntax */
+}
+
+// ----- Placeholder ----- //
+@mixin placeholder($color) {
+	::-webkit-input-placeholder {
+		color: $color;
+	}
+
+	:-moz-placeholder {
+		color: $color;
+	}
+
+	::-moz-placeholder {
+		color: $color;
+	}
+
+	:-ms-input-placeholder {
+		color: $color;
+	}
+}
+
+//DropShadow
+@mixin box-shadow($left, $top, $blur, $color, $inset:"") {
+	-webkit-box-shadow:$left $top $blur $color #{$inset};
+	-moz-box-shadow:$left $top $blur $color #{$inset};
+	box-shadow:$left $top $blur $color #{$inset};
+	/*
+		Usage
+        @include box-shadow(0px, 4px, 5px, rgba(0, 0, 0, 0.25));
+	*/
+}
+
+//Generic Transform
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@function pxtopercent($target, $parent: 16) {
+	@return percentage($target / $parent);
+}
+
+// ----- Animation ----- //
+@mixin animate($time: 0.5s) {
+	-webkit-transition: all $time ease-out;
+	-moz-transition: all $time ease-out;
+	-o-transition: all $time ease-out;
+	transition: all $time ease-out;
+}
+
+@mixin animate-frames($animationType, $time) {
+	-webkit-animation: $animationType $time; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: $animationType $time; /* Firefox < 16 */
+	-ms-animation: $animationType $time; /* Internet Explorer */
+	-o-animation: $animationType $time; /* Opera < 12.1 */
+	animation: $animationType $time;
+}
+
+// ----- Vertical Centering (IE9+) ----- //
+@mixin vertical-align($position: relative) {
+	position: $position;
+	top: 100%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+// ----- Pixels to REM (IE9+) ----- //
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}
+
+// ----- BEM Helpers ----- //
+@mixin element($element) {
+	&__#{$element} {
+		@content;
+	}
+}
+
+@mixin modifier($modifier) {
+	&--#{$modifier} {
+		@content;
+	}
+}
+
+/**
+ USAGE:
+
+ .block {
+    //CSS declarations for `.block`
+
+	@include element('element') {
+		//CSS declarations for `.block__element`
+	}
+
+	@include modifier('modifier') {
+		//CSS declarations for `.block--modifier`
+
+		@include element('element') {
+			//CSS declarations for `.block--modifier__element`
+		}
+	}
+}
+*/
+
+
+//PX TO REM
+
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+$baseline-px: 10px;
+
+@mixin rem($property, $px-values) {
+	// Convert the baseline into rems
+	$baseline-rem: $baseline-px / 1rem * 1;
+	// Print the first line in pixel values
+	#{$property}: $px-values;
+	// If there is only one (numeric) value, return the property/value line for it.
+	@if type-of($px-values) == "number" {
+		#{$property}: $px-values / $baseline-rem; }
+	@else {
+		// Create an empty list that we can dump values into
+		$rem-values: ();
+		@each $value in $px-values {
+			// If the value is zero or not a number, return it
+			@if $value == 0 or type-of( $value ) != "number" {
+				$rem-values: append($rem-values, $value); }
+			@else {
+				$rem-values: append($rem-values, $value / $baseline-rem); } }
+		// Return the property and its list of converted values
+		#{$property}: $rem-values; }
+}
+
+/**
+ * Hamburger Menu Animation
+ */
+@mixin btn($left, $top) {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: $top;
+	left: $left;
+	transition-duration: 0.5s;
+}
+
+@mixin icon($height, $width) {
+	transition-duration: 0.5s;
+	position: absolute;
+	height: $height;
+	width: $width;
+	top: 15px;
+	background-color: $color_menu_icon;
+}
+
+@mixin icon-before($height, $width, $top) {
+	transition-duration: 0.5s;
+	position: absolute;
+	width: $width;
+	height: $height;
+	background-color: $color_menu_icon;
+	content: "";
+	top: $top;
+}
+
+@mixin icon-after($height, $width, $top) {
+	transition-duration: 0.5s;
+	position: absolute;
+	width: $width;
+	height: $height;
+	background-color: $color_menu_icon;
+	content: "";
+	top: $top;
+}

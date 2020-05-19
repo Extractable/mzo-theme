@@ -43,7 +43,7 @@ $top_content_contact_right = get_sub_field("top_content_contact_right");
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
-        <?php 
+        <?php
           if($title){
             echo '<h2>'.$title.'</h2>';
           }
@@ -67,7 +67,7 @@ $top_content_contact_right = get_sub_field("top_content_contact_right");
           </div>
         </div>
       </div>
-    </div>    
+    </div>
     <?php
     }
     ?>

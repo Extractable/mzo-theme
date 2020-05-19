@@ -139,16 +139,36 @@ jQuery(document).ready(function () {
     jQuery(".search-form").toggle();
     e.preventDefault();
   });
-  jQuery(".navbar-toggler i").click(function (e) {
-    if (jQuery(".navbar-toggler").hasClass("collapsed")) {
-      jQuery(".navbar-toggler").removeClass("collapsed");
-      jQuery(".navbar-toggler").addClass("expanded");
+  jQuery(".mmmenu").on('click', function (e) {
+    if (jQuery(this).hasClass('collapsed')) {
+      $('#nav-icon3').addClass('open');
+      jQuery(this).removeClass('collapsed');
+      jQuery(this).addClass('expanded');
       jQuery(".wpmm-menu").addClass("mm-menu_opened");
     } else {
-      jQuery(".navbar-toggler").addClass("collapsed");
-      jQuery(".navbar-toggler").removeClass("expanded");
+      $('#nav-icon3').removeClass('open');
+      jQuery(this).addClass("collapsed");
+      jQuery(this).removeClass("expanded");
       jQuery(".wpmm-menu").removeClass("mm-menu_opened");
     }
+
+    console.log('test');
+    e.preventDefault();
+    /*
+        if (jQuery(this).hasClass("collapsed")) {
+          jQuery(".navbar-toggler").removeClass("collapsed");
+          jQuery(".navbar-toggler").addClass("expanded");
+          jQuery(".wpmm-menu").addClass("mm-menu_opened");
+        } else {
+          jQuery(".navbar-toggler").addClass("collapsed");
+          jQuery(".navbar-toggler").removeClass("expanded");
+          jQuery(".wpmm-menu").removeClass("mm-menu_opened");
+        }
+    
+        $('#nav-icon3').click(function(){
+            $(this).toggleClass('open');
+        });
+    */
   });
   setTimeout(function () {
     jQuery(".mm-listview").append('<li class="mm-listitem">' + jQuery("#hiddenmenumobile").html() + '</li>');

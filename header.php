@@ -30,7 +30,6 @@ foreach($mobile_hide_menu as $mhmenu){
 }
 $contenthmenu2 .= '</ul>';
 
-//global $template; echo basename($template)."aaaaaaaaa";
 ?>
 <html <?php language_attributes(); ?>>
 <head>
@@ -57,49 +56,69 @@ $contenthmenu2 .= '</ul>';
 <body <?php body_class(); ?>>
 
   <header>
-    <div class="container">
-      <div class="row">
-        <nav class="navbar navbar-expand-lg w-100 flex-wrap p-0 <?php if($hide_header_menu){echo 'py-lg-3';}?>">
-          <div class="col-12 header-top d-flex align-content-center flex-wrap justify-content-between">
-            <a class="navbar-brand" href="<?php echo get_option("siteurl");?>"><img src="<?php echo $logo;?>" alt="logo mizuho" class="img-fluid" width="278"><?php if($hide_header_menu){echo $header_text;}?></a>
-            <div class="header-top-right text-right d-none d-lg-flex align-items-center">
-              <?php
-               if($hide_header_menu){
-                echo $contenthmenu1;
-               }
-               else{
-                echo $header_right;
-               }
-              ?>
-              <?php echo get_search_form();?>
+    <div class="container header-top">
+        <div class="row align-items-center flex-wrap justify-content-between">
+            <div class="col-6">
+                <a class="navbar-brand" href="<?php echo get_option("siteurl");?>">
+                    <img src="<?php echo $logo;?>" alt="logo mizuho" class="img-fluid" width="278">
+                    <?php if($hide_header_menu){echo $header_text;}?>
+                </a>
             </div>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse menu-area" id="navbarNavDropdown">
-           <?php
-           if($hide_header_menu){
-            echo  $contenthmenu2;
-           }
-           else{
-            echo '<div class="desktopmenu">';
-            wp_nav_menu(array('container' => false, 'theme_location' => 'menu-1', 'menu_class' => 'navbar-nav'));
-            echo '</div>';
-            echo '<div class="mobilemenu dl-menuwrapper">';
-            wp_nav_menu(array('container' => false, 'theme_location' => 'menu-mobile', 'menu_class' => 'navbar-nav dl-menu dl-menuopen'));
-            echo '</div>';
-           }
-           ?>
-          </div>
-          <div class="nav-item menu-contact-us <?php if($hide_header_menu){ echo 'd-flex d-md-none';}?>">
-              <?php
-                if($blue_button_text){
-                    echo '<a class="nav-link text-uppercase" href="'.$blue_button_url.'">'.$blue_button_text.'</a>';
-                }
-              ?>
-          </div>
-        </nav>
-      </div>
+                <div class="col-6 header-top-right ">
+                    <div class="d-none d-lg-flex text-right align-items-center justify-content-end">
+                        <?php
+                         if($hide_header_menu){
+                          echo $contenthmenu1;
+                         }
+                         else{
+                          echo $header_right;
+                         }
+                        ?>
+                        <?php echo get_search_form();?>
+                    </div>
+                    <div class="d-block d-lg-none d-xl-none text-right align-items-center justify-content-end test" style="position: relative;">
+                        <button class="mmmenu wpmm-button collapsed" type="button" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <div id="nav-icon3">
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                              </div>
+                        </button>
+                    </div>
+            </div>
+        </div>
     </div>
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-12">
+                <div class="menu-container">
+                    <div class="menu-area">
+                        <?php
+                        if($hide_header_menu){
+                         echo  $contenthmenu2;
+                        }
+                        else{
+                         echo '<div class="desktopmenu">';
+                         wp_nav_menu(array('container' => false, 'theme_location' => 'menu-1', 'menu_class' => 'navbar-nav'));
+                         echo '</div>';
+                         echo '<div class="mobilemenu dl-menuwrapper">';
+                         wp_nav_menu(array('container' => false, 'theme_location' => 'menu-mobile', 'menu_class' => 'navbar-nav dl-menu '));
+                         echo '</div>';
+                        }
+                        ?>
+                        <div class="menu-contact-us <?php if($hide_header_menu){ echo 'd-flex d-md-none';}?>">
+                            <?php
+                              if($blue_button_text){
+                                  echo '<a class="nav-link text-uppercase" href="'.$blue_button_url.'">'.$blue_button_text.'</a>';
+                              }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
   </header>

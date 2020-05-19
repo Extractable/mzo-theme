@@ -166,8 +166,22 @@ jQuery(document).ready(function() {
     e.preventDefault();
   });
 
-  jQuery(".navbar-toggler i").click(function(e) {
-    if (jQuery(".navbar-toggler").hasClass("collapsed")) {
+  jQuery(".mmmenu").on('click', function(e) {
+      if( jQuery(this).hasClass('collapsed')) {
+          $('#nav-icon3').addClass('open');
+          jQuery(this).removeClass('collapsed');
+          jQuery(this).addClass('expanded');
+          jQuery(".wpmm-menu").addClass("mm-menu_opened");
+      }else {
+          $('#nav-icon3').removeClass('open');
+          jQuery(this).addClass("collapsed");
+          jQuery(this).removeClass("expanded");
+          jQuery(".wpmm-menu").removeClass("mm-menu_opened");
+      }
+      console.log('test');
+      e.preventDefault();
+/*
+    if (jQuery(this).hasClass("collapsed")) {
       jQuery(".navbar-toggler").removeClass("collapsed");
       jQuery(".navbar-toggler").addClass("expanded");
       jQuery(".wpmm-menu").addClass("mm-menu_opened");
@@ -176,6 +190,11 @@ jQuery(document).ready(function() {
       jQuery(".navbar-toggler").removeClass("expanded");
       jQuery(".wpmm-menu").removeClass("mm-menu_opened");
     }
+
+    $('#nav-icon3').click(function(){
+        $(this).toggleClass('open');
+    });
+*/
   });
 
   setTimeout(function() {
@@ -258,6 +277,7 @@ jQuery(document).ready(function() {
 
 
 });
+
 
 jQuery(window).scroll(function() {
   if (jQuery(window).scrollTop() > 100) {

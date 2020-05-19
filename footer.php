@@ -20,7 +20,7 @@ $footer_link_text = get_field('footer_link_text', 'option');
   <div class="container">
     <div class="row no-gutters">
       <div class="col-12 text-center pb-2 mb-4">
-        <a href="#"><img src="<?php echo $footer_logo;?>" alt="footer-logo" class="img-fluid" width="278"></a>
+        <a href="/"><img src="<?php echo $footer_logo;?>" alt="footer-logo" class="img-fluid" width="278"></a>
       </div>
       <div class="col">
         <?php dynamic_sidebar("footer-1");?>
