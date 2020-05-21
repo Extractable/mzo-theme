@@ -38,7 +38,7 @@ $pillars = get_sub_field("pillars");
       <?php
         foreach($pillars as $pillar){
           echo '
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 matchHeight">
                   <div class="brand-pillar">
                       <div class="brand-pillar-content">
                          <div>

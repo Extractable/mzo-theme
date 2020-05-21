@@ -1,4 +1,4 @@
-<?php
+    <?php
 /**
  * The template for displaying all single posts
  *
@@ -83,7 +83,7 @@ $form_content = get_field('form_content', 'option');
                  ?>
 
                 <div class="col-12 col-md-6 col-lg-4 load-card">
-                    <div class="accessories-card">
+                    <div class="accessories-card matchHeight">
                         <div>
                             <img src="<?php echo $featured_img_url; ?>" alt="<?php echo $post->post_title; ?>" class="img-fluid">
                             <div class="text-area">
@@ -150,7 +150,7 @@ $form_content = get_field('form_content', 'option');
                                   <a href="<?php echo $resouceLinkPro['url']; ?>" target="<?php echo $resouceLinkPro['target']; ?>"><img src="<?php the_sub_field('icon'); ?>"></a>
                                 </div>
                                 <div class="col-10 col-md-9">
-                                    <div class="resource-content">
+                                    <div class="resource-content matchHeight">
                                         <h3><?php the_sub_field('title'); ?></h3>
                                         <?php
                                             if( $resourceContentPro ) {
@@ -257,7 +257,7 @@ $form_content = get_field('form_content', 'option');
                         $term = get_primary_taxonomy_term();
                         echo '
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <div class="related-card">
+                                    <div class="related-card matchHeight">
                                       <div>
                                       <img src="'.$featured_img_url.'" alt="'.$post->post_title.'" class="img-fluid">
                                       <div class="text-area">

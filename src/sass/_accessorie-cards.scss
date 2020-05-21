@@ -34,17 +34,10 @@
       display: none;
     }
 
-    [class*='col-'] {
-        border: 1px solid purple;
-        height: auto;
-    }
-
     .accessories-card {
       position: relative;
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
-      align-items: stretch; /* align items in Cross Axis */
 
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
@@ -52,8 +45,6 @@
       border-bottom-right-radius: 8px;
 
       overflow: hidden;
-
-      border: 1px solid orange;
 
       &:before {
         content: '';
@@ -71,7 +62,6 @@
 
       > div {
           z-index: 2;
-          height: 100%;
       }
 
       img {

@@ -240,8 +240,8 @@ jQuery(document).ready(function () {
     }
   }); // bind change event to selectbox
 
-  $('#selectRequestInformation').on('change', function () {
-    var url = $(this).val(); // get selected value
+  jQuery('#selectRequestInformation').on('change', function () {
+    var url = jQuery(this).val(); // get selected value
 
     if (url) {
       // require a URL
@@ -251,7 +251,13 @@ jQuery(document).ready(function () {
     return false;
   }); //Reset selectbox on page load
 
-  $("#selectRequestInformation").val("");
+  jQuery("#selectRequestInformation").val(""); //jQuery matchHeight
+
+  jQuery('.matchHeight .brand-pillar .brand-pillar-content').matchHeight();
+  jQuery('.matchHeight .profile .brand-pillar-content').matchHeight();
+  jQuery('.matchHeight.accessories-card').matchHeight();
+  jQuery('.matchHeight.resource-content').matchHeight();
+  jQuery('.matchHeight.related-card').matchHeight();
 });
 jQuery(window).scroll(function () {
   if (jQuery(window).scrollTop() > 100) {

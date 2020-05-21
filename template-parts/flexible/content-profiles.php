@@ -51,7 +51,7 @@ $profiles = get_sub_field("profiles");
 
                 $lightboxID = str_replace(' ', '_', strtolower($profileInfo["profile_name"]))
              ?>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 matchHeight">
                 <div class="profile">
                     <div class="brand-pillar-content">
                         <div>

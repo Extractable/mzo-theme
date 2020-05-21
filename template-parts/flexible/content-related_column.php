@@ -63,7 +63,7 @@ $related = get_sub_field("related");
 
               echo '
                     <div class="col-12 col-md-6 col-lg-4">
-                    <div class="related-card">
+                    <div class="related-card matchHeight">
                       <div>
                       <img src="'.$featured_img_url.'" alt="'.$postdata->post_title.'" class="img-fluid">
                       <div class="text-area">

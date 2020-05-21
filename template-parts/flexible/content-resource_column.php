@@ -42,7 +42,7 @@ $resources = get_sub_field("resources");
                             <a href="<?php echo $resouceLink['url']; ?>" target="<?php echo $resouceLink['target']; ?>"><img src="<?php the_sub_field('icon'); ?>"></a>
                         </div>
                         <div class="col-10 col-md-9">
-                            <div class="resource-content">
+                            <div class="resource-content matchHeight">
                                 <h3><?php the_sub_field('title'); ?></h3>
                                 <?php
                                     if( $resourceContent ) {
