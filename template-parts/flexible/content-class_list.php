@@ -44,12 +44,19 @@ $classes = get_sub_field("classes");
         $classfor = get_primary_taxonomy_term($class, "class_for");
         $register_link = get_field("register_link",$class);
         $register_date = get_field("register_date",$class);
+        $custom_link = get_field("custom_link",$class);
+        $custom_link_title = get_field("custom_link_title",$class);
+        if($custom_link) {
+            $custom_link = '<a href="'.$custom_link.'" class="text-link-arrow">'.$custom_link_title.' <i class="fas fa-angle-right ml-2"></i></a>';
+        } else {
+            $custom_link = '<a href="'.get_term_link($classfor["terms"]).'" class="text-link-arrow">'.$custom_link_title.' <i class="fas fa-angle-right ml-2"></i></a>';
+        }
         if($register_link)
           $register_link = '<a href="/registration/?training='.$classdata->post_title.'&date='.$register_date.'" class="btn btn-primary">REGISTER</a>';
         $counter++;
         echo '
               <div class="col-md-4">
-                <div class="upcoming-class">
+                <div class="upcoming-class matchHeight">
                   <div class="square-image">
                     <img src="'.$image.'" alt="'.$classdata->post_title.'" class="img-fluid">
                   </div>
@@ -60,7 +67,7 @@ $classes = get_sub_field("classes");
                     <p class="small">'.$classdata->post_excerpt.'</p>
                     <div class="row">
                       <div class="col-6">'.$register_link.'</div>
-                      <div class="col-6 d-inline-flex align-items-center justify-content-md-center"><a href="'.get_term_link($classfor["terms"]).'" class="text-link-arrow">Learn More <i class="fas fa-angle-right ml-2"></i></a></div>
+                      <div class="col-6 d-inline-flex align-items-center justify-content-md-center">'.$custom_link.'</div>
                     </div>
                   </div>
                 </div>

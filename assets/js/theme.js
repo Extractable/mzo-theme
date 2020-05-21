@@ -258,6 +258,7 @@ jQuery(document).ready(function () {
   jQuery('.matchHeight.accessories-card').matchHeight();
   jQuery('.matchHeight.resource-content').matchHeight();
   jQuery('.matchHeight.related-card').matchHeight();
+  jQuery('.matchHeight.upcoming-class').matchHeight();
 });
 jQuery(window).scroll(function () {
   if (jQuery(window).scrollTop() > 100) {
