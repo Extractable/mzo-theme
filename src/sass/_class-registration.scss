@@ -1,6 +1,13 @@
 .class-registration {
     padding: 60px;
 
+    @media (max-width: 640px) {
+        padding: {
+            left: 20px;
+            right: 20px;
+        }
+    }
+
     .registration-form {
         p {
             line-height: 1.6em;
@@ -57,6 +64,13 @@
                 background: #0073D1;
                 padding: 10px 35px;
                 color: #FFF;
+            }
+        }
+
+        @media (max-width: 640px) {
+            table.gfield_list td {
+                width: 100%;
+                display: block;
             }
         }
     }
