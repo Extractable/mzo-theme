@@ -135,7 +135,7 @@ $sku = $product->get_sku();
               <?php
               $request = get_field("request");
               if($request){
-                echo '<div class="custom-button-dropdown" style="border: 2px solid red;">
+                echo '<div class="custom-button-dropdown">
                     <div class="main-button collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCustomDropdown">Request Information</div>
                     <div id="collapseCustomDropdown" class="dropdown-button collapse">';
                 foreach($request as $reqdata){
