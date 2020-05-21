@@ -347,17 +347,28 @@ else{
                         $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); ?>
 
                         <div class="one-third-product productlistdata pcol<?php echo $countercol; ?>">
-                            <a href="<?php echo $permalink; ?>">
-                                <img src="<?php echo $featured_img_url; ?>" class="img-fluid" alt="<?php echo $post->post_title; ?>">
-                            </a>
-                            <div class="one-third-product-label">
-                                <a href="<?php echo $permalink; ?>">
-                                    <h5><?php echo $title; ?></h5>
-                                    <p><?php echo $content; ?></p>
+                            <?php if($link): ?>
+                                <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>">
+                                    <img src="<?php echo $featured_img_url; ?>" class="img-fluid" alt="<?php echo $post->post_title; ?>">
                                 </a>
+                            <?php else: ?>
+                                <a href="<?php echo $permalink; ?>">
+                                    <img src="<?php echo $featured_img_url; ?>" class="img-fluid" alt="<?php echo $post->post_title; ?>">
+                                </a>
+                            <?php endif; ?>
+
+                            <div class="one-third-product-label">
                                 <?php if($link): ?>
+                                    <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>">
+                                        <h5><?php echo $title; ?></h5>
+                                        <p><?php echo $content; ?></p>
+                                    </a>
                                     <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="label-link">Learn More <i class="fas fa-angle-right ml-1"></i></a>
                                 <?php else: ?>
+                                    <a href="<?php echo $permalink; ?>">
+                                        <h5><?php echo $title; ?></h5>
+                                        <p><?php echo $content; ?></p>
+                                    </a>
                                     <a href="<?php echo $permalink; ?>" class="label-link">Learn More <?php echo $customLink; ?> <i class="fas fa-angle-right ml-1"></i></a>
                                 <?php endif; ?>
                             </div>
