@@ -191,14 +191,14 @@ $sku = $product->get_sku();
 <section class="features section-padding mt-4">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 text-area order-2 <?php echo $order1;?>">
+      <div class="col-md-6 text-area">
         <?php
           echo $features_title;
           echo $features_content;
         ?>
       </div>
-      <div class="col-md-1 <?php echo $order2;?>"></div>
-      <div class="col-md-5 media-area order-1 <?php echo $order3;?>">
+      <div class="col-md-1"></div>
+      <div class="col-md-5 media-area">
         <?php
           echo $media;
         ?>
