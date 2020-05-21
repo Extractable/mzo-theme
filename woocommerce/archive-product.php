@@ -322,6 +322,7 @@ else{
                         //$roll_over = wp_trim_words(strip_tags(get_field('product_rollover_text')), 20, "");
                         //$excerpt = wp_trim_words(strip_tags(get_the_excerpt()), 20, "");
                         $roll_over = get_field('product_rollover_text');
+                        $link = get_field('custom_url');
                         $excerpt = get_the_excerpt();
                         /* Excerpt Limit */
                         if( $roll_over ) {
@@ -354,7 +355,11 @@ else{
                                     <h5><?php echo $title; ?></h5>
                                     <p><?php echo $content; ?></p>
                                 </a>
-                                <a href="<?php echo $permalink; ?>" class="label-link">Learn More <i class="fas fa-angle-right ml-1"></i></a>
+                                <?php if($link): ?>
+                                    <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="label-link">Learn More <i class="fas fa-angle-right ml-1"></i></a>
+                                <?php else: ?>
+                                    <a href="<?php echo $permalink; ?>" class="label-link">Learn More <?php echo $customLink; ?> <i class="fas fa-angle-right ml-1"></i></a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     <?php
