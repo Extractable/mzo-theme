@@ -64,28 +64,36 @@ $contenthmenu2 .= '</ul>';
                     <?php if($hide_header_menu){echo $header_text;}?>
                 </a>
             </div>
-                <div class="col-6 header-top-right ">
-                    <div class="d-none d-lg-flex text-right align-items-center justify-content-end">
-                        <?php
-                         if($hide_header_menu){
-                          echo $contenthmenu1;
-                         }
-                         else{
-                          echo $header_right;
-                         }
-                        ?>
-                        <?php echo get_search_form();?>
-                    </div>
-                    <div class="d-block d-lg-none d-xl-none text-right align-items-center justify-content-end test" style="position: relative;">
-                        <button class="mmmenu wpmm-button collapsed" type="button" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                            <div id="nav-icon3">
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                              </div>
-                        </button>
-                    </div>
+            <div class="col-6 header-top-right ">
+                <div class="d-none d-lg-flex text-right align-items-center justify-content-end">
+                    <?php
+                     if($hide_header_menu){
+                      echo $contenthmenu1;
+                     }
+                     else{
+                      echo $header_right;
+                     }
+                    ?>
+                    <?php echo get_search_form();?>
+                </div>
+                <?php
+                    if( !$hide_header_menu ) {
+                        echo '
+                            <div class="d-block d-lg-none d-xl-none text-right align-items-center justify-content-end test" style="position: relative;">
+                                <button class="mmmenu wpmm-button collapsed" type="button" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                    <div id="nav-icon3">
+                                          <span></span>
+                                          <span></span>
+                                          <span></span>
+                                          <span></span>
+                                      </div>
+                                </button>
+                            </div>
+                        ';
+                    } else {
+                        echo $contenthmenu2;
+                    }
+                 ?>
             </div>
         </div>
     </div>
@@ -95,25 +103,24 @@ $contenthmenu2 .= '</ul>';
                 <div class="menu-container">
                     <div class="menu-area">
                         <?php
-                        if($hide_header_menu){
-                         echo  $contenthmenu2;
-                        }
-                        else{
-                         echo '<div class="desktopmenu">';
-                         wp_nav_menu(array('container' => false, 'theme_location' => 'menu-1', 'menu_class' => 'navbar-nav'));
-                         echo '</div>';
-                         echo '<div class="mobilemenu dl-menuwrapper">';
-                         wp_nav_menu(array('container' => false, 'theme_location' => 'menu-mobile', 'menu_class' => 'navbar-nav dl-menu '));
-                         echo '</div>';
-                        }
-                        ?>
-                        <div class="menu-contact-us <?php if($hide_header_menu){ echo 'd-flex d-md-none';}?>">
-                            <?php
-                              if($blue_button_text){
-                                  echo '<a class="nav-link text-uppercase" href="'.$blue_button_url.'">'.$blue_button_text.'</a>';
-                              }
-                            ?>
-                        </div>
+                            if( !$hide_header_menu) {
+                                echo '<div class="desktopmenu">';
+                                wp_nav_menu(array('container' => false, 'theme_location' => 'menu-1', 'menu_class' => 'navbar-nav'));
+                                echo '</div>';
+                                echo '<div class="mobilemenu dl-menuwrapper">';
+                                wp_nav_menu(array('container' => false, 'theme_location' => 'menu-mobile', 'menu_class' => 'navbar-nav dl-menu '));
+                                echo '</div>';
+                            }
+                         ?>
+                        <?php if( !$hide_header_menu ): ?>
+                            <div class="menu-contact-us <?php if($hide_header_menu){ echo 'd-flex d-md-none';}?>">
+                                <?php
+                                  if($blue_button_text){
+                                      echo '<a class="nav-link text-uppercase" href="'.$blue_button_url.'">'.$blue_button_text.'</a>';
+                                  }
+                                ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

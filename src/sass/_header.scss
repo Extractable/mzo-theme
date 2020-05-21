@@ -23,6 +23,25 @@ header {
         margin: 0 0 10px;
         padding: 0;
       }
+
+      ul.navbar-nav {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: right;
+        li {
+            padding: 0;
+            margin: 0;
+            &:before {
+                display: none;
+            }
+            a {
+                margin: 0;
+                padding: 0;
+            }
+        }
+      }
+
     }
     @media (max-width: 1199px) {
       max-width: unset;
