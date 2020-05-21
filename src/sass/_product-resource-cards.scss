@@ -266,7 +266,8 @@
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         width: 100%;
-        height: 100%;
+        height: auto;
+        min-height: 140px;
         justify-content: space-between;
         display: block;
 
@@ -352,6 +353,21 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .product-resource-cards {
+
+    .product-resources {
+
+      .product-resource {
+        margin-right: 12px!important;
+        .product-resource-label{
+          min-height: 220px;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 991.98px) {
   .product-resource-cards {
     padding-top: 0 !important;
@@ -419,10 +435,10 @@
     .product-resources {
 
       .product-resource {
-        width: 48.5% !important;
+        width: 47.5% !important;
 
         .product-resource-label {
-
+          min-height: 220px;
           h5 {
             font-size: 22px !important;
           }
@@ -442,6 +458,9 @@
         margin-bottom: 20px;
         margin-left: auto;
         margin-right: auto;
+        .product-resource-label {
+          min-height: 100px;
+        }
       }
 
       .product-resource-more {

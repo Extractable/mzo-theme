@@ -19,7 +19,8 @@
 
       position: relative;
       display: flex;
-      height: 100%;
+      height: auto;
+      min-height: 630px;
 
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
@@ -153,6 +154,11 @@
 
         .text-area {
           padding: 35px 20px 60px 20px;
+
+          p.link{
+            position: relative;
+            bottom: 0;
+          }
         }
       }
     }

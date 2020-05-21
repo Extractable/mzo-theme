@@ -55,7 +55,16 @@
     }
   }
 }
-@media (max-width: 575.98px) {
+@media (max-width: 1024px) {
+  .resources-icons {
+    .resources {
+      height: auto;
+      min-height: 200px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
   .resources-icons {
     h3 {
       font-size: 32px;
@@ -65,6 +74,7 @@
     .resources {
       padding: 0 10px 20px 10px;
       margin-bottom: 20px;
+      height: auto;
 
       a,
       p {
