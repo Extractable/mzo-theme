@@ -237,6 +237,7 @@ $form_content = get_field('form_content', 'option');
                         setup_postdata($post);
                         $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
                         $sub_title = get_field("sub_title");
+                        $customLink = get_field('custom_url');
                         if(get_post_type()=="product"){
                             $sku = get_post_meta($post->ID,"_sku",true);
                             if( $sku ):
@@ -245,7 +246,11 @@ $form_content = get_field('form_content', 'option');
                                 $sub_title = '<p class="eyebrow">&nbsp;</p>';
                             endif;
                             $description = str_replace("<p>",'<p class="small">',wpautop(get_the_excerpt()));
-                            $link = '<p class="link"><a href="'.get_permalink().'">Learn More <i class="fas fa-angle-right ml-2"></i></a></p>';
+                            if($customLink):
+                                $link = '<p class="link"><a href="' .$customLink['url'].'" target="'.$customLink['target'].'">'.$customLink['title'].'</a></p>';
+                            else:
+                                $link = '<p class="link"><a href="'.get_permalink().'">Learn More '. $customLink.' <i class="fas fa-angle-right ml-2"></i></a></p>';
+                            endif;
                         }
                         else{
                             $sub_title = '<p class="eyebrow text-uppercase">'.$sub_title.'</p>';
