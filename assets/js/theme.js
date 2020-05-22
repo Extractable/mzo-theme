@@ -219,7 +219,7 @@ jQuery(document).ready(function () {
 
   (function () {
     jQuery('a[href^="#"]').on('click', function (event) {
-      var target = $(this.getAttribute('href'));
+      var target = jQuery(this.getAttribute('href'));
 
       if (target.length) {
         event.preventDefault();
@@ -566,6 +566,13 @@ jQuery(function () {
   });
   jQuery(".classdata .classtypeca").click(function (e) {
     e.preventDefault();
+    jQuery("#filter-type input[type=checkbox]").prop('checked', false);
+    classcheckallfilters();
+  });
+  jQuery("#filter-toggle .btnreset").click(function (e) {
+    e.preventDefault();
+    jQuery("#filter-class input[type=checkbox]").prop('checked', false);
+    jQuery("#filter-product input[type=checkbox]").prop('checked', false);
     jQuery("#filter-type input[type=checkbox]").prop('checked', false);
     classcheckallfilters();
   });

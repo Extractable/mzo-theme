@@ -246,7 +246,7 @@ jQuery(document).ready(function() {
   //Offset anchors
   (function() {
     jQuery('a[href^="#"]').on('click', function(event) {
-      var target = $(this.getAttribute('href'));
+      var target = jQuery(this.getAttribute('href'));
       if (target.length) {
         event.preventDefault();
         jQuery('html, body').stop().animate({
@@ -277,6 +277,7 @@ jQuery(document).ready(function() {
   //Reset selectbox on page load
   jQuery("#selectRequestInformation").val("");
 
+
   //jQuery matchHeight
   jQuery('.matchHeight .brand-pillar .brand-pillar-content').matchHeight();
   jQuery('.matchHeight .profile .brand-pillar-content').matchHeight();
@@ -284,6 +285,7 @@ jQuery(document).ready(function() {
   jQuery('.matchHeight.resource-content').matchHeight();
   jQuery('.matchHeight.related-card').matchHeight();
   jQuery('.matchHeight.upcoming-class').matchHeight();
+
 });
 
 
@@ -596,6 +598,14 @@ jQuery(function() {
   });
   jQuery(".classdata .classtypeca").click(function(e) {
     e.preventDefault();
+    jQuery("#filter-type input[type=checkbox]").prop('checked', false);
+    classcheckallfilters();
+  });
+
+  jQuery("#filter-toggle .btnreset").click(function(e){
+    e.preventDefault();
+    jQuery("#filter-class input[type=checkbox]").prop('checked', false);
+    jQuery("#filter-product input[type=checkbox]").prop('checked', false);
     jQuery("#filter-type input[type=checkbox]").prop('checked', false);
     classcheckallfilters();
   });
