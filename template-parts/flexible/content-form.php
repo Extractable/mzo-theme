@@ -39,7 +39,7 @@ if($use_global_footer_form_setting){
 $top_content_contact_left = get_sub_field("top_content_contact_left");
 $top_content_contact_right = get_sub_field("top_content_contact_right");
 ?>
-<section class="contact-us section-padding <?php echo $overlay_grey_position;?>" style="<?php echo $background_color.$background_image;?>">
+<section class="contact-us section-padding <?php echo $overlay_grey_position;?>" style="<?php echo $background_color.$background_image;?>;">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
