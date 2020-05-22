@@ -109,3 +109,25 @@
     }
   }
 }
+
+body.ios {
+    .product-tabs {
+        .nav-tabs {
+
+          .nav-item {
+
+            .nav-link {
+
+              &.active {
+
+                &::after {
+                  width: auto;
+                  left: -1px;
+                  right: -1px;
+                }
+              }
+            }
+          }
+        }
+    }
+}
