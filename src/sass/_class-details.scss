@@ -482,7 +482,7 @@
   }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 767px) {
   .class-details {
 
     .class-detail {
@@ -497,15 +497,19 @@
       }
 
       .class-toggle {
-
+        table, tbody, tr, td {
+            display: block !important;
+        }
         table {
-
+          width: 100%;
+          display: block;
           thead {
             display: none;
           }
 
           tr {
-
+              width: 100%;
+              display: block;
             td {
               width: 100%;
               display: block;

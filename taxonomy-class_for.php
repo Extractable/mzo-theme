@@ -324,12 +324,12 @@ else{
 			    <div class="row">
 			      <div class="col-lg-3 filter-area">
 			        <div class="toggle-filter d-block d-lg-none">
-			          <a data-toggle="collapse" class="collapsed" href="#filter-toggle" role="button">Upcoming Classes <span class="toggle-plus"></span><span class="toggle-minus" style="display: none;"></span></a>
+			          <a data-toggle="collapse" class="collapsed" data-target="#filter-toggle" role="button">Upcoming Classes <span class="toggle-plus"></span><span class="toggle-minus" style="display: none;"></span></a>
 			        </div>
 			        <div class="collapse" id="filter-toggle">
 			          <h5 class="mb-4 d-none d-lg-block">Upcoming Classes</h5>
 			          <div class="toggle-filter-inside d-block d-lg-none">
-			            <a data-toggle="collapse" class="collapsed" href="#filter-toggle-category" role="button">For <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
+			            <a data-toggle="collapse" class="collapsed" data-target="#filter-toggle-category" role="button">For <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-list collapse" id="filter-toggle-category">
 			            <h6>For</h6>
@@ -338,21 +338,21 @@ else{
 			            </ul>
 			          </div>
 			          <div class="toggle-filter-inside d-block d-lg-none">
-			            <a data-toggle="collapse" class="collapsed" href="#filter-class" role="button">Class <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
+			            <a data-toggle="collapse" class="collapsed" data-target="#filter-class" role="button">Class <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-checkbox collapse" id="filter-class">
 			            <h6>Class <a class="classclassca clearall" style="display:none;">Clear All</a></h6>
 			            <?php echo $htmlclass;?>
 			          </div>
 			          <div class="toggle-filter-inside d-block d-lg-none">
-			            <a data-toggle="collapse" class="collapsed" href="#filter-product" role="button">Product <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
+			            <a data-toggle="collapse" class="collapsed" data-target="#filter-product" role="button">Product <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-checkbox collapse" id="filter-product">
 			            <h6>Product <a class="classproductca clearall" style="display:none;">Clear All</a></h6>
 			            <?php echo $htmlproduct;?>
 			          </div>
 			          <div class="toggle-filter-inside d-block d-lg-none">
-			            <a data-toggle="collapse" class="collapsed" href="#filter-type" role="button">Type <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
+			            <a data-toggle="collapse" class="collapsed" data-target="#filter-type" role="button">Type <span class="toggle-plus"></span><span class="toggle-minus"></span></a>
 			          </div>
 			          <div class="filter-checkbox collapse" id="filter-type">
 			            <h6>Type <a class="classtypeca clearall" style="display:none;">Clear All</a></h6>
@@ -360,7 +360,7 @@ else{
 			          </div>
 			          <div class="d-block d-lg-none">
 			            <a href="#" class="btn btn-primary my-2 w-100">Done</a>
-			            <a href="#" class="btn btn-light bg-white mb-4 w-100">Reset</a>
+			            <a href="#" class="btn btn-light bg-white mb-4 w-100 btnreset">Reset</a>
 			          </div>
 			        </div>
 			      </div>

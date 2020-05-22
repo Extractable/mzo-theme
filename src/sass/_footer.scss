@@ -18,6 +18,7 @@ footer {
 
     li {
       margin-bottom: 10px;
+      line-height: 1.3em;
 
       &::before {
         display: none;
@@ -43,6 +44,7 @@ footer {
 
     a {
       color: #383838;
+      display: inline-block;
 
       &:hover {
         text-decoration: underline;

@@ -353,7 +353,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .product-resource-cards {
 
     .product-resources {
@@ -361,7 +361,7 @@
       .product-resource {
         margin-right: 12px!important;
         .product-resource-label{
-          min-height: 220px;
+          min-height: 150px;
         }
       }
     }
@@ -438,7 +438,7 @@
         width: 47.5% !important;
 
         .product-resource-label {
-          min-height: 220px;
+          min-height: 150px;
           h5 {
             font-size: 22px !important;
           }

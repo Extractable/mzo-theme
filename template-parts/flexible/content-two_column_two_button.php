@@ -47,6 +47,8 @@ $button_url = get_sub_field("button_url");
 $button_target = get_sub_field("button_target");
 if($button_url=="")
   $button_url="#";
+if(@$button_target[0])
+  $button_target = @$button_target[0];
 
 $button_type_2 = get_sub_field("button_type_2");
 $button_text_2 = get_sub_field("button_text_2");
@@ -54,6 +56,8 @@ $button_url_2 = get_sub_field("button_url_2");
 $button_target_2 = get_sub_field("button_target_2");
 if($button_url_2=="")
   $button_url_2="#";
+if(@$button_target_2[0])
+  $button_target_2 = @$button_target_2[0];
 
 if($bullet_points_color){
   echo '
@@ -97,7 +101,7 @@ if($bullet_points_no_dots){
           }
           if($button_text){
             echo '<div class="row pt-2 pt-md-4">';
-            echo '<div class="col-md-6">';
+            echo '<div class="col-md-6 d-inline-flex align-items-center justify-content-center justify-content-md-start">';
             if($button_type=="simple"){
               echo '<a class="link-text" href="'.$button_url.'" target="'.$button_target.'">'.$button_text.'</a>';
             }
