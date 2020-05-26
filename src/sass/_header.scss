@@ -171,6 +171,7 @@ header {
     @include rotate(0);
     @include animate();
     cursor: pointer;
+    background: #fff;
   }
 
   #nav-icon3 span {
