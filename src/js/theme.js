@@ -9,6 +9,7 @@ jQuery(document).ready(function() {
   if (isIos) {
     jQuery("body").addClass("ios");
   }
+
   jQuery(".product-owl-carousel").owlCarousel({
     nav: true,
     dots: false,

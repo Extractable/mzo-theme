@@ -16,6 +16,10 @@
       width: 220px;
     }
   }
+
+  .managersection img {
+      max-width: 100px;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -32,5 +36,10 @@
         width: 100%;
       }
     }
+
+    .managersection img {
+        margin-bottom: 10px;
+    }
+
   }
 }
