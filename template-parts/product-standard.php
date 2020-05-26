@@ -153,9 +153,11 @@ $product_media = get_field("product_media");
                                 echo '
                                     <div class="label">
                                         '.$video.'
+                                        <div>
                                         '.$title.'
                                         '.$description.'
                                         '.$image_video_sub_title.'
+                                        </div>
                                     </div>
                                 ';
                             }
