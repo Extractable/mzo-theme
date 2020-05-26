@@ -949,7 +949,7 @@ function classload() {
                                 <img src="'.$themeurl.'/images/toggle-times.svg" alt="close toggle"><span class="d-none">Close</span>
 				              </a>
 				            </div>
-				            <table>
+				            <table class="class-table">
 				              <thead>
 				                <tr>
 				                  <td class="column-1">

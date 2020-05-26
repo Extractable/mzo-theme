@@ -223,7 +223,6 @@ if ( $query->have_posts() ) {
         if($price){
         	$pricehtml = '<h6>'.$price.'</h6>';
         }
-
          $listp.= '
 					<div class="class-detail">
 			          <div class="main-area">
@@ -257,7 +256,7 @@ if ( $query->have_posts() ) {
 			                <img src="'.$themeurl.'/images/toggle-times.svg" alt="close toggle"><span class="d-none">Close</span>
 			              </a>
 			            </div>
-			            <table>
+			            <table class="class-table">
 			              <thead>
 			                <tr>
 			                  <td class="column-1">
