@@ -193,6 +193,19 @@ if ( $query->have_posts() ) {
 							';
         }
         $buttonhtml  = '';
+		if( $download_brochure_link ) {
+			$buttonhtml .= '<div class="download-link my-2 d-none d-md-block"><a href="'.$download_brochure_link.'" class="text-link-arrow">Download the Brochure <i class="fas fa-angle-right ml-2"></i></a></div>';
+		}else {
+			$buttonhtml .= '<div class="download-link my-2 d-none d-md-block"></div>';
+		}
+
+		if($contentdata) {
+			$buttonhtml .= '<button type="button" data-toggle="collapse" data-target="#classdata'.$countertemp.'" aria-expanded="false" aria-controls="classdata'.$countertemp.'" class="collapsed">View Dates <i class="fas fa-plus ml-2"></i><i class="fas fa-minus ml-2"></i></button>';
+		}else {
+			$buttonhtml .= '<button type="button" class="disabled" disabled>Classes Full</button>';
+		}
+
+		/*
         if($download_brochure_link && $contentdata){
         	$buttonhtml = '
                 <div class="download-link my-2 d-none d-md-block"><a href="'.$download_brochure_link.'" class="text-link-arrow">Download the Brochure <i class="fas fa-angle-right ml-2"></i></a></div>
@@ -208,12 +221,15 @@ if ( $query->have_posts() ) {
                 <button type="button" data-toggle="collapse" data-target="#classdata'.$countertemp.'" aria-expanded="false" aria-controls="classdata'.$countertemp.'" class="collapsed">View Dates <i class="fas fa-plus ml-2"></i><i class="fas fa-minus ml-2"></i></button>
 		    ';
 		}
+		*/
+		/*
         else if($register_link && count($datas)<1){
         	$buttonhtml = '
                 <div class="download-link my-2"></div>
                 <a href="'.$register_link.'" class="button" target="_blank">Register</a>
 		    ';
         }
+		*/
 
         $skuhtml = '';
         if($sku){

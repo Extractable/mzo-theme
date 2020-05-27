@@ -320,6 +320,13 @@
             display: none;
           }
         }
+
+        &.disabled {
+            color: #858585;
+            background: #EBEBEB;
+            border: 1px solid #EBEBEB;
+            border-radius: 4px;
+        }
       }
     }
 
