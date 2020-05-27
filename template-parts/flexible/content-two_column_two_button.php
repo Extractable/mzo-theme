@@ -101,7 +101,7 @@ if($bullet_points_no_dots){
           }
           if($button_text){
             echo '<div class="row pt-2 pt-md-4">';
-            echo '<div class="col-md-6 d-inline-flex align-items-center justify-content-center justify-content-md-start">';
+            echo '<div class="col-md-6 d-inline-flex align-items-center justify-content-xs-start justify-content-md-start">';
             if($button_type=="simple"){
               echo '<a class="link-text" href="'.$button_url.'" target="'.$button_target.'">'.$button_text.'</a>';
             }
@@ -112,7 +112,7 @@ if($bullet_points_no_dots){
               echo '<a class="link-text" href="'.$button_url.'" target="'.$button_target.'">'.$button_text.' <i class="fas fa-angle-right ml-2"></i></a>';
             }
             echo '</div>';
-            echo '<div class="col-md-6 d-inline-flex align-items-center justify-content-center justify-content-md-start">';
+            echo '<div class="col-md-6 d-inline-flex align-items-center justify-content-xs-start justify-content-md-start">';
             if($button_type_2=="simple"){
               echo '<a class="link-text" href="'.$button_url_2.'" target="'.$button_target_2.'">'.$button_text_2.'</a>';
             }
