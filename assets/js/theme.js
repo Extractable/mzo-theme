@@ -139,6 +139,14 @@ jQuery(document).ready(function () {
     jQuery(".search-form").toggle();
     e.preventDefault();
   });
+  /*
+  $('#searchform').submit(function(e){
+      if($('#s').val() == ''){
+          e.preventDefault();
+      }
+  });
+  */
+
   jQuery(".mmmenu").on('click', function (e) {
     if (jQuery(this).hasClass('collapsed')) {
       $('#nav-icon3').addClass('open');
