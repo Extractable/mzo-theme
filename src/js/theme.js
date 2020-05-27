@@ -280,12 +280,24 @@ jQuery(document).ready(function() {
 
 
   //jQuery matchHeight
-  jQuery('.matchHeight .brand-pillar .brand-pillar-content').matchHeight();
-  jQuery('.matchHeight .profile .brand-pillar-content').matchHeight();
-  jQuery('.matchHeight.accessories-card').matchHeight();
-  jQuery('.matchHeight.resource-content').matchHeight();
-  jQuery('.matchHeight.related-card').matchHeight();
-  jQuery('.matchHeight.upcoming-class').matchHeight();
+  jQuery('.matchHeight .brand-pillar .brand-pillar-content').matchHeight({
+      byRow: true
+  });
+  jQuery('.matchHeight .profile .brand-pillar-content').matchHeight({
+      byRow: true
+  });
+  jQuery('.matchHeight.accessories-card').matchHeight({
+      byRow: true
+  });
+  jQuery('.matchHeight.resource-content').matchHeight({
+      byRow: true
+  });
+  jQuery('.matchHeight.related-card').matchHeight({
+      byRow: true
+  });
+  jQuery('.matchHeight.upcoming-class').matchHeight({
+      byRow: true
+  });
 
 });
 
