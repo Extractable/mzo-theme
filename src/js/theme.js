@@ -69,7 +69,7 @@ jQuery(document).ready(function() {
       loop: true,
       responsiveRefreshRate: 200,
       animateOut: 'fadeOut',
-         animateIn: 'fadeIn',
+      animateIn: 'fadeIn',
     })
     .on("changed.owl.carousel", syncPosition);
 
@@ -166,43 +166,54 @@ jQuery(document).ready(function() {
     jQuery(".search-form").toggle();
     e.preventDefault();
   });
-    /*
-    $('#searchform').submit(function(e){
-        if($('#s').val() == ''){
-            e.preventDefault();
-        }
-    });
-    */
+
+  //Header Search
+  jQuery('.search-submit').on('click', function(e) {
+    var searchField = jQuery(this).prev('input').val();
+    if (searchField == '') {
+        jQuery('.search-error').fadeIn();
+        e.preventDefault();
+    }
+  });
+  //Search Banner
+  jQuery('.searchbtn').on('click', function(e) {
+    var bannerSearchField = jQuery(this).parent().prev('#inputSearch').val();
+    if (bannerSearchField == '') {
+        jQuery('.banner-search-error').fadeIn();
+        e.preventDefault();
+    }
+  });
+
 
   jQuery(".mmmenu").on('click', function(e) {
-      if( jQuery(this).hasClass('collapsed')) {
-          $('#nav-icon3').addClass('open');
-          jQuery(this).removeClass('collapsed');
-          jQuery(this).addClass('expanded');
-          jQuery(".wpmm-menu").addClass("mm-menu_opened");
-      }else {
-          $('#nav-icon3').removeClass('open');
-          jQuery(this).addClass("collapsed");
-          jQuery(this).removeClass("expanded");
-          jQuery(".wpmm-menu").removeClass("mm-menu_opened");
-      }
-      console.log('test');
-      e.preventDefault();
-/*
-    if (jQuery(this).hasClass("collapsed")) {
-      jQuery(".navbar-toggler").removeClass("collapsed");
-      jQuery(".navbar-toggler").addClass("expanded");
+    if (jQuery(this).hasClass('collapsed')) {
+      $('#nav-icon3').addClass('open');
+      jQuery(this).removeClass('collapsed');
+      jQuery(this).addClass('expanded');
       jQuery(".wpmm-menu").addClass("mm-menu_opened");
     } else {
-      jQuery(".navbar-toggler").addClass("collapsed");
-      jQuery(".navbar-toggler").removeClass("expanded");
+      $('#nav-icon3').removeClass('open');
+      jQuery(this).addClass("collapsed");
+      jQuery(this).removeClass("expanded");
       jQuery(".wpmm-menu").removeClass("mm-menu_opened");
     }
+    console.log('test');
+    e.preventDefault();
+    /*
+        if (jQuery(this).hasClass("collapsed")) {
+          jQuery(".navbar-toggler").removeClass("collapsed");
+          jQuery(".navbar-toggler").addClass("expanded");
+          jQuery(".wpmm-menu").addClass("mm-menu_opened");
+        } else {
+          jQuery(".navbar-toggler").addClass("collapsed");
+          jQuery(".navbar-toggler").removeClass("expanded");
+          jQuery(".wpmm-menu").removeClass("mm-menu_opened");
+        }
 
-    $('#nav-icon3').click(function(){
-        $(this).toggleClass('open');
-    });
-*/
+        $('#nav-icon3').click(function(){
+            $(this).toggleClass('open');
+        });
+    */
   });
 
   setTimeout(function() {
@@ -265,22 +276,22 @@ jQuery(document).ready(function() {
   })();
 
   jQuery('.main-button').on('click', function() {
-    if( $(this).hasClass('collapsed') ) {
-        $(this).removeClass('collapsed').attr('aria-expanded', 'true');
-        $(this).next().slideDown().addClass('show');
-    }else {
-        $(this).addClass('collapsed').attr('aria-expanded', 'false');
-        $(this).next().slideUp().removeClass('show');
+    if ($(this).hasClass('collapsed')) {
+      $(this).removeClass('collapsed').attr('aria-expanded', 'true');
+      $(this).next().slideDown().addClass('show');
+    } else {
+      $(this).addClass('collapsed').attr('aria-expanded', 'false');
+      $(this).next().slideUp().removeClass('show');
     }
   });
 
   // bind change event to selectbox
-  jQuery('#selectRequestInformation').on('change', function () {
-      var url = jQuery(this).val(); // get selected value
-      if (url) { // require a URL
-          window.location = url; // redirect
-      }
-      return false;
+  jQuery('#selectRequestInformation').on('change', function() {
+    var url = jQuery(this).val(); // get selected value
+    if (url) { // require a URL
+      window.location = url; // redirect
+    }
+    return false;
   });
   //Reset selectbox on page load
   jQuery("#selectRequestInformation").val("");
@@ -288,22 +299,22 @@ jQuery(document).ready(function() {
 
   //jQuery matchHeight
   jQuery('.matchHeight .brand-pillar .brand-pillar-content').matchHeight({
-      byRow: true
+    byRow: true
   });
   jQuery('.matchHeight .profile .brand-pillar-content').matchHeight({
-      byRow: true
+    byRow: true
   });
   jQuery('.matchHeight.accessories-card').matchHeight({
-      byRow: true
+    byRow: true
   });
   jQuery('.matchHeight.resource-content').matchHeight({
-      byRow: true
+    byRow: true
   });
   jQuery('.matchHeight.related-card').matchHeight({
-      byRow: true
+    byRow: true
   });
   jQuery('.matchHeight.upcoming-class').matchHeight({
-      byRow: true
+    byRow: true
   });
 
 });
@@ -622,7 +633,7 @@ jQuery(function() {
     classcheckallfilters();
   });
 
-  jQuery("#filter-toggle .btnreset").click(function(e){
+  jQuery("#filter-toggle .btnreset").click(function(e) {
     e.preventDefault();
     jQuery("#filter-class input[type=checkbox]").prop('checked', false);
     jQuery("#filter-product input[type=checkbox]").prop('checked', false);
@@ -848,23 +859,23 @@ function showMoreFAQ() {
 }
 
 /**
-* iFrame Resizing
-*/
+ * iFrame Resizing
+ */
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 // Listen for a message from the iframe.
 eventer(messageEvent, function(e) {
-    if (isNaN(e.data)) return;
+  if (isNaN(e.data)) return;
 
-    // replace #sizetracker with what ever what ever iframe id you need
-    document.getElementById('sizetracker').style.height = e.data + 'px';
+  // replace #sizetracker with what ever what ever iframe id you need
+  document.getElementById('sizetracker').style.height = e.data + 'px';
 
 }, false);
 
 
-window.onmessage = (e) => {
+window.onmessage = function(e) {
   if (e.data.hasOwnProperty("frameHeight")) {
-    document.getElementById("sizetracker").style.height = `${e.data.frameHeight + 30}px`;
+    document.getElementById("sizetracker").style.height = '${e.data.frameHeight + 30}px';
   }
 };

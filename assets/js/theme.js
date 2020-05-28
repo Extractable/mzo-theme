@@ -138,15 +138,25 @@ jQuery(document).ready(function () {
   jQuery("a.hsearch").click(function (e) {
     jQuery(".search-form").toggle();
     e.preventDefault();
-  });
-  /*
-  $('#searchform').submit(function(e){
-      if($('#s').val() == ''){
-          e.preventDefault();
-      }
-  });
-  */
+  }); //Header Search
 
+  jQuery('.search-submit').on('click', function (e) {
+    var searchField = jQuery(this).prev('input').val();
+
+    if (searchField == '') {
+      jQuery('.search-error').fadeIn();
+      e.preventDefault();
+    }
+  }); //Search Banner
+
+  jQuery('.searchbtn').on('click', function (e) {
+    var bannerSearchField = jQuery(this).parent().prev('#inputSearch').val();
+
+    if (bannerSearchField == '') {
+      jQuery('.banner-search-error').fadeIn();
+      e.preventDefault();
+    }
+  });
   jQuery(".mmmenu").on('click', function (e) {
     if (jQuery(this).hasClass('collapsed')) {
       $('#nav-icon3').addClass('open');
@@ -172,8 +182,7 @@ jQuery(document).ready(function () {
           jQuery(".navbar-toggler").removeClass("expanded");
           jQuery(".wpmm-menu").removeClass("mm-menu_opened");
         }
-    
-        $('#nav-icon3').click(function(){
+         $('#nav-icon3').click(function(){
             $(this).toggleClass('open');
         });
     */
@@ -812,8 +821,8 @@ function showMoreFAQ() {
   }
 }
 /**
-* iFrame Resizing
-*/
+ * iFrame Resizing
+ */
 
 
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
@@ -826,8 +835,8 @@ eventer(messageEvent, function (e) {
   document.getElementById('sizetracker').style.height = e.data + 'px';
 }, false);
 
-window.onmessage = e => {
+window.onmessage = function (e) {
   if (e.data.hasOwnProperty("frameHeight")) {
-    document.getElementById("sizetracker").style.height = `${e.data.frameHeight + 30}px`;
+    document.getElementById("sizetracker").style.height = '${e.data.frameHeight + 30}px';
   }
 };

@@ -36,12 +36,15 @@ $search = @$_GET["s"];
 		              <div class="input-group">
 		                <input type="text" class="form-control" id="inputSearch" name="s" placeholder="Search" value="<?php echo $search;?>">
 		                <div class="input-group-append">
-		                  <button type="submit">
+		                  <button type="submit" class="searchbtn">
 		                    <i class="fa fa-search"></i>
 		                    <span class="d-none">Search</span>
 		                  </button>
 		                </div>
 		              </div>
+					  <div class="banner-search-error">
+					  	Please enter a search term
+					  </div>
 		            </div>
 		          </div>
 		        </form>
@@ -62,11 +65,11 @@ $search = @$_GET["s"];
 		        		echo '<h6>'.$pagestart.'-'.$totalposts.' of '.$foundposts.' results for <strong>“'.$search.'”</strong></h6>';
 		        	}
 		        ?>
-		        
+
 		      </div>
 		    </div>
 		  </div>
-		</section>		
+		</section>
 		<?php if ( have_posts() ) : ?>
 
 		<section class="search-results">
@@ -103,19 +106,19 @@ $search = @$_GET["s"];
 				          <h6><a href="'.$link.'">'.$title.'</a></h6>
 				          '.$excerpt.'
 				          <a href="'.$link.'">'.$link.'</a>
-				        </div>				
+				        </div>
 					 ';
 			endwhile;
 
-			wp_pagenavi(); 
+			wp_pagenavi();
 
 		else :
 			?>
 			<section class="search-results">
 			  <div class="container">
 			    <div class="row">
-			      <div class="col-12 text-center mt-5 mb-5">	
-			      <div class="mt-5 mb-5">	
+			      <div class="col-12 text-center mt-5 mb-5">
+			      <div class="mt-5 mb-5">
 			      		<h3>Nothing Found</h3>
 			      		<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
 			      </div>
