@@ -242,7 +242,6 @@ else{
   }
 
   //once we get the termlist for all the post, later we will use that as filter data.
-
 ?>
 <section class="one-third-filtered-product-card section-padding">
   <div class="container">
@@ -266,6 +265,7 @@ else{
           if(count($filterlist)>0){
             foreach($filterlist as $filterl){
               $termlist = get_taxonomy($filterl);
+
               $htmlterm = '';
               foreach( $filterterm[$filterl] as $termdata ){
                 $htmlterm .= '
@@ -286,6 +286,7 @@ else{
                    ';
             }
           }
+          
           ?>
 
           <!--<div class="d-block d-lg-none">

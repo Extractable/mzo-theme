@@ -816,9 +816,6 @@ function showMoreFAQ() {
 */
 
 
-iFrameResize({
-  log: true
-}, '.sizetracker');
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message"; // Listen for a message from the iframe.
@@ -828,3 +825,9 @@ eventer(messageEvent, function (e) {
 
   document.getElementById('sizetracker').style.height = e.data + 'px';
 }, false);
+
+window.onmessage = e => {
+  if (e.data.hasOwnProperty("frameHeight")) {
+    document.getElementById("sizetracker").style.height = `${e.data.frameHeight + 30}px`;
+  }
+};
