@@ -824,19 +824,21 @@ function showMoreFAQ() {
  * iFrame Resizing
  */
 
-
+/*
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
-var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message"; // Listen for a message from the iframe.
-
-eventer(messageEvent, function (e) {
-  if (isNaN(e.data)) return; // replace #sizetracker with what ever what ever iframe id you need
-
-  document.getElementById('sizetracker').style.height = e.data + 'px';
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+// Listen for a message from the iframe.
+eventer(messageEvent, function(e) {
+ if (isNaN(e.data)) return;
+  // replace #sizetracker with what ever what ever iframe id you need
+ document.getElementById('sizetracker').style.height = e.data + 'px';
 }, false);
+*/
+
 
 window.onmessage = function (e) {
   if (e.data.hasOwnProperty("frameHeight")) {
-    document.getElementById("sizetracker").style.height = '${e.data.frameHeight + 30}px';
+    document.getElementById("sizetracker").style.height = e.data.frameHeight + 30 + 'px';
   }
 };

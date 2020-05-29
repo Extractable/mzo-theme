@@ -861,6 +861,8 @@ function showMoreFAQ() {
 /**
  * iFrame Resizing
  */
+
+ /*
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
@@ -872,10 +874,11 @@ eventer(messageEvent, function(e) {
   document.getElementById('sizetracker').style.height = e.data + 'px';
 
 }, false);
+*/
 
 
 window.onmessage = function(e) {
   if (e.data.hasOwnProperty("frameHeight")) {
-    document.getElementById("sizetracker").style.height = '${e.data.frameHeight + 30}px';
+    document.getElementById("sizetracker").style.height = e.data.frameHeight + 30 +'px';
   }
 };
