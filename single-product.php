@@ -247,7 +247,7 @@ $form_content = get_field('form_content', 'option');
                             endif;
                             $description = str_replace("<p>",'<p class="small">',wpautop(get_the_excerpt()));
                             if($customLink):
-                                $link = '<p class="link"><a href="' .$customLink['url'].'" target="'.$customLink['target'].'">'.$customLink['title'].'</a></p>';
+                                $link = '<p class="link"><a href="' .$customLink['url'].'" target="'.$customLink['target'].'">'.$customLink['title'].' <i class="fas fa-angle-right ml-2"></i></a></p>';
                             else:
                                 $link = '<p class="link"><a href="'.get_permalink().'">Learn More '. $customLink.' <i class="fas fa-angle-right ml-2"></i></a></p>';
                             endif;
