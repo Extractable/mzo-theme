@@ -96,7 +96,8 @@ if($term->parent==0){
     			    $termlink = get_term_link($termdata, "product_cat");
 
               $catContent = $termdata->description;
-              $catContent = strip_tags($catContent);
+              //$catContent = strip_tags($catContent);
+              $catContent = $catContent;
               if (strlen($catContent) > 133) {
 
                   // truncate string
@@ -328,7 +329,8 @@ else{
                             $content = $excerpt;
                         }
 
-                        $content = strip_tags($content);
+                        //$content = strip_tags($content);
+                        $content = $content;
                         if (strlen($content) > 133) {
 
                             // truncate string

@@ -76,6 +76,10 @@
           overflow: hidden;
           max-height: 0;
           margin-bottom: 0;
+          sup {
+              @include font-size(14px);
+              color: red;
+          }
         }
 
         a.label-link {
