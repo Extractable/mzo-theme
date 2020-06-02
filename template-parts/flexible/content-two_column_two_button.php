@@ -47,8 +47,6 @@ $button_url = get_sub_field("button_url");
 $button_target = get_sub_field("button_target");
 if($button_url=="")
   $button_url="#";
-if(@$button_target[0])
-  $button_target = @$button_target[0];
 
 $button_type_2 = get_sub_field("button_type_2");
 $button_text_2 = get_sub_field("button_text_2");
@@ -56,8 +54,6 @@ $button_url_2 = get_sub_field("button_url_2");
 $button_target_2 = get_sub_field("button_target_2");
 if($button_url_2=="")
   $button_url_2="#";
-if(@$button_target_2[0])
-  $button_target_2 = @$button_target_2[0];
 
 if($bullet_points_color){
   echo '

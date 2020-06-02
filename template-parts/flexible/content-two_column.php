@@ -49,8 +49,7 @@ $button_url = get_sub_field("button_url");
 $button_target = get_sub_field("button_target");
 if($button_url=="")
   $button_url="#";
-if(@$button_target[0])
-  $button_target = @$button_target[0];
+
 if($bullet_points_color){
   echo '
         <style type="text/css">

@@ -286,13 +286,9 @@ else{
                    ';
             }
           }
-          
+
           ?>
 
-          <!--<div class="d-block d-lg-none">
-            <a href="#" class="btn btn-primary my-2 w-100">Done</a>
-            <a href="#" class="btn btn-light bg-white mb-4 w-100">Reset</a>
-          </div>//-->
         </div>
       </div>
       <div class="col-lg-9">
