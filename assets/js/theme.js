@@ -182,13 +182,14 @@ jQuery(document).ready(function () {
           jQuery(".navbar-toggler").removeClass("expanded");
           jQuery(".wpmm-menu").removeClass("mm-menu_opened");
         }
-         $('#nav-icon3').click(function(){
+          $('#nav-icon3').click(function(){
             $(this).toggleClass('open');
         });
     */
   });
   setTimeout(function () {
     jQuery(".mm-listview").append('<li class="mm-listitem">' + jQuery("#hiddenmenumobile").html() + '</li>');
+    jQuery(".mm-navbar__title").click();
   }, 500);
   /*
   setTimeout(function() {
@@ -831,8 +832,10 @@ var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 // Listen for a message from the iframe.
 eventer(messageEvent, function(e) {
  if (isNaN(e.data)) return;
-  // replace #sizetracker with what ever what ever iframe id you need
+
+ // replace #sizetracker with what ever what ever iframe id you need
  document.getElementById('sizetracker').style.height = e.data + 'px';
+
 }, false);
 */
 
