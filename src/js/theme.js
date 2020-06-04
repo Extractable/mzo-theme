@@ -197,7 +197,7 @@ jQuery(document).ready(function() {
       jQuery(this).removeClass("expanded");
       jQuery(".wpmm-menu").removeClass("mm-menu_opened");
     }
-    console.log('test');
+
     e.preventDefault();
     /*
         if (jQuery(this).hasClass("collapsed")) {
@@ -218,8 +218,8 @@ jQuery(document).ready(function() {
 
   setTimeout(function() {
     jQuery(".mm-listview").append('<li class="mm-listitem">' + jQuery("#hiddenmenumobile").html() + '</li>');
+    //jQuery(".mm-navbar__title").click();
   }, 500);
-
   /*
   setTimeout(function() {
     jQuery(".wpmm-menu .mm-navbars_top").hide();
