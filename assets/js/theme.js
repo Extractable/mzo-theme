@@ -341,6 +341,17 @@ jQuery(function () {
     jQuery(this).parent().parent().find("input[type=checkbox]").prop('checked', false);
     productcheckallfilters();
   });
+  jQuery(".one-third-filtered-product-card #filter-toggle .btnreset").click(function (e) {
+    e.preventDefault();
+    jQuery(".one-third-filtered-product-card").find("input[type=checkbox]").prop('checked', false);
+    productcheckallfilters();
+  });
+  jQuery(".one-third-filtered-product-card #filter-toggle .btndone").click(function (e) {
+    e.preventDefault();
+    jQuery("html, body").animate({
+      scrollTop: jQuery(".productloaddata").offset().top - 100
+    }, 500);
+  });
   jQuery(".tax-product_cat .showmoreproduct #myBtn").click(function () {
     jQuery("input[name=pg]").val(parseInt(jQuery("input[name=pg]").val()) + 1);
     jQuery(".field_cat").val(jQuery(".filter-area .category-list ul li a.active").attr("rel"));
@@ -457,6 +468,19 @@ jQuery(function () {
     e.preventDefault();
     jQuery("#filter-other input[type=checkbox]").prop('checked', false);
     resoucecheckallfilters();
+  });
+  jQuery(".resourcedata #filter-toggle .btnreset").click(function (e) {
+    e.preventDefault();
+    jQuery("#filter-type input[type=checkbox]").prop('checked', false);
+    jQuery("#filter-surgical-tables input[type=checkbox]").prop('checked', false);
+    jQuery("#filter-other input[type=checkbox]").prop('checked', false);
+    resoucecheckallfilters();
+  });
+  jQuery(".resourcedata #filter-toggle .btndone").click(function (e) {
+    e.preventDefault();
+    jQuery("html, body").animate({
+      scrollTop: jQuery(".productloaddata").offset().top - 100
+    }, 500);
   });
   jQuery(".resourcedata .showmoreresource #myBtn").click(function () {
     jQuery("input[name=pg]").val(parseInt(jQuery("input[name=pg]").val()) + 1);
@@ -597,12 +621,18 @@ jQuery(function () {
     jQuery("#filter-type input[type=checkbox]").prop('checked', false);
     classcheckallfilters();
   });
-  jQuery("#filter-toggle .btnreset").click(function (e) {
+  jQuery(".classdata #filter-toggle .btnreset").click(function (e) {
     e.preventDefault();
     jQuery("#filter-class input[type=checkbox]").prop('checked', false);
     jQuery("#filter-product input[type=checkbox]").prop('checked', false);
     jQuery("#filter-type input[type=checkbox]").prop('checked', false);
     classcheckallfilters();
+  });
+  jQuery(".classdata #filter-toggle .btndone").click(function (e) {
+    e.preventDefault();
+    jQuery("html, body").animate({
+      scrollTop: jQuery(".classloaddata").offset().top - 100
+    }, 500);
   });
   jQuery(".classdata .showmoreclass #myBtn").click(function () {
     jQuery("input[name=pg]").val(parseInt(jQuery("input[name=pg]").val()) + 1);
