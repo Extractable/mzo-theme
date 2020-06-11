@@ -52,6 +52,7 @@ $contenthmenu2 .= '</ul>';
   <script type="text/javascript">var themeurl="<?php echo $themesite;?>";var ajaxurl = "<?php echo  admin_url('admin-ajax.php');?>"</script>
 	<link rel="stylesheet" href="<?php echo $themesite;?>/assets/css/theme.min.css?time=<?php echo time(); ?>">
 	<?php wp_head(); ?>
+    <!-- GTM -->
     <script>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
